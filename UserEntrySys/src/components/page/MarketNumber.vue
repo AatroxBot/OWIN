@@ -1,13 +1,7 @@
 <template>
     <div>
-        <div class="crumbs">
-            <el-breadcrumb separator="/">
-                <el-breadcrumb-item>
-                    <i class="el-icon-lx-cascades"></i>销售订单单条数据
-                </el-breadcrumb-item>
-            </el-breadcrumb>
-        </div>
         <div class="container">
+              <p class="pstyle">销售订单单条数据</p>
             <el-table
                 :data="tableData"
                 border
@@ -119,8 +113,7 @@ export default {
                 PercentFour: '',   
             },
             tableData: [],
-            tableDatalist:{},
-            list: [{}],
+           
             editVisible: false,
             // dialogFormVisible: false,
             form: {},
@@ -149,13 +142,6 @@ export default {
             this.form=row;
             this.title="编辑";
         },
-        //新增
-        // addNewUser(){
-        //     this.editVisible=true;
-        //     this.idx=-1;
-        //     this.form={};
-        //     this.title="新增";
-        // },
         //保存
         saveEdit(){
             this.editVisible=false;       
@@ -165,37 +151,7 @@ export default {
                     
                 });
         },
-        //搜索
-        // handleSearch(){
-        //     this.getData();
-        // },
-        //清空
-        // handleCancel(){
-        //     this.query.Number="";
-        // },
-        
-         // 删除操作
-        // handleDelete(index, row) {
-        //     // 二次确认删除
-        //  // console.log(row);
-        //     this.$confirm('确定要删除吗？', '提示', {
-        //         type: 'warning'
-        //      }).then(()=>{
-        //             DelSaleStatus(row).then((res) => {          
-        //                  this.$message.success('删除成功');
-        //                  this.tableData.splice(index, 1);
-        //              }); 
-
-        //      });     
-                   
-                                  
-        // },
       
-        // 分页导航
-        // handlePageChange(val) {
-        //     this.$set(this.query, 'pageIndex', val);
-        //     this.getData();
-        // }
     }
 };
 </script>

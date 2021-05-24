@@ -47,7 +47,7 @@ export default new Router({
                 {
                     path: '/improvelist',
                     component: () => import(/* webpackChunkName: "table" */ '../components/page/ImproveList.vue'),
-                    meta: { title: '产品缺陷与改善任务进度表' }
+                    meta: { title: '客户总体分析' }
                 }
                 // ,
                 // {

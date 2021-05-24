@@ -46,12 +46,17 @@ a {
 }
 
 .container {
-    padding: 30px;
+    padding: 10px 30px;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
+    margin-top: 10px;
 }
-
+.container .pstyle{
+    color: #606266;
+    height: 30px;
+    line-height: 30px;
+}
 .crumbs {
     margin: 10px 0;
 }

@@ -1,14 +1,8 @@
 <template>
     <div>
-        <div class="crumbs">
-            <el-breadcrumb separator="/">
-                <el-breadcrumb-item>
-                    <i class="el-icon-lx-cascades"></i>销售动态
-                </el-breadcrumb-item>
-            </el-breadcrumb>
-        </div>
+        
         <div class="container">
-            <p class="pstyle">折线图数据</p>
+              <p class="pstyle">完工好评</p>
             <div class="handle-box">
                 <el-row :gutter="20">
                     <el-col :span="2">
@@ -21,7 +15,8 @@
                     </el-col>
                    
                 </el-row>
-               </div>
+              
+            </div>
             <el-table
                 :data="tableData"
                 border
@@ -31,41 +26,41 @@
                
             >
                 <el-table-column type="selection" width="55" align="center"></el-table-column>
-                <el-table-column prop="id" label="数量" >
-                    <template slot-scope="scope">{{scope.row.Number}}</template>
+                <el-table-column prop="CompleteNumber" label="完工" >
+                    <template slot-scope="scope">{{scope.row.CompleteNumber}}</template>
                 </el-table-column>
-                <el-table-column prop="uName" label="时间">
+                <el-table-column prop="EvaluateNumber" label="好评">
+                     <template slot-scope="scope">{{scope.row.EvaluateNumber}}</template>
+                </el-table-column>
+                 <el-table-column prop="Time" label="时间">
                      <template slot-scope="scope">{{scope.row.Time}}</template>
                 </el-table-column>
-                
+               
                 <el-table-column label="操作" width="" align="center">
                     <template slot-scope="scope">
-                        <!-- <el-button  type="text"  @click="handleEdit(scope.index,scope.row)">编辑</el-button> -->
-                        <el-button type="text" icon="el-icon-delete" class="red"
-                         @click="handleDelete(scope.$index, scope.row)" >删除</el-button>
-                        
+                        <el-button
+                            type="text"
+                            icon="el-icon-delete"
+                            class="red"
+                           @click="handleDelete(scope.$index, scope.row)"
+                        >删除</el-button>
+                       
                     </template>
                 </el-table-column>
             </el-table>
-            <div class="pagination">
-                <el-pagination
-                    background
-                    layout="total, prev, pager, next"
-                    :current-page="query.pageIndex"
-                    :page-size="query.pageSize"
-                    :total="pageTotal"
-                    @current-change="handlePageChange"
-                ></el-pagination>
-            </div>
+            
         </div>
-        <MarketNumber/>
+        
         <!-- 编辑弹出框 -->
         <el-dialog :title="title" :visible.sync="editVisible" width="40%">
             <el-form ref="form" :model="form" label-width="80px" :disabled="disabled">
-                <el-form-item label="数量">
-                    <el-input v-model="form.Number" ></el-input>
+                <el-form-item label="完工">
+                    <el-input v-model="form.CompleteNumber" ></el-input>
                 </el-form-item>
-                <el-form-item label="时间">
+                <el-form-item label="好评">
+                    <el-input v-model="form.EvaluateNumber" ></el-input>
+                </el-form-item>
+                 <el-form-item label="时间">
                     <el-input v-model="form.Time" ></el-input>
                 </el-form-item>
                  
@@ -75,63 +70,41 @@
                 <el-button type="primary" @click="saveEdit" >确 定</el-button>
             </span>
         </el-dialog>
+
         
     </div>
 </template>
 
 <script>
- import MarketNumber from "./MarketNumber";
-import { topsaleList,DelSaleStatus,AddNoSaleStatus} from '../../api/index';
-
+import { QueryWorkCompleteNumber ,DeleteWorkCompleteNumber,AddWorkCompleteNumber} from '../../api/index';
 export default {
-    name: 'marketlist',
+    name: 'domainlist',
     data() {
         return {
             query: {
-                Number: '',
-                Time: '',
-                  SaleRevenue: '',
-                SaleNumber: '',                
-                ProductCost: '',
-                CompanyExpenses: '',  
-                 CompanyProfit: '',
-                PercentComplet: '', 
-                 PercentFirst: '',  
-                 PercentSecond: '',
-                PercentThree: '',
-                PercentFour: '',
-                pageIndex: 1,
-                pageSize: 10
+                CompleteNumber: '',
+                EvaluateNumber: '',
+                Time: "",
             },
-            tableData: [],
-            tableDataNumber:[],
-            tableHead:[],
-            multipleSelection: [],
-            delList: [],
+            tableData: [],         
             editVisible: false,
-            // dialogFormVisible: false,
-            pageTotal: 0,
             form: {},
             idx: -1,
             id: -1,
             title:'',
-            value1: '',
             disabled:false,
             visible:false,
         };
     },
-     components: {
-          MarketNumber,
-     },    
-    created() {    
+    created() {
         this.getData();
     },
     methods: {
-        getData() {         
-            topsaleList().then((res)=>{
-                
-                this.tableData=res;
-            }) ;             
+        getData() {
+            QueryWorkCompleteNumber().then((res)=>{
+               this.tableData=res
+            })
+           
         },
         //新增
         addNewUser(){
@@ -142,40 +115,33 @@ export default {
         },
         //保存
         saveEdit(){
-            this.editVisible=false;       
+            this.editVisible=false;
             if(this.idx==-1){
-                AddNoSaleStatus(this.form).then((res) => {                 
-                    this.$message.success(`添加成功`);                   
+                AddWorkCompleteNumber(this.form).then((res) => { 
+                    this.$message.success("添加成功");
                     this.tableData.push(this.form)
-                    
-                });
+                })
             }else{
-                 this.$message.warning(`添加失败`);
-            }
+                this.$message.warning( "添加失败")
+              
+            };
         },
-       
-         // 删除操作
+        
+        // 删除操作
         handleDelete(index, row) {
             // 二次确认删除
-         // console.log(row);
             this.$confirm('确定要删除吗？', '提示', {
                 type: 'warning'
-             }).then(()=>{
-                    DelSaleStatus(row).then((res) => {          
+            })
+                .then(() => {
+                    DeleteWorkCompleteNumber(row).then((res) => {          
                          this.$message.success('删除成功');
                          this.tableData.splice(index, 1);
                      }); 
-
-             });     
-                   
-                                  
+                })
+                .catch(() => {});
         },
-      
-        // 分页导航
-        handlePageChange(val) {
-            this.$set(this.query, 'pageIndex', val);
-            this.getData();
-        }
+       
     }
 };
 </script>
@@ -212,10 +178,5 @@ export default {
     margin: auto;
     width: 40px;
     height: 40px;
-}
-.container .pstyle{
-    color: #606266;
-    height: 30px;
-    line-height: 30px;
 }
 </style>
