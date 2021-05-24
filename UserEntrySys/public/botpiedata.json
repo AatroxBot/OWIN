@@ -1,0 +1,32 @@
+{
+    "data":[
+        {
+            "ProductName":"小米",
+            "ProductNumber":1267
+        },
+        {
+            "ProductName":"其他",
+            "ProductNumber":1006
+        },
+        {
+            "ProductName":"电商",
+            "ProductNumber":2648
+        },
+        {
+            "ProductName":"KA",
+            "ProductNumber":1231
+        },
+        {
+            "ProductName":"ODM",
+            "ProductNumber":3331
+        },
+        {
+            "ProductName":"邦先生",
+            "ProductNumber":1001
+        },
+        {
+            "ProductName":"线下",
+            "ProductNumber":1001
+        }
+    ]
+}

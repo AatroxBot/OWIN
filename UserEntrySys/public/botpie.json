@@ -1,0 +1,32 @@
+{
+    "data":[
+        {
+            "ProductName":"安装",
+            "ProductNumber":1267
+        },
+        {
+            "ProductName":"维修",
+            "ProductNumber":1006
+        },
+        {
+            "ProductName":"拆机",
+            "ProductNumber":2648
+        },
+        {
+            "ProductName":"检测",
+            "ProductNumber":1231
+        },
+        {
+            "ProductName":"换机",
+            "ProductNumber":3331
+        },
+        {
+            "ProductName":"勘测",
+            "ProductNumber":1001
+        },
+        {
+            "ProductName":"退机",
+            "ProductNumber":1001
+        }
+    ]
+}
