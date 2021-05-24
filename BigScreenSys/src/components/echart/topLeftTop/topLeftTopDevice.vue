@@ -13,55 +13,10 @@ export default {
 			return {
                 option:{
                     title: {
-                        // text: '好易点营销中心',
-                        // style: {
-                        //     fill: '#d3d6dd',
-                        //     fontSize:12,
-
-                        // },
-                        // offset:[0,25]
-                       // show: false
+                        
                     },
                     series: [
-                    //     {
-                    //     type: 'gauge',
-                    //     data: [ {value: 35} ],
-                    //     arcLineWidth:'5',//圆弧宽度
-                    //    // splitNum:'3',//刻度显示数量
-                    //     radius:'80%',
-                    //     center: ['50', '50'],
-                    //     axisLabel: {
-                    //         formatter: '{value}',
-                    //         style: {
-                    //         fill: '#d3d6dd'
-                    //         },
-                    //         show:false
-                    //         // data:['0','100']
-                    //     },
-                    //     details: {
-                    //         show: true,
-                    //         offset: [0, 15],
-                    //         formatter: '{value}万',
-                    //         style:{
-                    //             fontSize:14,
-                    //             fontWeight: 'bold',
-                    //         }
-                           
-                    //     },
-                    //     axisTick: {
-                    //         style: {
-                    //           stroke: '#d3d6dd',
-                    //         },
-                    //          tickLength:'2'
-                    //     },
-                    //     pointer:{
-                    //         style:{
-                    //             scale: [0.375,0.375],
-                    //             fill: '#fb7293'
-                    //         }
-                    //     },
-                    //     animationCurve: 'easeOutBack'
-                    //     }
+                    
                     ]
                 },
                  option1:{

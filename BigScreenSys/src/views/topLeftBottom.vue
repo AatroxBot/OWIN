@@ -6,7 +6,7 @@
                     <icon name="chart-bar"></icon>
                 </span>
                 <div class="d-flex">
-                    <span class="fs-xl text mx-2">销售订单统计动态列表</span>
+                    <span class="text mx-2">销售订单统计动态列表</span>
                     <!-- <dv-decoration-3 style="width:1.25rem;height:.25rem; position:relative;top:-.0375rem;" /> -->
                 </div>
                 

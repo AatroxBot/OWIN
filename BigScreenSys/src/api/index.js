@@ -98,7 +98,7 @@ export const CustomerNumber= () => {
 };
 export const WorkNumberList= () => {
     return request({
-        url: './botrightbar.json',
+        url: 'http://192.168.2.114:9000/api/order/WorkOrderNumberDto',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -110,7 +110,7 @@ export const WorkNumberList= () => {
 };
 export const EvaluateNumber= () => {
     return request({
-        url: './botevaluate.json',
+        url: 'http://192.168.2.114:9000/api/order/QueryWorkCompleteNumber',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -122,7 +122,7 @@ export const EvaluateNumber= () => {
 };
 export const botpieNumber= () => {
     return request({
-        url: './botpie.json',
+        url: 'http://192.168.2.114:9000/api/order/QueryProductPercent',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
