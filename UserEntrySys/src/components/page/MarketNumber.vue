@@ -60,13 +60,36 @@
         </div>
         <el-dialog :title="title" :visible.sync="editVisible" width="40%">
             <el-form ref="form" :model="form" label-width="80px" :disabled="disabled">
-                <el-form-item label="数量">
-                    <el-input v-model="form.Number" ></el-input>
+                <el-form-item label="销售收入">
+                    <el-input v-model="form.SaleRevenue" ></el-input>
                 </el-form-item>
-                <el-form-item label="时间">
-                    <el-input v-model="form.Time" ></el-input>
+                <el-form-item label="销售数量">
+                    <el-input v-model="form.SaleNumber" ></el-input>
                 </el-form-item>
-                 
+                 <el-form-item label="生产成本">
+                    <el-input v-model="form.ProductCost" ></el-input>
+                </el-form-item>
+                <el-form-item label="公司费用">
+                    <el-input v-model="form.CompanyExpenses" ></el-input>
+                </el-form-item>
+                <el-form-item label="公司利润">
+                    <el-input v-model="form.CompanyProfit" ></el-input>
+                </el-form-item>
+                <el-form-item label="营销业绩进度">
+                    <el-input v-model="form.PercentComplet" ></el-input>
+                </el-form-item>
+                <el-form-item label="好易点">
+                    <el-input v-model="form.PercentFirst" ></el-input>
+                </el-form-item>
+                <el-form-item label="战略发展中心">
+                    <el-input v-model="form.PercentSecond" ></el-input>
+                </el-form-item>
+                <el-form-item label="邦先生">
+                    <el-input v-model="form.PercentThree" ></el-input>
+                </el-form-item>
+                 <el-form-item label="杭州邦先生">
+                    <el-input v-model="form.PercentFour" ></el-input>
+                </el-form-item>
             </el-form>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="editVisible=false">取 消</el-button>
@@ -77,7 +100,7 @@
 </template>
 <script>
 // import MarketNumber from "./MarketNumber";
-import { topSaleNumber} from '../../api/index';
+import { topSaleNumber,UpdateSaleData} from '../../api/index';
 
 export default {
     // name: 'marketlist',
@@ -113,9 +136,10 @@ export default {
     },
     methods: {
         getData() {         
-           topSaleNumber().then((res)=>{              
-                this.tableData=res             
-                console.log(this.tableData)
+           topSaleNumber().then((res)=>{   
+             
+                this.tableData.push(res); 
+              
             })           
         },
         //编辑
@@ -135,18 +159,11 @@ export default {
         //保存
         saveEdit(){
             this.editVisible=false;       
-            if(this.idx==-1){
-                // this.$message.success("添加成功");
-                // this.tableData.push(this.form)
-                console.log(this.form)
-                AddNoSaleStatus(this.form).then((res) => {                 
-                    this.$message.success(`添加成功`);                   
+             UpdateSaleData(this.form).then((res) => {                 
+                    this.$message.success('更新成功');                   
                     this.getData();
                     
                 });
-            }else{
-                 this.$message.warning(`添加失`);
-            }
         },
         //搜索
         // handleSearch(){

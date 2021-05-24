@@ -18,7 +18,7 @@
                     @click="addNewUser" 
                     >新增</el-button>
                     </el-col>
-                    <el-col :span="8" class="el-form-item">
+                    <!-- <el-col :span="8" class="el-form-item">
                         <div  class="el-form-item__label"><label> 数量：</label></div>
                         <div class="el-form-item__content" style="margin-left:45px">
                             <el-input v-model="query.Number" placeholder="数量" class="handle-input ">
@@ -31,11 +31,11 @@
                             <el-input v-model="query.Time" placeholder="时间" class="handle-input "></el-input>
                         </div>
                         
-                    </el-col>
-                    <el-col :span="5">
+                    </el-col> -->
+                    <!-- <el-col :span="5">
                         <el-button type="primary" icon="el-icon-search" @click="handleSearch">搜索</el-button>
                         <el-button type="primary" icon="el-icon-search" @click="handleCancel">重置</el-button>
-                    </el-col>
+                    </el-col> -->
                 </el-row>
                </div>
             <el-table
@@ -91,7 +91,6 @@
                 <el-button type="primary" @click="saveEdit" >确 定</el-button>
             </span>
         </el-dialog>
-
         
     </div>
 </template>
@@ -146,7 +145,8 @@ export default {
     methods: {
         getData() {         
             topsaleList().then((res)=>{
-                this.tableData=res
+                
+                this.tableData=res;
             }) ;
             //  topSaleNumber().then((res)=>{
             //     this.tableDataNumber=res
