@@ -1,0 +1,29 @@
+{   
+    "data" :[
+        {
+            "ThisMonth":562,
+            "LastMonth":122,
+            "Time":"2021/05/01"
+        },
+        {
+            "ThisMonth":112,
+            "LastMonth":122,
+            "Time":"2021/05/02"
+       },
+       {
+            "ThisMonth":62,
+            "LastMonth":122,
+            "Time":"2021/05/03"
+       },
+       {
+            "ThisMonth":52,
+            "LastMonth":122,
+            "Time":"2021/05/04"
+       },
+       {
+            "ThisMonth":362,
+            "LastMonth":122,
+            "Time":"2021/05/05"
+       }
+    ]
+}
