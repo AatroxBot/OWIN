@@ -6,7 +6,7 @@
                      <icon name="chart-bar"></icon>
                 </span>
                 <div class="d-flex">
-                    <span class="fs-xl text mx-2">客服总体分析</span>
+                    <span class=" text mx-2">客服总体分析</span>
                     <!-- <dv-decoration-3 style="width:1.25rem;height:.25rem; position:relative;top:-.0375rem;" /> -->
                 </div>
                
@@ -109,13 +109,13 @@ export default {
                   console.log(this.tableData.BuyNumber)
             });
            const worktable= WorkNumberList().then((res) =>{             
-                  this.tableDataThisMonth= res.data.map(item=>{
+                  this.tableDataThisMonth= res.map(item=>{
                      return item.ThisMonth
                    }); 
-                   this.tableDataLastMonth= res.data.map(item=>{
+                   this.tableDataLastMonth= res.map(item=>{
                      return item.LastMonth
                    }); 
-                    this.tableDataTime= res.data.map(item=>{
+                    this.tableDataTime= res.map(item=>{
                      return item.Time
                    }); 
 
@@ -127,13 +127,13 @@ export default {
                    }     
             });
              const Evaluatetable= EvaluateNumber().then((res) =>{             
-                  this.tableDataComplete= res.data.map(item=>{
+                  this.tableDataComplete= res.map(item=>{
                      return item.CompleteNumber
                    }); 
-                   this.tableDataEvaluate= res.data.map(item=>{
+                   this.tableDataEvaluate= res.map(item=>{
                      return item.EvaluateNumber
                    }); 
-                    this.tableDataTime= res.data.map(item=>{
+                    this.tableDataTime= res.map(item=>{
                      return item.Time
                    }); 
 
@@ -146,7 +146,7 @@ export default {
                    }     
             });
             const datapie=botpieNumber().then((res)=>{
-                this.tableDatapie=res.data.map(item=>{
+                this.tableDatapie=res.map(item=>{
                     const datapieobj={};
                     datapieobj.value=item.ProductNumber;
                     datapieobj.name=item.ProductName;

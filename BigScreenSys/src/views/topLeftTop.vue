@@ -6,7 +6,7 @@
                      <icon name="chart-line"></icon>
                 </span>
                 <div class="d-flex">
-                    <span class="fs-xl text mx-2">销售动态</span>
+                    <span class="text mx-2">销售动态</span>
                     <!-- <dv-decoration-3 style="width:1.25rem;height:.25rem; position:relative;top:-.0375rem;" /> -->
                 </div>
                 
@@ -30,7 +30,7 @@
                      <!-- <dv-scroll-ranking-board :config="config" style="width: 100%;" /> -->
                 </div>
             </div>
-            <div class="d-flex" style="padding-bottom:0.0825rem">
+            <div class="d-flex" >
                 <topLeftTopDevice/>               
             </div>
         </div>
@@ -56,13 +56,7 @@ export default {
                 ],
             },
             config:{
-                //  data:[
-                // {
-                //     name: "营销业绩完成进度",
-                //     value: 50,
-                // },                                
-                // ],
-                // showValue: true,
+                
             },
              titleItem: [
                 // {

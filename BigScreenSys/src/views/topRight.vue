@@ -6,20 +6,14 @@
                      <icon name="chart-pie"></icon>
                 </span>
                 <div class="d-flex">
-                    <span class="fs-xl text mx-2">生产总体数据</span>
+                    <span class="text mx-2">生产总体数据</span>
                     <!-- <dv-decoration-3 style="width:1.25rem;height:.25rem; position:relative;top:-.0375rem;" /> -->
                 </div>   
             </div>
             <div class="d-flex topright">
                 <topRightDevice/>  
-                 <topRightPictorial/>
-                
-                           
-              
-                            
+                <topRightPictorial/>             
             </div>
-            
-           
         </div>
         
     </div>

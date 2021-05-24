@@ -1,14 +1,8 @@
 <template>
     <div>
-        <div class="crumbs">
-            <el-breadcrumb separator="/">
-                <el-breadcrumb-item>
-                    <i class="el-icon-lx-cascades"></i> 客户总体分析
-                </el-breadcrumb-item>
-            </el-breadcrumb>
-        </div>
+        
         <div class="container">
-              <p class="pstyle">工单数量对比数据</p>
+              <p class="pstyle">服务类型</p>
             <div class="handle-box">
                 <el-row :gutter="20">
                     <el-col :span="2">
@@ -32,14 +26,11 @@
                
             >
                 <el-table-column type="selection" width="55" align="center"></el-table-column>
-                <el-table-column prop="ThisMonth" label="本月" >
-                    <template slot-scope="scope">{{scope.row.ThisMonth}}</template>
+                <el-table-column prop="ProductName" label="服务类型" >
+                    <template slot-scope="scope">{{scope.row.ProductName}}</template>
                 </el-table-column>
-                <el-table-column prop="LastMonth" label="上月">
-                     <template slot-scope="scope">{{scope.row.LastMonth}}</template>
-                </el-table-column>
-                 <el-table-column prop="Time" label="时间">
-                     <template slot-scope="scope">{{scope.row.Time}}</template>
+                <el-table-column prop="ProductNumber" label="服务数量">
+                     <template slot-scope="scope">{{scope.row.ProductNumber}}</template>
                 </el-table-column>
                
                 <el-table-column label="操作" width="" align="center">
@@ -56,19 +47,15 @@
             </el-table>
             
         </div>
-        <ImproveOrderList/>
-        <ImproveServiceList/>
+        
         <!-- 编辑弹出框 -->
         <el-dialog :title="title" :visible.sync="editVisible" width="40%">
             <el-form ref="form" :model="form" label-width="80px" :disabled="disabled">
-                <el-form-item label="本月">
-                    <el-input v-model="form.ThisMonth" ></el-input>
+                <el-form-item label="服务类型">
+                    <el-input v-model="form.ProductName" ></el-input>
                 </el-form-item>
-                <el-form-item label="上月">
-                    <el-input v-model="form.LastMonth" ></el-input>
-                </el-form-item>
-                 <el-form-item label="时间">
-                    <el-input v-model="form.Time" ></el-input>
+                <el-form-item label="服务数量">
+                    <el-input v-model="form.ProductNumber" ></el-input>
                 </el-form-item>
                  
             </el-form>
@@ -83,17 +70,14 @@
 </template>
 
 <script>
- import ImproveOrderList from "./ImproveOrderList";
-  import ImproveServiceList from "./ImproveServiceList";
-import { WorkOrderNumberDto ,DeleteWorkOrderNumber,AddWorkOrderNumber} from '../../api/index';
+import { QueryProductPercent ,DeleteProductPercent,AddProductPercent} from '../../api/index';
 export default {
     name: 'domainlist',
     data() {
         return {
             query: {
-                ThisMonth: '',
-                LastMonth: '',
-                Time: "",
+                ProductName: '',
+                ProductNumber: '',
             },
             tableData: [],         
             editVisible: false,
@@ -105,17 +89,12 @@ export default {
             visible:false,
         };
     },
-     components: {
-          ImproveOrderList,
-          ImproveServiceList
-     },  
-    
     created() {
         this.getData();
     },
     methods: {
         getData() {
-            WorkOrderNumberDto().then((res)=>{
+            QueryProductPercent().then((res)=>{
                this.tableData=res
             })
            
@@ -131,7 +110,7 @@ export default {
         saveEdit(){
             this.editVisible=false;
             if(this.idx==-1){
-                AddWorkOrderNumber(this.form).then((res) => { 
+                AddProductPercent(this.form).then((res) => { 
                     this.$message.success("添加成功");
                     this.tableData.push(this.form)
                 })
@@ -148,7 +127,7 @@ export default {
                 type: 'warning'
             })
                 .then(() => {
-                    DeleteWorkOrderNumber(row).then((res) => {          
+                    DeleteProductPercent(row).then((res) => {          
                          this.$message.success('删除成功');
                          this.tableData.splice(index, 1);
                      }); 
