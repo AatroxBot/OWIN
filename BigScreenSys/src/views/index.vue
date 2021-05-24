@@ -10,12 +10,6 @@
               <dv-decoration-8 :color="['#568aea', '#000000']" style="width:2.5rem;height:.625rem;" />
               <div class="title">
                 <span class="title-text">好易点数字化工厂战略指挥中心</span>
-                <!-- <dv-decoration-6
-                  class="title-bototm"
-                  :reverse="true"
-                  :color="['#50e3c2', '#67a1e5']"
-                  style="width:3.125rem;height:.1rem;"
-                /> -->
               </div>
               <dv-decoration-8
                 :reverse="true"

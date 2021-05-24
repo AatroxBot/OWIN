@@ -149,7 +149,7 @@ export default {
                this.tableDataTime = res.map(item=>{
                      return item.Time
                    });
-                console.log(this.tableData)
+               // console.log(this.tableData)
                 this.linedatabot={
                        data:this.tableDataTime,
                        lineData:this.tableData

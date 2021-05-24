@@ -96,7 +96,7 @@ export const CustomerNumber= () => {
     });
 
 };
-export const WorkNumber= () => {
+export const WorkNumberList= () => {
     return request({
         url: './botrightbar.json',
         //url: './userPermission.json',

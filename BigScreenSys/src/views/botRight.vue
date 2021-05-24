@@ -18,8 +18,8 @@
                 <div class="no">
                     <div class="no-hd">
                         <ul>
-                        <li><p>工单总数</p>{{this.tableData.WorkNumber}}</li>
-                        <li><p>客户总数</p>{{this.tableData.CustoNumber}}</li>
+                        <li><p>工单总数</p>{{tableData.WorkNumber}}</li>
+                        <li><p>客户总数</p>{{tableData.CustoNumber}}</li>
                         </ul>
                     </div>
                     <!-- <div class="no-bd">
@@ -36,14 +36,14 @@
             </div>
             <div class="d-flex">
                 <div class="say">
-                  <div class="say-circle"><p>本月新增</p><h5>{{this.tableData.NewAddNumber}}</h5></div>
-                   <div class="say-circle say-one"><p>今日已购</p><h5>{{this.tableData.BuyNumber}}</h5></div>
-                   <div class="say-circle say-two"><p>服务商</p><h5>{{this.tableData.ServiceNumber}}</h5></div>
-                   <div class="say-circle say-three"><p>本月完工</p><h5>{{this.tableData.FinishNumber}}</h5></div>
-                   <div class="say-circle say-four"><p>今日工单</p><h5>{{this.tableData.TodayNumber}}</h5></div>
-                   <div class="say-circle say-five"><p>今日呼入</p><h5>{{this.tableData.CallNumber}}</h5></div>
-                   <div class="say-circle say-six"><p>今日呼出</p><h5>{{this.tableData.OutNumber}}</h5></div>
-                   <div class="say-circle say-seven"><p>工程师</p><h5>{{this.tableData.ProjectNumber}}</h5></div>
+                  <div class="say-circle"><p>本月新增</p><h5>{{tableData.NewAddNumber}}</h5></div>
+                   <div class="say-circle say-one"><p>今日已购</p><h5>{{tableData.BuyNumber}}</h5></div>
+                   <div class="say-circle say-two"><p>服务商</p><h5>{{tableData.ServiceNumber}}</h5></div>
+                   <div class="say-circle say-three"><p>本月完工</p><h5>{{tableData.FinishNumber}}</h5></div>
+                   <div class="say-circle say-four"><p>今日工单</p><h5>{{tableData.TodayNumber}}</h5></div>
+                   <div class="say-circle say-five"><p>今日呼入</p><h5>{{tableData.CallNumber}}</h5></div>
+                   <div class="say-circle say-six"><p>今日呼出</p><h5>{{tableData.OutNumber}}</h5></div>
+                   <div class="say-circle say-seven"><p>工程师</p><h5>{{tableData.ProjectNumber}}</h5></div>
                 </div>
                 <bottomCenterPie :pcdata="pcdata" :id='pie2' :pieName='piename2'/>
             </div>
@@ -55,71 +55,24 @@
 import topLeftBottomBar from "./../components/echart/bottomRight/topLeftBottomBar";
 import topLeftBottomBar1 from "./../components/echart/bottomRight/topLeftBottomBar1";
 import bottomCenterPie from './../components/echart/bottomCenter/bottomCenterPie.vue';
-import { CustomerNumber, WorkNumber,EvaluateNumber,botpieNumber} from './../api/index.js';
+import { CustomerNumber, WorkNumberList,EvaluateNumber,botpieNumber} from './../api/index.js';
 
 export default {
     data () {
     return {
-      tableData:[],
+      tableData:"",
+      tableDatapie:"",
       tableDataNumber:[],
        pie2:'pie2',          
        piename2:'服务类型占比',
       cdata: {
         category: [
-          // "1",
-          // "2",
-          // "3",
-          // "4",
-          // "5",
-          // "6",
-          // "7",
-          // "8",
-          // "9",
-          // "10",
-          // "11",
-          // "12",
-          // "13",
-          // "14",
-          // "15",
-         
+       
         ],
         lineData: [
-          // 100,
-          // 300,
-          // 200,
-          // 300,
-          // 200,
-          // 300,
-          // 200,
-          // 300,
-          // 200,
-          // 100,
-          // 300,
-          // 200,
-          // 300,
-          // 200,
-          // 300,
-         
-        ],
+            ],
         barData: [
-          // 200,
-          // 300,
-          // 100,
-          // 300,
-          // 200,
-          // 300,
-          // 200,
-          // 300,
-          // 200,
-          //  100,
-          // 300,
-          // 200,
-          // 300,
-          // 200,
-          // 300,
-         
         ],
-        // rateData: []
       },
       bdata: {
         category: [         
@@ -153,8 +106,9 @@ export default {
      getData() {
              CustomerNumber().then((res) =>{             
                   this.tableData = res;    
+                  console.log(this.tableData.BuyNumber)
             });
-           const worktable= WorkNumber().then((res) =>{             
+           const worktable= WorkNumberList().then((res) =>{             
                   this.tableDataThisMonth= res.data.map(item=>{
                      return item.ThisMonth
                    }); 
@@ -192,14 +146,14 @@ export default {
                    }     
             });
             const datapie=botpieNumber().then((res)=>{
-                this.tableData=res.data.map(item=>{
+                this.tableDatapie=res.data.map(item=>{
                     const datapieobj={};
                     datapieobj.value=item.ProductNumber;
                     datapieobj.name=item.ProductName;
                     return datapieobj
                 });
                 this.pcdata={
-                   seriesData:this.tableData
+                   seriesData:this.tableDatapie
                 }
                
             })

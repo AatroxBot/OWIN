@@ -268,7 +268,7 @@ export default {
                 ]
             }),
             mapChart.on('click',function(data){
-                console.log(data)
+                //console.log(data)
             })
         }
     }   

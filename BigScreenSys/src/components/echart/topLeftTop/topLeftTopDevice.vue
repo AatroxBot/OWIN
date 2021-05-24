@@ -229,7 +229,7 @@ export default {
         const dataNumber= topSaleNumber().then((res)=>{
               // this.tableDataNumber=res 
                 this.tableDataNumber= res.PercentFirst
-                console.log(this.tableDataNumber) 
+              //  console.log(this.tableDataNumber) 
              });
              this.option={
                  title: {
