@@ -181,4 +181,29 @@ export const AddProductPercent = (data) => {
         crossDomain: true,
     });
 };
+//客服单条信息查询
+export const GetBotData= () => {
+    return request({
+        url: 'http://192.168.2.114:9000/api/order/GetBotData',
+        //url: './userPermission.json',
+        method: 'get',
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
 
+};
+
+//客服单条信息编辑
+export const SetBotData = (data) => {
+    return request({
+        url: 'http://192.168.2.114:9000/api/order/SetBotData',
+        method: 'post',
+        data: data,
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+};

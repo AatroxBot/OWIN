@@ -129,10 +129,9 @@ export default {
     },
     methods: {
         getData() {         
-           topSaleNumber().then((res)=>{   
-             
+           topSaleNumber().then((res)=>{               
                 this.tableData.push(res); 
-              
+                          
             })           
         },
         //编辑

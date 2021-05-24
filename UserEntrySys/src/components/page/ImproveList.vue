@@ -58,6 +58,7 @@
         </div>
         <ImproveOrderList/>
         <ImproveServiceList/>
+        <ImproveSingleData/>
         <!-- 编辑弹出框 -->
         <el-dialog :title="title" :visible.sync="editVisible" width="40%">
             <el-form ref="form" :model="form" label-width="80px" :disabled="disabled">
@@ -85,6 +86,7 @@
 <script>
  import ImproveOrderList from "./ImproveOrderList";
   import ImproveServiceList from "./ImproveServiceList";
+  import ImproveSingleData from "./ImproveSingleData";
 import { WorkOrderNumberDto ,DeleteWorkOrderNumber,AddWorkOrderNumber} from '../../api/index';
 export default {
     name: 'domainlist',
@@ -107,7 +109,8 @@ export default {
     },
      components: {
           ImproveOrderList,
-          ImproveServiceList
+          ImproveServiceList,
+          ImproveSingleData
      },  
     
     created() {
