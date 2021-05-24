@@ -62,7 +62,7 @@ export const botpieList= () => {
 };
 export const topsaleList= () => {
     return request({
-       url: 'http://192.168.1.51:9000/api/order/QuerySaleStatus',
+       url: 'http://192.168.2.114:9000/api/order/QuerySaleStatus',
        // url: './topsale.json',
         method: 'get',
         xhrFields: {
@@ -74,7 +74,7 @@ export const topsaleList= () => {
 };
 export const topSaleNumber= () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/GetSaleData',
+        url: 'http://192.168.2.114:9000/api/order/GetSaleData',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {

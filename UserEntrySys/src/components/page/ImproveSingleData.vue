@@ -145,7 +145,7 @@ export default {
             this.editVisible=false;       
              SetBotData(this.form).then((res) => {                 
                     this.$message.success('更新成功');                   
-                    this.getData();
+                    this.$set(this.tableData, this.idx, this.form);
                     
                 });
         },

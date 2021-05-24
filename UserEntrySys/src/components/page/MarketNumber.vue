@@ -130,8 +130,7 @@ export default {
     methods: {
         getData() {         
            topSaleNumber().then((res)=>{               
-                this.tableData.push(res); 
-                          
+                this.tableData.push(res);                           
             })           
         },
         //编辑
@@ -146,7 +145,7 @@ export default {
             this.editVisible=false;       
              UpdateSaleData(this.form).then((res) => {                 
                     this.$message.success('更新成功');                   
-                    this.getData();
+                     this.$set(this.tableData, this.idx, this.form);
                     
                 });
         },

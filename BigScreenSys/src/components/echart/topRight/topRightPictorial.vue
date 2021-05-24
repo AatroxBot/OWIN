@@ -241,7 +241,7 @@ export default {
                         data: [
                             {
                                 value: 25,
-                                symbol: pathSymbols.car
+                                symbol: pathSymbols.machine
                             }]
                          }, {
                         name: '完工数量',
@@ -316,7 +316,7 @@ export default {
                         data: [
                             {
                                 value: 120,
-                                symbol: pathSymbols.car
+                                symbol: pathSymbols.machine
                             }]
                          }, {
                         name: '完工数量',
@@ -391,7 +391,7 @@ export default {
                         data: [
                             {
                                 value: 99,
-                                symbol: pathSymbols.car
+                                symbol: pathSymbols.machine
                             }]
                          }, {
                         name: '完工数量',
@@ -466,7 +466,7 @@ export default {
                         data: [
                             {
                                 value:180,
-                                symbol: pathSymbols.car
+                                symbol: pathSymbols.machine
                             }]
                          }, {
                         name: '完工数量',

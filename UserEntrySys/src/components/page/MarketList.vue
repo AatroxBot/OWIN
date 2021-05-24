@@ -31,10 +31,10 @@
                
             >
                 <el-table-column type="selection" width="55" align="center"></el-table-column>
-                <el-table-column prop="id" label="数量" >
+                <el-table-column prop="Number" label="数量" >
                     <template slot-scope="scope">{{scope.row.Number}}</template>
                 </el-table-column>
-                <el-table-column prop="uName" label="时间">
+                <el-table-column prop="Time" label="时间">
                      <template slot-scope="scope">{{scope.row.Time}}</template>
                 </el-table-column>
                 
@@ -67,6 +67,13 @@
                 </el-form-item>
                 <el-form-item label="时间">
                     <el-input v-model="form.Time" ></el-input>
+                    <el-date-picker
+                        v-model="value1"
+                        type="date"
+                        placeholder="选择日期"
+                        format="yyyy / MM / dd "
+                        >
+                        </el-date-picker>
                 </el-form-item>
                  
             </el-form>
