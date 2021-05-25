@@ -66,12 +66,14 @@
                     <el-input v-model="form.Number" ></el-input>
                 </el-form-item>
                 <el-form-item label="时间">
-                    <el-input v-model="form.Time" ></el-input>
+                    <!-- <el-input v-model="form.Time" >
+                        
+                    </el-input> -->
                     <el-date-picker
-                        v-model="value1"
+                        v-model="form.Time"
                         type="date"
                         placeholder="选择日期"
-                        format="yyyy / MM / dd "
+                         value-format="yyyy/MM/dd" 
                         >
                         </el-date-picker>
                 </el-form-item>
@@ -97,27 +99,10 @@ export default {
             query: {
                 Number: '',
                 Time: '',
-                  SaleRevenue: '',
-                SaleNumber: '',                
-                ProductCost: '',
-                CompanyExpenses: '',  
-                 CompanyProfit: '',
-                PercentComplet: '', 
-                 PercentFirst: '',  
-                 PercentSecond: '',
-                PercentThree: '',
-                PercentFour: '',
-                pageIndex: 1,
-                pageSize: 10
             },
             tableData: [],
             tableDataNumber:[],
-            tableHead:[],
-            multipleSelection: [],
-            delList: [],
             editVisible: false,
-            // dialogFormVisible: false,
-            pageTotal: 0,
             form: {},
             idx: -1,
             id: -1,

@@ -1,122 +1,104 @@
 <template>
-    <div class="container">
-        <div class="logo">
-            <img src="" alt="好易点数字化工厂战略指挥中心logo">
-            <span>好易点数字化工厂战略指挥中心</span>
-        </div>
-        <div class="main">
-            <el-form id="formLogin" :model="user" :rules="rules"  class="user-layout-login"  ref="formLogin" >
-                <el-form-item prop="uname">
-                    <el-input  v-model="user.uname"
-                    size="large"
-                    type="text"
-                    placeholder="用户名"
-                     prefix-icon="el-icon-user"
-                    >
-                       
+    <div class="login-wrap">
+        <div class="ms-login">
+            <div class="ms-title">后台管理系统</div>
+            <el-form :model="param" :rules="rules" ref="login" label-width="0px" class="ms-content">
+                <el-form-item prop="username">
+                    <el-input v-model="param.username" placeholder="username">
+                        <el-button slot="prepend" icon="el-icon-lx-people"></el-button>
                     </el-input>
                 </el-form-item>
-                <el-form-item prop="pwd">
-                    <el-input  v-model="user.pwd"
-                    size="large"
-                    type="password"
-                    autocomplete="false"
-                    placeholder="密码" 
-                    prefix-icon="el-icon-lock"
+                <el-form-item prop="password">
+                    <el-input
+                        type="password"
+                        placeholder="password"
+                        v-model="param.password"                      
                     >
-                        
+                        <el-button slot="prepend" icon="el-icon-lx-lock"></el-button>
                     </el-input>
                 </el-form-item>
-                <el-form-item>
-                    <el-button 
-                    size="large"
-                    type="primary"
-                    htmlType="submit"
-                    class="login-button"
-                    @click="loginSubmit()"
-                    >登录</el-button>
-                
-                    <!-- <el-button
-                    style="margin-top: 18px;"
-                    size="large"
-                    type="primary"
-                    class="login-button"
-                    
-                    >申请域</el-button> -->
-                </el-form-item>
+                <div class="login-btn">
+                    <el-button type="primary" @click="submitForm()">登录</el-button>
+                </div>
+               
             </el-form>
         </div>
     </div>
 </template>
 
 <script>
-import { Login } from '../../api/index';
 export default {
-    data: function () {
-         return {
-            rules: {
-                uname: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-                pwd: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+    data: function() {
+        return {
+            param: {
+                username: 'admin',
+                password: '123123',
             },
-            user:{
-                'uname': 'admin',
-                'pwd':'1234',
-                '_app':'emp-adm'
-            }
-        }
+            rules: {
+                username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+                password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+            },
+        };
     },
-    methods:{
-        loginSubmit(){
-           Login(this.user).then((res)=>{
-               // console.log();
-                if(res[0]=='0')
-                {
-                    this.$router.push({path:'/'});
+    methods: {
+        submitForm() {
+            this.$refs.login.validate(valid => {
+                if (valid) {
+                    this.$message.success('登录成功');
+                    localStorage.setItem('ms_username', this.param.username);
+                    this.$router.push('/');
+                } else {
+                    this.$message.error('请输入账号和密码');
+                    console.log('error submit!!');
+                    return false;
                 }
-                else
-                {
-                    alert(res[1]);
-                }
-               
-           });
-        }
-    }
-}
+            });
+        },
+    },
+};
 </script>
 
 <style scoped>
-.container{
+.login-wrap {
+    position: relative;
     width: 100%;
     height: 100%;
-    background:#f0f2f5 url(../../assets/bg.png); 
-    padding:110px 0 144px;
-    
+    /* background-image: url(../../assets/img/login-bg.jpg); */
+    background-size: 100%;
+    background: #90b5fe;
 }
-.logo{
-     min-width: 260px;
-    width:500px;
-    margin: 0 auto;
-    text-align: center;
-    }
-.logo img{height: 44px;   vertical-align: top;}
-.logo span{font-size: 33px;display: inline-block;line-height: 44px;margin-left: 10px;   
- font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
- font-weight: 600;position: relative;
-    top: 2px;
-}
-.main{
-    min-width: 260px;
-    width: 368px;
-    margin: 0 auto;
-    margin-top: 20px;
-}
- .login-button {
-    padding: 0 15px;
-    font-size: 16px;
-    height: 40px;
+.ms-title {
     width: 100%;
-  }
-  .el-button+.el-button {
-    margin-left: 0px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.ms-login {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 350px;
+    margin: -190px 0 0 -175px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+}
+.ms-content {
+    padding: 30px 30px;
+}
+.login-btn {
+    text-align: center;
+}
+.login-btn button {
+    width: 100%;
+    height: 36px;
+    margin-bottom: 10px;
+}
+.login-tips {
+    font-size: 12px;
+    line-height: 30px;
+    color: #fff;
 }
 </style>

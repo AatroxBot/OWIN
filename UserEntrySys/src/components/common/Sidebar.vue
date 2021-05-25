@@ -60,22 +60,22 @@ export default {
                     icon: 'el-icon-data-line',
                     index: 'marketlist',
                     title: '销售动态'
-                },
-                 {
-                    icon: 'el-icon-location',
-                    index: 'orderlist',
-                    title: ' 销售订单统计动态列表'
-                },
-                 {
-                    icon: 'el-icon-pie-chart',
-                    index: 'producelist',
-                    title: '生产总体数据'
-                },
-                 {
-                    icon: 'el-icon-coin',
-                    index: 'stocklist',
-                    title: '发货与库存分析'
-                },
+                } ,
+                //  {
+                //     icon: 'el-icon-location',
+                //     index: 'orderlist',
+                //     title: ' 销售订单统计动态列表'
+                // },
+                //  {
+                //     icon: 'el-icon-pie-chart',
+                //     index: 'producelist',
+                //     title: '生产总体数据'
+                // },
+                //  {
+                //     icon: 'el-icon-coin',
+                //     index: 'stocklist',
+                //     title: '发货与库存分析'
+                // },
                  {
                     icon: 'el-icon-s-data',
                     index: 'improvelist',

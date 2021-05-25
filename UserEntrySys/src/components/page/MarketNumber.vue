@@ -145,7 +145,7 @@ export default {
             this.editVisible=false;       
              UpdateSaleData(this.form).then((res) => {                 
                     this.$message.success('更新成功');                   
-                     this.$set(this.tableData, this.idx, this.form);
+                    this.$set(this.tableData, this.idx, this.form);
                     
                 });
         },

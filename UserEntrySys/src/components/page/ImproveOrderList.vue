@@ -61,7 +61,14 @@
                     <el-input v-model="form.EvaluateNumber" ></el-input>
                 </el-form-item>
                  <el-form-item label="时间">
-                    <el-input v-model="form.Time" ></el-input>
+                    <!-- <el-input v-model="form.Time" ></el-input> -->
+                    <el-date-picker
+                        v-model="form.Time"
+                        type="date"
+                        placeholder="选择日期"
+                         value-format="yyyy/MM/dd" 
+                        >
+                        </el-date-picker>
                 </el-form-item>
                  
             </el-form>
