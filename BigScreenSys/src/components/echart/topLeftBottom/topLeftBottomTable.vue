@@ -34,7 +34,9 @@ export default {
      getData() {
            // console.log(11);
             const res1=  getDomainList().then((res) => {
-                 // console.log(res.list);
+                console.log('getDomainList');
+                  console.log(res);
+                 console.log('getDomainList');
                    this.tableData = res.map(item=>{
                      return [item.SerialNum,item.OrderNo,item.CustomerName,item.ShipmemntNum,item.OutStockNum,item.OrderTime]
                    });
