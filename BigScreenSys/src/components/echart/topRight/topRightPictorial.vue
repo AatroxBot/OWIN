@@ -458,8 +458,8 @@ export default {
           res.ProductionComplete[0].Number;
       });
 
-    //   this.options.series[0].data[0].value = 600;
-    //   this.options.series[1].data[0].value = 800;
+      this.options.series[0].data[0].value = 270600;
+      this.options.series[1].data[0].value = 64253;
 
       this.options1.series[0].data[0].value = 280500;
       this.options1.series[1].data[0].value = 68786;

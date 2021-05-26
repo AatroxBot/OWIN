@@ -96,13 +96,13 @@ export default {
     },
     methods: {
         getData() {
-        //    const dataline= botlineList().then((res)=>{
+        // const dataline= botlineList().then((res)=>{
         //         // this.tableData=res.data
         //         //  console.log(this.tableData)
-        //          this.tableData = res.data.map(item=>{
+        //          this.tableData = res.map(item=>{
         //              return item.Number
         //            });
-        //            this.tableDataBillTime = res.data.map(item=>{
+        //            this.tableDataBillTime = res.map(item=>{
         //              return item.BillTime
         //            });
         //         //    console.log(this.tableDataBillTime)
@@ -112,43 +112,37 @@ export default {
         //            }      
         //     });
 
-        const dataline= botlineList().then((res)=>{
-                // this.tableData=res.data
-                //  console.log(this.tableData)
-                 this.tableData = res.map(item=>{
-                     return item.Number
-                   });
-                   this.tableDataBillTime = res.map(item=>{
-                     return item.BillTime
-                   });
-                //    console.log(this.tableDataBillTime)
-                   this.linedatabot={
-                       xlinedata:this.tableDataBillTime,
-                       lineData:this.tableData
-                   }      
-            });
+        //     const datapie=botpieList().then((res)=>{
+        //         this.tableData=res.data.map(item=>{
+        //             const datapieobj={};
+        //             datapieobj.value=item.ProductNumber;
+        //             datapieobj.name=item.ProductName;
+        //             return datapieobj
+        //         });
+        //         this.pcdata={
+        //            seriesData:this.tableData
+        //         }
+        //         this.tableDatabar=res.data.map(item=>{                    
+        //            return item.ProductNumber                
+        //         });
+        //         this.tableDatabarname=res.data.map(item=>{                    
+        //            return item.ProductName                
+        //         });
+        //         this.cdata={
+        //             category:this.tableDatabarname,
+        //             lineData:this.tableDatabar
+        //         };
+        //     })
 
-            const datapie=botpieList().then((res)=>{
-                this.tableData=res.data.map(item=>{
-                    const datapieobj={};
-                    datapieobj.value=item.ProductNumber;
-                    datapieobj.name=item.ProductName;
-                    return datapieobj
-                });
-                this.pcdata={
-                   seriesData:this.tableData
-                }
-                this.tableDatabar=res.data.map(item=>{                    
-                   return item.ProductNumber                
-                });
-                this.tableDatabarname=res.data.map(item=>{                    
-                   return item.ProductName                
-                });
-                this.cdata={
-                    category:this.tableDatabarname,
-                    lineData:this.tableDatabar
-                };
-            })
+
+
+
+
+
+
+
+
+
         },
     }
 }
