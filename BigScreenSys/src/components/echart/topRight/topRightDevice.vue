@@ -5,6 +5,7 @@
     </div>
 </template>
 <script>
+import { OverallCapacity,ProductForecast } from '../../../api/index.js';
 
 export default {
     data() {
@@ -115,6 +116,24 @@ export default {
 				
 			}
 		},
+created () {
+    this.getData();
+  },
+   methods: {
+    
+     getData() {
+         
+          OverallCapacity().then((res) =>{
+             console.log(res);
+             this.option.series[0].data[0].value=res*100;
+            });
+           
+          ProductForecast().then((res) =>{
+             this.option1.series[0].data[0].value=res*100;
+            });
+
+        },
+  }
 }
 </script>
 <style scoped>
