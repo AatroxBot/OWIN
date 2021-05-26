@@ -3,7 +3,7 @@ import request from '../utils/request';
 //销售动态折线查询
 export const topsaleList= () => {
     return request({
-       url: 'http://192.168.2.114:9000/api/order/QuerySaleStatus',
+       url: 'http://192.168.1.51:9000/api/order/QuerySaleStatus',
        // url: './topsale.json',
         method: 'get',
         xhrFields: {
@@ -16,7 +16,7 @@ export const topsaleList= () => {
 //销售单条信息查询
 export const topSaleNumber= () => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/GetSaleData',
+        url: 'http://192.168.1.51:9000/api/order/GetSaleData',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -30,7 +30,7 @@ export const topSaleNumber= () => {
 //删除用户列表
 export const DelSaleStatus = (data) => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/DeleteSaleStatus',
+        url: 'http://192.168.1.51:9000/api/order/DeleteSaleStatus',
         method: 'post',
         data: data,
         xhrFields: {
@@ -43,7 +43,7 @@ export const DelSaleStatus = (data) => {
 //新增用户列表
 export const AddNoSaleStatus = (data) => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/AddSaleStatus',
+        url: 'http://192.168.1.51:9000/api/order/AddSaleStatus',
         method: 'post',
         data: data,
         xhrFields: {
@@ -55,7 +55,7 @@ export const AddNoSaleStatus = (data) => {
 //销售单条信息编辑
 export const UpdateSaleData = (data) => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/SetSaleData',
+        url: 'http://192.168.1.51:9000/api/order/SetSaleData',
         method: 'post',
         data: data,
         xhrFields: {
@@ -69,7 +69,7 @@ export const UpdateSaleData = (data) => {
 //工单查询
 export const WorkOrderNumberDto= () => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/WorkOrderNumberDto',
+        url: 'http://192.168.1.51:9000/api/order/WorkOrderNumberDto',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -82,7 +82,7 @@ export const WorkOrderNumberDto= () => {
 //工单删除
 export const DeleteWorkOrderNumber = (data) => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/DeleteWorkOrderNumber',
+        url: 'http://192.168.1.51:9000/api/order/DeleteWorkOrderNumber',
         method: 'post',
         data: data,
         xhrFields: {
@@ -94,7 +94,7 @@ export const DeleteWorkOrderNumber = (data) => {
 //新增工单
 export const AddWorkOrderNumber = (data) => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/AddWorkOrderNumber',
+        url: 'http://192.168.1.51:9000/api/order/AddWorkOrderNumber',
         method: 'post',
         data: data,
         xhrFields: {
@@ -108,7 +108,7 @@ export const AddWorkOrderNumber = (data) => {
 //完工查询
 export const QueryWorkCompleteNumber= () => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/QueryWorkCompleteNumber',
+        url: 'http://192.168.1.51:9000/api/order/QueryWorkCompleteNumber',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -122,7 +122,7 @@ export const QueryWorkCompleteNumber= () => {
 //完工删除
 export const DeleteWorkCompleteNumber = (data) => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/DeleteWorkCompleteNumber',
+        url: 'http://192.168.1.51:9000/api/order/DeleteWorkCompleteNumber',
         method: 'post',
         data: data,
         xhrFields: {
@@ -134,7 +134,7 @@ export const DeleteWorkCompleteNumber = (data) => {
 //新增完工
 export const AddWorkCompleteNumber = (data) => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/AddWorkCompleteNumber',
+        url: 'http://192.168.1.51:9000/api/order/AddWorkCompleteNumber',
         method: 'post',
         data: data,
         xhrFields: {
@@ -146,7 +146,7 @@ export const AddWorkCompleteNumber = (data) => {
 //服务类型查询
 export const QueryProductPercent= () => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/QueryProductPercent',
+        url: 'http://192.168.1.51:9000/api/order/QueryProductPercent',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -160,7 +160,7 @@ export const QueryProductPercent= () => {
 //服务类型删除
 export const DeleteProductPercent = (data) => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/DeleteProductPercent',
+        url: 'http://192.168.1.51:9000/api/order/DeleteProductPercent',
         method: 'post',
         data: data,
         xhrFields: {
@@ -172,7 +172,7 @@ export const DeleteProductPercent = (data) => {
 //新增服务类型
 export const AddProductPercent = (data) => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/AddProductPercent',
+        url: 'http://192.168.1.51:9000/api/order/AddProductPercent',
         method: 'post',
         data: data,
         xhrFields: {
@@ -184,7 +184,7 @@ export const AddProductPercent = (data) => {
 //客服单条信息查询
 export const GetBotData= () => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/GetBotData',
+        url: 'http://192.168.1.51:9000/api/order/GetBotData',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -198,7 +198,7 @@ export const GetBotData= () => {
 //客服单条信息编辑
 export const SetBotData = (data) => {
     return request({
-        url: 'http://192.168.2.114:9000/api/order/SetBotData',
+        url: 'http://192.168.1.51:9000/api/order/SetBotData',
         method: 'post',
         data: data,
         xhrFields: {

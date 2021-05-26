@@ -66,11 +66,11 @@ export default {
      getData() {
            // console.log(11);
             const batdata= barList().then((res) =>{
-             
-                  this.tableDataNumber = res.data.map(item=>{
+             console.log(res);
+                  this.tableDataNumber = res.map(item=>{
                      return item.Number
                    });
-                   this.tableDataTime = res.data.map(item=>{
+                   this.tableDataTime = res.map(item=>{
                      return item.Time
                    });
                   //console.log(this.tableDataNumber);

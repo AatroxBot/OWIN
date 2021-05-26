@@ -126,9 +126,6 @@ export default {
                     axisTick: {
                         show: false
                     },
-                    min: 0,
-                    max: 600,
-                     interval: 200
                 },
                 // grid: this.linegrid,
                 grid:{

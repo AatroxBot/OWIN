@@ -115,10 +115,10 @@ export default {
         const dataline= botlineList().then((res)=>{
                 // this.tableData=res.data
                 //  console.log(this.tableData)
-                 this.tableData = res.data.map(item=>{
+                 this.tableData = res.map(item=>{
                      return item.Number
                    });
-                   this.tableDataBillTime = res.data.map(item=>{
+                   this.tableDataBillTime = res.map(item=>{
                      return item.BillTime
                    });
                 //    console.log(this.tableDataBillTime)
