@@ -4,7 +4,7 @@
       <div class="pictionial-data">
         <Echart
           :options="options"
-          :id="this.id"
+          :id="1"
           height="3rem"
           width="100%"
         ></Echart>
@@ -12,7 +12,7 @@
       <div class="pictionial-data">
         <Echart
           :options="options1"
-          :id="this.id"
+          :id="2"
           height="3rem"
           width="100%"
         ></Echart>
@@ -22,7 +22,7 @@
       <div class="pictionial-data">
         <Echart
           :options="options2"
-          :id="this.id"
+          :id="3"
           height="3rem"
           width="100%"
         ></Echart>
@@ -30,7 +30,7 @@
       <div class="pictionial-data">
         <Echart
           :options="options3"
-          :id="this.id"
+          :id="4"
           height="3rem"
           width="100%"
         ></Echart>
@@ -82,6 +82,9 @@ export default {
   data() {
     return {
       options: {},
+      options1:{},
+      options2:{},
+      options3:{},
       tableData: [],
       cdataFirst: {
         type: Object,
@@ -236,7 +239,7 @@ export default {
               // barWidth:'100%',
               data: [
                 {
-                  value: 150,
+                  value: 0,
                   symbol: pathSymbols.machine,
                 },
               ],
@@ -316,7 +319,7 @@ export default {
               // barWidth:'100%',
               data: [
                 {
-                  value: 99,
+                  value: 0,
                   symbol: pathSymbols.machine,
                 },
               ],
@@ -396,7 +399,7 @@ export default {
               // barWidth:'100%',
               data: [
                 {
-                  value: 180,
+                  value: 0,
                   symbol: pathSymbols.machine,
                 },
               ],
@@ -423,52 +426,96 @@ export default {
       var code3 = 17721;
       var code4 = 17723;
 
-      ProductionExecution(code1).then((res) => {
-        //金工
-       this.options.series[0].data[0].value =
-          res.ProductionExecution[0].Number;
+
+
+Promise.all([ProductionExecution(code1),  ProductionExecution(code3), ProductionExecution(code3),ProductionExecution(code4)])
+.then((res) => {
+  
+console.log('promise');
+console.log(res[0]);
+console.log(res[1]);
+console.log(res[2]);
+console.log(res[3]);
+console.log('promiseEnd');
+  this.options.series[0].data[0].value =
+          res[0].ProductionExecution[0].Number;
         this.options.series[1].data[0].value =
-          res.ProductionComplete[0].Number;
-        return res;
-      });
+          res[0].ProductionComplete[0].Number;
 
-      ProductionExecution(code2).then((res) => {
-        //装配17722
-        //   console.log(code2);
-        // this.options1.series[0].data[0].value=300;
-        //   this.options1.series[1].data[0].value=res.ProductionComplete[0].Number;
-        // console.log(res.ProductionExecution[0].Number);
-        return res;
-      });
 
-      ProductionExecution(code3).then((res) => {
-        //喷漆17721
-        console.log(code3);
-        this.options2.series[0].data[0].value =
-          res.ProductionExecution[0].Number;
+ this.options1.series[0].data[0].value =
+          res[1].ProductionExecution[0].Number;
+        this.options1.series[1].data[0].value =
+          res[1].ProductionComplete[0].Number;
+
+ this.options2.series[0].data[0].value =
+          res[2].ProductionExecution[0].Number;
         this.options2.series[1].data[0].value =
-          res.ProductionComplete[0].Number;
-      });
+          res[2].ProductionComplete[0].Number;
 
-      ProductionExecution(code4).then((res) => {
-        //包装17723
-        this.options3.series[0].data[0].value =
-          res.ProductionExecution[0].Number;
+ this.options3.series[0].data[0].value =
+          res[3].ProductionExecution[0].Number;
         this.options3.series[1].data[0].value =
-          res.ProductionComplete[0].Number;
-      });
+          res[3].ProductionComplete[0].Number;
 
-      this.options.series[0].data[0].value = 270600;
-      this.options.series[1].data[0].value = 64253;
+  
+})
+.catch(error => console.log(`can't pay: ${error.message}`))
 
-      this.options1.series[0].data[0].value = 280500;
-      this.options1.series[1].data[0].value = 68786;
 
-      this.options2.series[0].data[0].value = 290090;
-      this.options2.series[1].data[0].value = 98786;
 
-      this.options3.series[0].data[0].value = 209260;
-      this.options3.series[1].data[0].value = 48786;
+
+
+      // ProductionExecution(code1).then((res) => {
+      //   //金工
+      //  this.options.series[0].data[0].value =
+      //     res.ProductionExecution[0].Number;
+      //   this.options.series[1].data[0].value =
+      //     res.ProductionComplete[0].Number;
+      //   return res;
+      // });
+
+      // ProductionExecution(code2).then((res) => {
+      //   //装配17722
+      //    console.log('code2');
+      //   console.log(res);
+      //  this.options1.series[0].data[0].value =
+      //     res.ProductionExecution[0].Number;
+      //   this.options1.series[1].data[0].value =
+      //     res.ProductionComplete[0].Number;
+      //   return res;
+      // });
+
+      // ProductionExecution(code3).then((res) => {
+      //   //喷漆17721
+      //   console.log(code3);
+      //   this.options2.series[0].data[0].value =
+      //     res.ProductionExecution[0].Number;
+      //   this.options2.series[1].data[0].value =
+      //     res.ProductionComplete[0].Number;
+      // });
+
+      // ProductionExecution(code4).then((res) => {
+      //   //包装17723
+      //   this.options3.series[0].data[0].value =
+      //     res.ProductionExecution[0].Number;
+      //   this.options3.series[1].data[0].value =
+      //     res.ProductionComplete[0].Number;
+      // });
+
+
+
+      // this.options.series[0].data[0].value = 270600;
+      // this.options.series[1].data[0].value = 64253;
+
+      // this.options1.series[0].data[0].value = 280500;
+      // this.options1.series[1].data[0].value = 68786;
+
+      // this.options2.series[0].data[0].value = 290090;
+      // this.options2.series[1].data[0].value = 98786;
+
+      // this.options3.series[0].data[0].value = 209260;
+      // this.options3.series[1].data[0].value = 48786;
     },
   },
 };

@@ -56,7 +56,7 @@ export const ProductForecast = () => {
 
 export const ProductionExecution = query=> {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/ProductionExecution?departcode='+query,
+        url: 'http://192.168.10.136:9000/api/order/ProductionExecution?departcode='+query,
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
