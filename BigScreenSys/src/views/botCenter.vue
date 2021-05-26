@@ -53,34 +53,34 @@ export default {
             //数据
             pcdata: {
                 xData: [
-                    // "小米", "其他", "电商", "KA", "ODM", "邦先生","线下"
+                    "小米", "其他", "电商", "KA", "ODM", "邦先生","线下"
                     ],
                 seriesData: [
-                // { value: 20, name: "小米" },
-                // { value: 30, name: "其他" },
-                // { value: 25, name: "电商" },
-                // { value: 25, name: "KA" },
-                // { value: 28, name: "ODM" },
-                // { value: 35, name: "邦先生" },
-                // { value: 35, name: "线下" }
+                { value: 20, name: "小米" },
+                { value: 30, name: "其他" },
+                { value: 25, name: "电商" },
+                { value: 25, name: "KA" },
+                { value: 28, name: "ODM" },
+                { value: 35, name: "邦先生" },
+                { value: 35, name: "线下" }
                 ]
             },
             cdata: {
                 category: [
-                // "小米",
-                // "电商",
-                // "苹果",
-                // "其他",
-                // "华为",
-                // "OPPO"
+                "小米",
+                "电商",
+                "苹果",
+                "其他",
+                "华为",
+                "OPPO"
                 ],
                 lineData: [
-                // 100,
-                // 200,
-                // 300,
-                // 400,
-                // 100,
-                // 200,
+                100,
+                200,
+                300,
+                400,
+                100,
+                200,
                 ],
             }
         }
