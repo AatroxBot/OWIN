@@ -28,7 +28,7 @@
 import bottomCenterLine from "./../components/echart/bottomCenter/bottomCenterLine";
 import bottomCenterPie from './../components/echart/bottomCenter/bottomCenterPie.vue';
 import topLeftBottomBar from "./../components/echart/bottomCenter/topLeftBottomBar";
-import { botlineList,ProductShipped,ProductAllShip } from './../api/index.js';
+import { botlineList,botpieList } from './../api/index.js';
 // botlineList
 export default {
      data () {
@@ -53,7 +53,7 @@ export default {
             //数据
             pcdata: {
                 xData: [
-                    "小米", "其他", "电商", "KA", "ODM", "邦先生","线下"
+                 "小米", "其他", "电商", "KA", "ODM", "邦先生","线下"
                     ],
                 seriesData: [
                 { value: 20, name: "小米" },
@@ -67,7 +67,7 @@ export default {
             },
             cdata: {
                 category: [
-                "小米",
+                "小米111111",
                 "电商",
                 "苹果",
                 "其他",
@@ -75,12 +75,12 @@ export default {
                 "OPPO"
                 ],
                 lineData: [
-                100,
-                200,
-                300,
-                400,
-                100,
-                200,
+                1001,
+                2002,
+                3003,
+                4004,
+                1005,
+                2005,
                 ],
             }
         }
@@ -96,14 +96,30 @@ export default {
     },
     methods: {
         getData() {
+        //    const dataline= botlineList().then((res)=>{
+        //         // this.tableData=res.data
+        //         //  console.log(this.tableData)
+        //          this.tableData = res.data.map(item=>{
+        //              return item.Number
+        //            });
+        //            this.tableDataBillTime = res.data.map(item=>{
+        //              return item.BillTime
+        //            });
+        //         //    console.log(this.tableDataBillTime)
+        //            this.linedatabot={
+        //                xlinedata:this.tableDataBillTime,
+        //                lineData:this.tableData
+        //            }      
+        //     });
+
         const dataline= botlineList().then((res)=>{
                 // this.tableData=res.data
                 //  console.log(this.tableData)
-                 this.tableData = res.map(item=>{
+                 this.tableData = res.data.map(item=>{
                      return item.Number
                    });
-                   this.tableDataBillTime = res.map(item=>{
-                     return item.BillTime
+                   this.tableDataBillTime = res.data.map(item=>{
+                     return item.BillTime.substring(0,10)
                    });
                 //    console.log(this.tableDataBillTime)
                    this.linedatabot={
@@ -112,60 +128,27 @@ export default {
                    }      
             });
 
-           ProductShipped().then((res)=>{
-                console.log(res);
-                this.tableData=res.map(item=>{
+            const datapie=botpieList().then((res)=>{
+                this.tableData=res.data.map(item=>{
                     const datapieobj={};
-                    datapieobj.value=item.ProductNum;
+                    datapieobj.value=item.ProductNumber;
                     datapieobj.name=item.ProductName;
                     return datapieobj
                 });
                 this.pcdata={
                    seriesData:this.tableData
-                };
-                console.log('ProductShipped');
-                console.log(this.tableData);
-                console.log('ProductShipped');
-            });
-
-
-           ProductAllShip().then((res)=>{
-
-
-                //  this.tableData=res.map(item=>{
-                //     const datapieobj={};
-                //     datapieobj.value=item.ProductNum;
-                //     datapieobj.name=item.ProductName;
-                //     return datapieobj
-                // });
-
-
-
-
-
-
-                this.tableDatabar=res.map(item=>{                    
-                   return item.ProductNum                
+                }
+                this.tableDatabar=res.data.map(item=>{                    
+                   return item.ProductNumber                
                 });
-                this.tableDatabarname=res.map(item=>{                    
+                this.tableDatabarname=res.data.map(item=>{                    
                    return item.ProductName                
                 });
-                this.cdata={
-                    category:this.tableDatabarname,
-                    lineData:this.tableDatabar
-                };
-                // console.log('ProductShipped');
-                // console.log(this.cdata);
-                // console.log('ProductShipped');
-
-            });
-
-
-
-
-
-
-
+                // this.cdata={
+                //     category:this.tableDatabarname,
+                //     lineData:this.tableDatabar
+                // };
+            })
         },
     }
 }

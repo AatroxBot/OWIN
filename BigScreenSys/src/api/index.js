@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export const getDomainList = () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/saleOrder',
+        url: 'http://192.168.2.114:9000/api/order/saleOrder',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -14,7 +14,7 @@ export const getDomainList = () => {
 };
 export const barList = () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/OrderNumber',
+        url: 'http://192.168.2.114:9000/api/order/OrderNumber',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -28,7 +28,7 @@ export const barList = () => {
 
 export const OverallCapacity = () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/OverallCapacity',
+        url: 'http://192.168.2.114:9000/api/order/OverallCapacity',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -41,7 +41,7 @@ export const OverallCapacity = () => {
 
 export const ProductForecast = () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/ProductForecast',
+        url: 'http://192.168.2.114:9000/api/order/ProductForecast',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -56,7 +56,7 @@ export const ProductForecast = () => {
 
 export const ProductionExecution = query=> {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/ProductionExecution?departcode='+query,
+        url: 'http://192.168.2.114:9000/api/order/ProductionExecution?departcode='+query,
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -68,7 +68,7 @@ export const ProductionExecution = query=> {
 };
 export const botlineList= () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/billNumber',
+        url: 'http://192.168.2.114:9000/api/order/billNumber',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -92,7 +92,7 @@ export const botpieList= () => {
 };
 export const topsaleList= () => {
     return request({
-       url: 'http://192.168.1.51:9000/api/order/QuerySaleStatus',
+       url: 'http://192.168.2.114:9000/api/order/QuerySaleStatus',
        // url: './topsale.json',
         method: 'get',
         xhrFields: {
@@ -104,7 +104,7 @@ export const topsaleList= () => {
 };
 export const topSaleNumber= () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/GetSaleData',
+        url: 'http://192.168.2.114:9000/api/order/GetSaleData',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -128,7 +128,7 @@ export const CustomerNumber= () => {
 };
 export const WorkNumberList= () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/WorkOrderNumberDto',
+        url: 'http://192.168.2.114:9000/api/order/WorkOrderNumberDto',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -140,7 +140,7 @@ export const WorkNumberList= () => {
 };
 export const EvaluateNumber= () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/QueryWorkCompleteNumber',
+        url: 'http://192.168.2.114:9000/api/order/QueryWorkCompleteNumber',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -152,7 +152,7 @@ export const EvaluateNumber= () => {
 };
 export const botpieNumber= () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/QueryProductPercent',
+        url: 'http://192.168.2.114:9000/api/order/QueryProductPercent',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -166,7 +166,7 @@ export const botpieNumber= () => {
 
 export const ProductShipped= () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/ProductShipped?dateTime=123',
+        url: 'http://192.168.2.114:9000/api/order/ProductShipped?dateTime=123',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -179,7 +179,7 @@ export const ProductShipped= () => {
 
 export const ProductAllShip= () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/ProductAllShip?dateTime=123',
+        url: 'http://192.168.2.114:9000/api/order/ProductAllShip?dateTime=123',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {

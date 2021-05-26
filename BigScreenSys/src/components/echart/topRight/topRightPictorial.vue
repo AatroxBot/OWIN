@@ -1,5 +1,6 @@
 <template>
   <div class="topright-pictionial">
+    <!-- <div class="main">11111</div> -->
     <div class="pictionial-flex">
       <div class="pictionial-data">
         <Echart
@@ -476,7 +477,9 @@ export default {
 <style scoped>
 .topright-pictionial {
   display: flex;
+  position: relative;
 }
+.main{position: absolute; top:0.1rem; right:0.1rem;z-index: 999;}
 .pictionial-flex {
   flex: 1;
   flex-direction: row-reverse;

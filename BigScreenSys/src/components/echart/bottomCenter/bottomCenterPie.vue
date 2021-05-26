@@ -83,7 +83,9 @@ export default {
               color: "#d3d6dd",
               fontSize:'11',
             },
-           
+            formatter: function(name){
+                return name.length>3?name.substr(0,3)+"...":name;
+            }
           },
           textStyle:{
                   fontSize:'10'
