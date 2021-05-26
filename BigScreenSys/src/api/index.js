@@ -162,3 +162,30 @@ export const botpieNumber= () => {
     });
 
 };
+
+
+export const ProductShipped= () => {
+    return request({
+        url: 'http://192.168.1.51:9000/api/order/ProductShipped?dateTime=123',
+        //url: './userPermission.json',
+        method: 'get',
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+
+};
+
+export const ProductAllShip= () => {
+    return request({
+        url: 'http://192.168.1.51:9000/api/order/ProductAllShip?dateTime=123',
+        //url: './userPermission.json',
+        method: 'get',
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+
+};
