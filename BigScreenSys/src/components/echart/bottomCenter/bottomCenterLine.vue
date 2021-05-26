@@ -101,7 +101,8 @@ export default {
                     // },
                     axisTick: {
                         show: false
-                    }
+                    },                  
+
                 },
                 yAxis: {
                     // data: 'value',
@@ -129,9 +130,9 @@ export default {
                 },
                 // grid: this.linegrid,
                 grid:{
-                    left:'10%',
+                    left:'15%',
                     top:'20%',
-                    bottom:'25%'
+                    bottom:'25%',
                 },
                 series: [
                 {

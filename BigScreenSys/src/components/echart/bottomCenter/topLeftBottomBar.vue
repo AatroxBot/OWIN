@@ -60,8 +60,8 @@ export default {
           //   orient:'vertical'
           // },
           grid: {
-            left: "20%",
-            width: "80%",
+            left: "25%",
+            width: "70%",
             top:'15%',
             bottom:"15%"
           },
@@ -93,7 +93,16 @@ export default {
             },
             axisTick: {
               show: false
-            }
+            },
+            formatter: function (params) {
+                  var val = "";
+                  if (params.length > 1) {
+                      val = params.substr(0, 1) + '...';
+                      return val;
+                  } else {
+                      return params;
+                  }
+              }
           },
           yAxis: [
             {
