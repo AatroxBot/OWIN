@@ -81,7 +81,7 @@ export default {
                         type: 'value',
                         axisLabel: {
                             color: "#4c9bfd" ,// 文本颜色
-                            formatter:'{value} 百万',
+                            formatter:'{value} 万',
                         },
                         splitLine: {
                             show:true,

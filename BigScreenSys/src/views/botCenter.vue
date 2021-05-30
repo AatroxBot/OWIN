@@ -1,6 +1,6 @@
 <template>
     <div id="botCenter">
-        <div>
+        <div style="position:relative">
             <div class="d-flex pt-2 pl-2">
                 <span style="color:#5cd9e8">
                      <icon name="chart-line"></icon>
@@ -11,6 +11,18 @@
                 </div>
               
             </div>
+            <div>
+               <div class="no"  >
+                    <div class="no-hd">
+                        <ul>
+                            <li>库存总量：11111</li>
+                        </ul>
+                    </div>
+               </div>
+            </div>
+            <!-- <div>
+                库存总量： <span>1111111</span>
+            </div> -->
             <div class="d-flex">
                  <bottomCenterLine :linedatabot="linedatabot" :id='tab1' :lineName='linename1'/>
                   <!-- :botlinedata="botlinedata1" -->
@@ -98,7 +110,7 @@ export default {
         getData() {
         const dataline= botlineList().then((res)=>{
                 // this.tableData=res.data
-                //  console.log(this.tableData)
+                 console.log(this.tableData)
                  this.tableData = res.map(item=>{
                      return item.Number
                    });
@@ -174,8 +186,49 @@ export default {
 <style lang="scss" scoped>
 #botCenter {
  padding: 0.1rem 0.2rem;
- height: 3.25rem;
+ height: 3.75rem;
   min-width: 3.75rem;
 //   background: red;
+}
+.no {
+ // background: rgba(101, 132, 226, 0.1);
+  padding:0.075rem 0.0875rem;
+}
+.no .no-hd {
+  position: relative;
+  border: 1px solid rgba(25, 186, 139, 0.17);
+}
+.no .no-hd::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 30px;
+  height: 10px;
+  border-top: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5;
+}
+.no .no-hd::after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  content: "";
+  width: 30px;
+  height: 10px;
+  border-right: 2px solid #02a6b5;
+  border-bottom: 2px solid #02a6b5;
+}
+.no .no-hd ul {
+  display: flex;
+}
+.no .no-hd ul li {
+  position: relative;
+  flex: 1;
+  //line-height: 0.65rem;
+  font-size: 0.3rem;
+  color: #ffeb7b;
+  text-align: center;
+  font-family: "electronicFont";
+  padding:  0.1rem 0 0.1rem;
 }
 </style>

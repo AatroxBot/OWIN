@@ -91,6 +91,13 @@ export default {
                 color: "#0f2f5a"
               }
             },
+            axisLabel: {
+                // show: true,                               
+                // textStyle: {
+                //     color: '#df0000'
+                // },
+                rotate:45
+            },
             axisTick: {
               show: false
             },

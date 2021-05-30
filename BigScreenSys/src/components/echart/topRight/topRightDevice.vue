@@ -15,7 +15,7 @@ export default {
                         text: '公司整体产能负荷',
                         style: {
                             fill: '#d3d6dd',
-                            fontSize:12,
+                            fontSize:14,
                         },
                          offset:[0,-30]
                         //show: false
@@ -64,10 +64,10 @@ export default {
                
                 option1:{
                     title: {
-                        text: '产品预测生产完成情况',
+                        text: '销售订单生产完成情况',
                         style: {
                             fill: '#fff',
-                            fontSize:12,
+                            fontSize:14,
                         },
                          offset:[0,-30]
                        // show: false

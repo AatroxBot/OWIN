@@ -94,7 +94,7 @@ export default {
             {
               name: "成品当天出库数",
               type: "pie",
-              radius: [15, 50],
+              radius: [15, 70],
               roseType: "area",
               center: ["45%", "55%"],
               data: newData.seriesData,

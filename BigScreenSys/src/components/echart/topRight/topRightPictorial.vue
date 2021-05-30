@@ -1,6 +1,8 @@
 <template>
   <div class="topright-pictionial">
-    <!-- <div class="main">11111</div> -->
+    <div class="main">
+      <topRightTime />
+    </div>
     <div class="pictionial-flex">
       <div class="pictionial-data">
         <Echart
@@ -41,6 +43,7 @@
 </template>
 <script>
 import Echart from "@/common/echart";
+import topRightTime from "../topRight/topRightTime"
 import { ProductionExecution } from "../../../api/index.js";
 var pathSymbols = {
   car:
@@ -95,6 +98,7 @@ export default {
   },
   components: {
     Echart,
+    topRightTime
   },
   created() {
     this.getData();
@@ -106,6 +110,7 @@ export default {
           text: "金工（晾衣架）生产执行情况",
           textStyle: {
             color: "#d3d6dd",
+            fontSize:14,
           },
         },
         legend: {
@@ -186,6 +191,7 @@ export default {
             text: "喷漆（晾衣架）生产执行情况",
             textStyle: {
               color: "#d3d6dd",
+              fontSize:14,
             },
           },
           legend: {
@@ -266,6 +272,7 @@ export default {
             text: "装配（晾衣架）生产执行情况",
             textStyle: {
               color: "#d3d6dd",
+              fontSize:14,
             },
           },
           legend: {
@@ -346,6 +353,7 @@ export default {
             text: "包装（晾衣架）生产执行情况",
             textStyle: {
               color: "#d3d6dd",
+              fontSize:14
             },
           },
           legend: {
@@ -526,7 +534,7 @@ console.log('promiseEnd');
   display: flex;
   position: relative;
 }
-.main{position: absolute; top:0.1rem; right:0.1rem;z-index: 999;}
+.main{position: absolute; top:0rem; right:0rem;z-index: 999;}
 .pictionial-flex {
   flex: 1;
   flex-direction: row-reverse;

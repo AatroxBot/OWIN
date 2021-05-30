@@ -47,7 +47,7 @@ export default {
                         details: {
                             show: true,
                             offset: [0,15],
-                            formatter: '{value}万',
+                            formatter: '{value}%',
                             style:{
                                 fontSize:14,
                                 fontWeight: 'bold',
@@ -98,7 +98,7 @@ export default {
                         details: {
                             show: true,
                             offset: [0, 15],
-                            formatter: '{value}万',
+                            formatter: '{value}%',
                             style:{
                                 fontSize:14,
                                 fontWeight: 'bold',
@@ -149,7 +149,7 @@ export default {
                         details: {
                             show: true,
                             offset: [0,15],
-                            formatter: '{value}万',
+                            formatter: '{value}%',
                             style:{
                                 fontSize:14,
                                 fontWeight: 'bold',
@@ -216,7 +216,7 @@ export default {
                         details: {
                             show: true,
                             offset: [0, 15],
-                            formatter: '{value}万',
+                            formatter: '{value}%',
                             style:{
                                 fontSize:14,
                                 fontWeight: 'bold',

@@ -6,7 +6,7 @@
                      <icon name="chart-line"></icon>
                 </span>
                 <div class="d-flex">
-                    <span class="text mx-2">销售动态</span>
+                    <span class="text mx-2">销售趋势</span>
                     <!-- <dv-decoration-3 style="width:1.25rem;height:.25rem; position:relative;top:-.0375rem;" /> -->
                 </div>
                 

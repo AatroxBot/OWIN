@@ -36,14 +36,14 @@
             </div>
             <div class="d-flex">
                 <div class="say">
-                  <div class="say-circle"><p>本月新增</p><h5>{{tableData.NewAddNumber}}</h5></div>
-                   <div class="say-circle say-one"><p>今日已购</p><h5>{{tableData.BuyNumber}}</h5></div>
-                   <div class="say-circle say-two"><p>服务商</p><h5>{{tableData.ServiceNumber}}</h5></div>
-                   <div class="say-circle say-three"><p>本月完工</p><h5>{{tableData.FinishNumber}}</h5></div>
-                   <div class="say-circle say-four"><p>今日工单</p><h5>{{tableData.TodayNumber}}</h5></div>
-                   <div class="say-circle say-five"><p>今日呼入</p><h5>{{tableData.CallNumber}}</h5></div>
-                   <div class="say-circle say-six"><p>今日呼出</p><h5>{{tableData.OutNumber}}</h5></div>
-                   <div class="say-circle say-seven"><p>工程师</p><h5>{{tableData.ProjectNumber}}</h5></div>
+                  <div class="say-circle"><p>本月新增</p><h5>{{this.tableData.NewAddNumber}}</h5></div>
+                   <div class="say-circle say-one"><p>今日已购</p><h5>{{this.tableData.BuyNumber}}</h5></div>
+                   <div class="say-circle say-two"><p>服务商</p><h5>{{this.tableData.ServiceNumber}}</h5></div>
+                   <div class="say-circle say-three"><p>本月完工</p><h5>{{this.tableData.FinishNumber}}</h5></div>
+                   <div class="say-circle say-four"><p>今日工单</p><h5>{{this.tableData.TodayNumber}}</h5></div>
+                   <div class="say-circle say-five"><p>今日呼入</p><h5>{{this.tableData.CallNumber}}</h5></div>
+                   <div class="say-circle say-six"><p>今日呼出</p><h5>{{this.tableData.OutNumber}}</h5></div>
+                   <div class="say-circle say-seven"><p>工程师</p><h5>{{this.tableData.ProjectNumber}}</h5></div>
                 </div>
                 <bottomCenterPie :pcdata="pcdata" :id='pie2' :pieName='piename2'/>
             </div>
@@ -259,7 +259,7 @@ export default {
   //  border:1px solid #df0000;
     background-image: radial-gradient(circle,rgba(96,84,72,0) 20%, rgba(96,84,72,0.5),rgba(96,84,72, 1));
     position:absolute;
-    top:50%;
+    top:60%;
     left: 50%;
     transform: translate(-50%,-50%);
 
@@ -272,19 +272,19 @@ export default {
 }
 .say-one{
      background-image: radial-gradient(circle,rgba(87,63,152,0) 20%, rgba(87,63,152,0.5),rgba(87,63,152, 1));
-    top:10%;
+    top:15%;
     left: 0%;
     transform: translate(-5%,-0%);
 }
 .say-two{
     background-image: radial-gradient(circle,rgba(161,30,121,0) 20%, rgba(161,30,121,0.5),rgba(120, 53,100, 1));
-    top:5%;
-    left: 30%;
+    top:15%;
+    left: 27%;
     transform: translate(-5%,-30%);
 }
 .say-three{
     background-image: radial-gradient(circle,rgba(10,109,176,0) 20%, rgba(10,109,176,0.5),rgba(10,109,176, 1));
-    top:10%;
+    top:17%;
     left:60%;
     transform: translate(-10%,-30%);
 }
@@ -302,7 +302,7 @@ export default {
 }
 .say-six{
     background-image: radial-gradient(circle,rgba(136,6,130,0) 20%, rgba(136,6,130,0.5),rgba(136,6,130, 1));
-    top:80%;
+    top:90%;
     left:40%;
     transform: translate(-35%,-20%);
 }

@@ -1,12 +1,17 @@
 <template>
   <div class="calendar">
-    <input
-      type="text"
-      v-model="date"
-      @focus="focus()"
-      @blur="blur()"
-      placeholder="Pick a date"
-    />
+    <div class="d-flex">
+      <input
+        type="text"
+        v-model="date"
+        @focus="focus()"
+        @blur="blur()"
+        placeholder=""
+      />
+      <button @focus="focus()" @blur="blur()">
+        <img src="../../../assets/date.png" />
+      </button>
+    </div>
     <div class="calendar-layout" v-if="active" @mousedown.prevent>
       <div class="calendar-header">
         <div class="row">
@@ -51,7 +56,7 @@ export default {
   name: "datePickers",
   data: () => ({
     date: "",
-    activeDate: "202101",
+    activeDate: "",
     activeDay: "",
     active: false,
     days: ["一", "二", "三", "四", "五", "六", "日"],
@@ -65,9 +70,9 @@ export default {
       "07": "七月",
       "08": "八月",
       "09": "九月",
-      "10": "十月",
-      "11": "十一月",
-      "12": "十二月",
+      10: "十月",
+      11: "十一月",
+      12: "十二月",
     },
     calendarDays: [],
     cellHeight: "",
@@ -284,50 +289,35 @@ export default {
     },
   },
   mounted() {
-    this.populateCalendar(2019, 1);
+    this.populateCalendar(this.getCurrentYear(), this.getCurrentMonth());
     this.activeDate = this.getCurrentYear() + this.getCurrentMonth();
   },
 };
 </script>
 
 <style lang="scss" scoped>
-html,
-body {
-  margin: 0;
-  font-family: "Google Sans", "Avenir";
+button {
+  background: none;
+  border: none;
+  padding-top: 0.1rem;
 }
-#app {
-  height: 100vh;
-  width: 100%;
-  background-color: #db3955;
-  display: flex;
-  justify-content: center;
+input[type="text"] {
+  // width: 100%;
   box-sizing: border-box;
-  padding: 10vh 0;
-}
-#app .container {
-  width: 300px;
-  height: auto;
-  font-size: 20px;
-  text-align: center;
-  border-radius: 4px;
-  padding: 20px;
-}
-#app input[type="text"] {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px;
-  background: #db3955;
-  border: 2px solid #fff;
+  padding: 3px;
+  background: none;
+  // border: 2px solid #fff;
   border-radius: 4px;
   color: #fff;
   font-family: "Google Sans";
+  text-align: right;
+  border: none;
 }
-#app input[type="text"]:focus {
+input[type="text"]:focus {
   outline: none;
-  border: 2px solid #fff;
+  border: none;
 }
-#app input[type="text"]::placeholder {
+input[type="text"]::placeholder {
   color: #e9e9e9;
   font-style: italic;
 }

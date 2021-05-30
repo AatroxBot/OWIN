@@ -82,9 +82,9 @@
               <div class="right">
                   <div>
                     <!-- 生产 -->
-                   
+                     <dv-border-box-12>
                         <top-right />
-                    
+                      </dv-border-box-12>
                   </div>
                   <div class="bototm-box">
                     <!-- <div>
@@ -102,9 +102,9 @@
                       </div>
                       <div>
                         <!-- 客服总体分析 -->
-                      
+                        <dv-border-box-12>
                           <bot-right />
-                        
+                        </dv-border-box-12>
                       </div>
                   </div>
               </div>
@@ -229,7 +229,7 @@ export default {
 
 .react-left{
   position: absolute;
-  top:-0.05rem;
+  top:-0.35rem;
   right:1rem
 }
 </style>
