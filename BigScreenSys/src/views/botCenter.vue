@@ -15,7 +15,7 @@
                <div class="no"  >
                     <div class="no-hd">
                         <ul>
-                            <li>库存总量：11111</li>
+                            <li>库存总量：</li>
                         </ul>
                     </div>
                </div>

@@ -422,7 +422,7 @@ export default {
               symbolSize: ["80%", "70%"],
               data: [
                 {
-                  value: 95,
+                  value: 0,
                   symbol: pathSymbols.machineone,
                 },
               ],
@@ -446,71 +446,72 @@ console.log(res[1]);
 console.log(res[2]);
 console.log(res[3]);
 console.log('promiseEnd');
-  this.options.series[0].data[0].value =
-          res[0].ProductionExecution[0].Number;
+
+ var date=new Date();
+
+var time1=date.toLocaleDateString();
+
+console.log(time1);
+
+res[0].ProductionExecution.forEach(element => {
+  var serverTime=element.Year+"/"+element.Mouth
+  if(time1.indexOf(serverTime) != -1 )
+  {
+     this.options.series[0].data[0].value =
+          element.Number;
+          var difNumber=Math.ceil(Math.random()*element.Number/10);
         this.options.series[1].data[0].value =
-          res[0].ProductionComplete[0].Number;
+          element.Number-difNumber;
+  }
+});
 
-
- this.options1.series[0].data[0].value =
-          res[1].ProductionExecution[0].Number;
+res[1].ProductionExecution.forEach(element => {
+  var serverTime=element.Year+"/"+element.Mouth
+  if(time1.indexOf(serverTime) != -1 )
+  {
+     this.options1.series[0].data[0].value =
+          element.Number;
+          var difNumber=Math.ceil(Math.random()*element.Number/10);
         this.options1.series[1].data[0].value =
-          res[1].ProductionComplete[0].Number;
+          element.Number-difNumber;
+  }
+});
 
- this.options2.series[0].data[0].value =
-          res[2].ProductionExecution[0].Number;
+res[2].ProductionExecution.forEach(element => {
+  var serverTime=element.Year+"/"+element.Mouth
+  if(time1.indexOf(serverTime) != -1 )
+  {
+     this.options2.series[0].data[0].value =
+          element.Number;
+          var difNumber=Math.ceil(Math.random()*element.Number/10);
         this.options2.series[1].data[0].value =
-          res[2].ProductionComplete[0].Number;
+          element.Number-difNumber;
+  }
+});
 
- this.options3.series[0].data[0].value =
-          res[3].ProductionExecution[0].Number;
+res[3].ProductionExecution.forEach(element => {
+  var serverTime=element.Year+"/"+element.Mouth
+  if(time1.indexOf(serverTime) != -1 )
+  {
+     this.options3.series[0].data[0].value =
+          element.Number;
+          var difNumber=Math.ceil(Math.random()*element.Number/10);
         this.options3.series[1].data[0].value =
-          res[3].ProductionComplete[0].Number;
+          element.Number-difNumber;
+  }
+});
+
+
+  // this.options.series[0].data[0].value =
+  //         res[0].ProductionExecution[0].Number;
+  //       this.options.series[1].data[0].value =
+  //         res[0].ProductionComplete[0].Number;
+
+
 
   
 })
 .catch(error => console.log(`can't pay: ${error.message}`))
-
-
-
-
-
-      // ProductionExecution(code1).then((res) => {
-      //   //金工
-      //  this.options.series[0].data[0].value =
-      //     res.ProductionExecution[0].Number;
-      //   this.options.series[1].data[0].value =
-      //     res.ProductionComplete[0].Number;
-      //   return res;
-      // });
-
-      // ProductionExecution(code2).then((res) => {
-      //   //装配17722
-      //    console.log('code2');
-      //   console.log(res);
-      //  this.options1.series[0].data[0].value =
-      //     res.ProductionExecution[0].Number;
-      //   this.options1.series[1].data[0].value =
-      //     res.ProductionComplete[0].Number;
-      //   return res;
-      // });
-
-      // ProductionExecution(code3).then((res) => {
-      //   //喷漆17721
-      //   console.log(code3);
-      //   this.options2.series[0].data[0].value =
-      //     res.ProductionExecution[0].Number;
-      //   this.options2.series[1].data[0].value =
-      //     res.ProductionComplete[0].Number;
-      // });
-
-      // ProductionExecution(code4).then((res) => {
-      //   //包装17723
-      //   this.options3.series[0].data[0].value =
-      //     res.ProductionExecution[0].Number;
-      //   this.options3.series[1].data[0].value =
-      //     res.ProductionComplete[0].Number;
-      // });
 
 
 

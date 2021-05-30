@@ -55,7 +55,7 @@
 import topLeftBottomBar from "./../components/echart/bottomRight/topLeftBottomBar";
 import topLeftBottomBar1 from "./../components/echart/bottomRight/topLeftBottomBar1";
 import bottomCenterPie from './../components/echart/bottomCenter/bottomCenterPie.vue';
-import { CustomerNumber, WorkNumberList,EvaluateNumber,botpieNumber} from './../api/index.js';
+import { GetBotData, WorkNumberList,EvaluateNumber,botpieNumber} from './../api/index.js';
 
 export default {
     data () {
@@ -104,7 +104,7 @@ export default {
   methods: {
     
      getData() {
-             CustomerNumber().then((res) =>{             
+             GetBotData().then((res) =>{             
                   this.tableData = res;    
                   console.log(this.tableData.BuyNumber)
             });
