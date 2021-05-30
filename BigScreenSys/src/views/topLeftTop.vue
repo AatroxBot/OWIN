@@ -143,11 +143,15 @@ export default {
                this.tableDataTime = res.map(item=>{
                      return item.Time
                    });
-               // console.log(this.tableData)
-                this.linedatabot={
+                console.log(this.tableDataTime)
+                if(this.tableDataTime!='2018')
+                {
+                 this.linedatabot={
                        data:this.tableDataTime,
                        lineData:this.tableData
-                   }   
+                   }
+                }
+                  
              });
           const dataNumber= topSaleNumber().then((res)=>{
               // this.tableDataNumber=res  
