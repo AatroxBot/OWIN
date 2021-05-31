@@ -4,6 +4,11 @@ import router from './router';
 import store from './store';
 import dataV from '@jiaminghi/data-view';
 import axios from "axios";
+
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 Vue.prototype.$axios = axios;
 Vue.use(dataV);
 // 按需引入vue-awesome图标

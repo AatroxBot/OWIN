@@ -534,7 +534,7 @@ console.log('promiseEnd');
   display: flex;
   position: relative;
 }
-.main{position: absolute; top:0rem; right:0rem;z-index: 999;}
+.main{position: absolute; top:-0.1rem; right:0rem;z-index: 999;}
 .pictionial-flex {
   flex: 1;
   flex-direction: row-reverse;

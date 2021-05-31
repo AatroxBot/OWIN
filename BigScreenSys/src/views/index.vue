@@ -1,6 +1,6 @@
 <template>
   <div id="index">
-     <dv-full-screen-container> 
+     <!-- <dv-full-screen-container>  -->
       <div class="bg">
         <dv-loading v-if="loading">Loading...</dv-loading>
         <div v-else class="host-body">
@@ -55,14 +55,14 @@
                   <div>
                     <!-- 销售动态 -->
                       <dv-border-box-12>
-                        <top-left-top />
+                          <top-left-top />
                       </dv-border-box-12>
                   </div>
                   <div>
                     <!-- 销售订单统计动态列表 -->
                     <dv-border-box-12>
-                      <top-left-bottom />
-                      </dv-border-box-12>
+                         <top-left-bottom />
+                    </dv-border-box-12>
                   </div>
               </div>
               <!-- <div>
@@ -82,28 +82,27 @@
               <div class="right">
                   <div>
                     <!-- 生产 -->
-                     <dv-border-box-12>
-                        <top-right />
+                      <dv-border-box-12>
+                          <top-right />
                       </dv-border-box-12>
                   </div>
                   <div class="bototm-box">
-                    <!-- <div>
+                    <!--<div>
                       销售订单执行情况表 
                       <dv-border-box-12>
                         <bot-left />
                       </dv-border-box-12>
-                    </div> -->
-                    
+                    </div>-->                   
                       <div>
                         <!-- 发货与库存分析 -->
                         <dv-border-box-12>
-                          <bot-center/>
+                            <bot-center/>
                         </dv-border-box-12>
                       </div>
                       <div>
                         <!-- 客服总体分析 -->
                         <dv-border-box-12>
-                          <bot-right />
+                            <bot-right />
                         </dv-border-box-12>
                       </div>
                   </div>
@@ -150,7 +149,7 @@
           </div>
         </div>
       </div>
-   </dv-full-screen-container> 
+   <!-- </dv-full-screen-container>  -->
   </div>
 </template>
 
