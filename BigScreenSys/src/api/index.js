@@ -57,7 +57,6 @@ export const ProductForecast = () => {
 export const ProductionExecution = query=> {
     return request({
         url: 'http://192.168.1.51:9000/api/order/ProductionExecution?departcode='+query,
-        //url: './userPermission.json',
         method: 'get',
         xhrFields: {
             withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
@@ -69,19 +68,6 @@ export const ProductionExecution = query=> {
 export const botlineList= () => {
     return request({
         url: 'http://192.168.1.51:9000/api/order/billNumber',
-        //url: './userPermission.json',
-        method: 'get',
-        xhrFields: {
-            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
-        },
-        crossDomain: true,
-    });
-
-};
-export const botpieList= () => {
-    return request({
-        url: './botpiedata.json',
-        //url: './userPermission.json',
         method: 'get',
         xhrFields: {
             withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
@@ -105,18 +91,6 @@ export const topsaleList= () => {
 export const topSaleNumber= () => {
     return request({
         url: 'http://192.168.1.51:9000/api/order/GetSaleData',
-        //url: './userPermission.json',
-        method: 'get',
-        xhrFields: {
-            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
-        },
-        crossDomain: true,
-    });
-
-};
-export const CustomerNumber= () => {
-    return request({
-        url: './botnumber.json',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -180,6 +154,19 @@ export const ProductShipped= () => {
 export const ProductAllShip= () => {
     return request({
         url: 'http://192.168.1.51:9000/api/order/ProductAllShip?dateTime=123',
+        //url: './userPermission.json',
+        method: 'get',
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+
+};
+
+export const GetBotData= () => {
+    return request({
+        url: 'http://192.168.1.51:9000/api/order/GetBotData',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
