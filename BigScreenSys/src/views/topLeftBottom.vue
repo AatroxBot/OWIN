@@ -66,14 +66,16 @@ export default {
      getData() {
            // console.log(11);
             const batdata= barList().then((res) =>{
+              res.splice(res.findIndex(e => e.Time === '2018'), 1)
              console.log(res);
+            
                   this.tableDataNumber = res.map(item=>{
                      return item.Number
                    });
                    this.tableDataTime = res.map(item=>{
                      return item.Time
                    });
-                  //console.log(this.tableDataNumber);
+                  console.log(this.tableDataTime);
                    this.cdata={
                      category:this.tableDataTime,
                      lineData:this.tableDataNumber,

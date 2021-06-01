@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-import { OverallCapacity,ProductForecast } from '../../../api/index.js';
+import { OverallCapacity,ProductForecast,GetPreference } from '../../../api/index.js';
 
 export default {
     data() {
@@ -23,7 +23,7 @@ export default {
                     series: [
                         {
                         type: 'gauge',
-                        data: [ {name:'itemB',  value: 35 ,gradient: ['#f9bc45', '#f9bc45', '#f9bc45']} ],
+                        data: [ {name:'itemB',  value: 95 ,gradient: ['#f9bc45', '#f9bc45', '#f9bc45']} ],
                         arcLineWidth:'5',//圆弧宽度
                        // splitNum:'3',//刻度显示数量
                         radius:'70%',
@@ -75,7 +75,7 @@ export default {
                     series: [
                         {
                         type: 'gauge',
-                        data: [ {name:'itemD',  value: 55 ,gradient: ['#f9bc45', '#f9bc45', '#f9bc45']} ],
+                        data: [ {name:'itemD',  value: 85 ,gradient: ['#f9bc45', '#f9bc45', '#f9bc45']} ],
                         arcLineWidth:'5',//圆弧宽度
                        // splitNum:'3',//刻度显示数量
                         radius:'70%',
@@ -128,9 +128,16 @@ created () {
              this.option.series[0].data[0].value=res*100;
             });
            
-          ProductForecast().then((res) =>{
-             this.option1.series[0].data[0].value=res*100;
-            });
+        //   ProductForecast().then((res) =>{
+        //      this.option1.series[0].data[0].value=res*100;
+        //     });
+
+
+
+            GetPreference('OrderCompletePercent').then((res) =>{
+                console.log(res);
+              this.option1.series[0].data[0].value=res;
+             });
 
         },
   }

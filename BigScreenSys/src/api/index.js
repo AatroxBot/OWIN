@@ -17,6 +17,7 @@ export const barList = () => {
         url: 'http://192.168.1.51:9000/api/order/OrderNumber',
         //url: './userPermission.json',
         method: 'get',
+        timeout: 40000,
         xhrFields: {
             withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
         },
@@ -167,6 +168,20 @@ export const ProductAllShip= () => {
 export const GetBotData= () => {
     return request({
         url: 'http://192.168.1.51:9000/api/order/GetBotData',
+        //url: './userPermission.json',
+        method: 'get',
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+
+};
+
+//销售订单生产完成情况
+export const GetPreference= query => {
+    return request({
+        url: 'http://192.168.1.51:9000/api/order/GetPreference?key='+query,
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
