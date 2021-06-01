@@ -207,3 +207,29 @@ export const SetBotData = (data) => {
         crossDomain: true,
     });
 };
+//销售订单生产完成情况查询
+export const GetPreference= query => {
+    return request({
+        url: 'http://192.168.1.51:9000/api/order/GetPreference?key='+query,
+        //url: './userPermission.json',
+        method: 'get',
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+
+};
+
+//销售订单生产完成情况编辑
+export const SetPreference = (data) => {
+    return request({
+        url: 'http://192.168.1.51:9000/api/order/SetPreference',
+        method: 'post',
+        data: data,
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+};

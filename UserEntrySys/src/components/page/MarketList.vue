@@ -59,6 +59,14 @@
             </div>
         </div>
         <MarketNumber/>
+  <el-form ref="form" :model="form" label-width="280px" :disabled="disabled">
+                <el-form-item label="销售订单生产完成情况百分比">
+                    <el-input v-model="form.Number" style="width:200px" ></el-input>%
+                </el-form-item>
+  </el-form>
+
+
+
         <!-- 编辑弹出框 -->
         <el-dialog :title="title" :visible.sync="editVisible" width="40%">
             <el-form ref="form" :model="form" label-width="80px" :disabled="disabled">
