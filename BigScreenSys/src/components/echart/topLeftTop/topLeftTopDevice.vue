@@ -26,7 +26,7 @@ export default {
                             fill: '#d3d6dd',
                             fontSize:12,
                         },
-                         offset:[0,25]
+                         offset:[0,35]
                         //show: false
                     },
                     series: [
@@ -77,7 +77,7 @@ export default {
                             fill: '#d3d6dd',
                             fontSize:12,
                         },
-                         offset:[0,25]
+                         offset:[0,35]
                        // show: false
                     },
                     series: [
@@ -128,7 +128,7 @@ export default {
                             fill: '#d3d6dd',
                             fontSize:12,
                         },
-                         offset:[0,25]
+                         offset:[0,35]
                        // show: false
                     },
                     series: [
@@ -194,7 +194,7 @@ export default {
                             fontSize:12,
 
                         },
-                        offset:[0,25]
+                        offset:[0,35]
                        // show: false
                     },
                      series: [
