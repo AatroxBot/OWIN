@@ -4,7 +4,7 @@
       v-model="value2"
       type="month"
       :clearable="false"
-      placeholder="">
+      placeholder="" @change="changeTime" value-format="yyyy/M">
     </el-date-picker>
 </div>
 
@@ -15,6 +15,11 @@
       return {
         value2: '',
       };
+    },
+    methods:{
+      changeTime:function(){
+       this.$emit('handleChange', this.value2);
+      }
     }
   };
 </script>

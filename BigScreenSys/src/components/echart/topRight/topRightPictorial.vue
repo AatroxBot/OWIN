@@ -1,7 +1,7 @@
 <template>
   <div class="topright-pictionial">
     <div class="main">
-      <topRightTime />
+      <topRightTime @handleChange="changeTime"></topRightTime>
     </div>
     <div class="pictionial-flex">
       <div class="pictionial-data">
@@ -90,6 +90,7 @@ export default {
       options2:{},
       options3:{},
       tableData: [],
+      selectTime:'',
       cdataFirst: {
         type: Object,
         default: () => ({}),
@@ -104,6 +105,12 @@ export default {
     this.getData();
   },
   methods: {
+    changeTime(time){
+       this.selectTime=time;
+       console.log('changeTime');
+       console.log(this.selectTime);
+       this.getData();
+    },
     getData() {
       (this.options = {
         title: {
@@ -165,7 +172,7 @@ export default {
             // barWidth:'100%',
             data: [
               {
-                value: 25,
+                value: 0,
                 symbol: pathSymbols.machine,
               },
             ],
@@ -179,7 +186,7 @@ export default {
             symbolSize: ["80%", "70%"],
             data: [
               {
-                value: 95,
+                value: 0,
                 symbol: pathSymbols.machineone,
               },
             ],
@@ -260,7 +267,7 @@ export default {
               symbolSize: ["80%", "70%"],
               data: [
                 {
-                  value: 95,
+                  value: 0,
                   symbol: pathSymbols.machineone,
                 },
               ],
@@ -341,7 +348,7 @@ export default {
               symbolSize: ["80%", "70%"],
               data: [
                 {
-                  value: 95,
+                  value: 0,
                   symbol: pathSymbols.machineone,
                 },
               ],
@@ -446,16 +453,26 @@ console.log(res[1]);
 console.log(res[2]);
 console.log(res[3]);
 console.log('promiseEnd');
-
- var date=new Date();
-
-var time1=date.toLocaleDateString();
-
+var time1='';
+console.log(this.selectTime);
+if(this.selectTime=='')
+{
+var date=new Date();
+var timeArr=date.toLocaleDateString().split("/");
+time1=timeArr[0]+"/"+timeArr[1];
+console.log(time1);
+console.log('currentTime');
+}
+else
+{
+  time1=this.selectTime;
+  console.log('selectTime');
+}
 console.log(time1);
 
 res[0].ProductionExecution.forEach(element => {
   var serverTime=element.Year+"/"+element.Mouth
-  if(time1.indexOf(serverTime) != -1 )
+  if(time1 == serverTime )
   {
      this.options.series[0].data[0].value =
           element.Number;
@@ -463,11 +480,12 @@ res[0].ProductionExecution.forEach(element => {
         this.options.series[1].data[0].value =
           element.Number-difNumber;
   }
+  
 });
 
 res[1].ProductionExecution.forEach(element => {
   var serverTime=element.Year+"/"+element.Mouth
-  if(time1.indexOf(serverTime) != -1 )
+  if(time1 == serverTime )
   {
      this.options1.series[0].data[0].value =
           element.Number;
@@ -479,7 +497,7 @@ res[1].ProductionExecution.forEach(element => {
 
 res[2].ProductionExecution.forEach(element => {
   var serverTime=element.Year+"/"+element.Mouth
-  if(time1.indexOf(serverTime) != -1 )
+  if(time1 == serverTime )
   {
      this.options2.series[0].data[0].value =
           element.Number;
@@ -491,7 +509,7 @@ res[2].ProductionExecution.forEach(element => {
 
 res[3].ProductionExecution.forEach(element => {
   var serverTime=element.Year+"/"+element.Mouth
-  if(time1.indexOf(serverTime) != -1 )
+  if(time1 == serverTime )
   {
      this.options3.series[0].data[0].value =
           element.Number;

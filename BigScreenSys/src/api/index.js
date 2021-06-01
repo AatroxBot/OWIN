@@ -58,6 +58,7 @@ export const ProductForecast = () => {
 export const ProductionExecution = query=> {
     return request({
         url: 'http://192.168.1.51:9000/api/order/ProductionExecution?departcode='+query,
+        //url: './yearMonthProduct.json',
         method: 'get',
         xhrFields: {
             withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
