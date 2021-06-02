@@ -50,7 +50,7 @@ export default {
             }
           },
           legend: {
-            data: ["发货数量"],
+            data: ["发货数量","数量"],
             textStyle: {
               color: "#B4B4B4"
             },
@@ -77,7 +77,7 @@ export default {
               show: false
             }
           },
-          yAxis:
+          yAxis:[
             {
               splitLine: { 
                 show: true,
@@ -97,6 +97,21 @@ export default {
               },
               
             },
+            {
+              splitLine: {
+                 show: true,
+                 lineStyle:{
+                   color:"#0f2f5a"
+                 }
+               },
+              axisLine: {
+               show: false,
+              },
+              axisLabel: {
+                formatter: " "
+              }
+            }
+          ],
           series: [
             // {
             //   name: "贯通率",
@@ -145,7 +160,22 @@ export default {
               },
               // z: -12,//疑问
               data: newData.lineData
-            }
+            },
+            {
+              name: "数量",
+              type: "line",
+              smooth: true,
+              showAllSymbol: true,
+              symbol: "emptyCircle",
+              symbolSize: 8,
+              yAxisIndex: 1,
+              itemStyle: {
+                normal: {
+                  color: "#f9bc45"
+                }
+              },
+              data: newData.lineData
+            },
           ]
         }
       },
