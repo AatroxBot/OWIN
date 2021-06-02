@@ -47,7 +47,7 @@
                     </template>
                 </el-table-column>
             </el-table>
-            <div class="pagination">
+            <!-- <div class="pagination">
                 <el-pagination
                     background
                     layout="total, prev, pager, next"
@@ -56,14 +56,22 @@
                     :total="pageTotal"
                     @current-change="handlePageChange"
                 ></el-pagination>
-            </div>
+            </div> -->
         </div>
         <MarketNumber/>
-  <el-form ref="form" :model="form" label-width="280px" :disabled="disabled">
-                <el-form-item label="销售订单生产完成情况百分比">
-                    <el-input v-model="form.Number" style="width:200px" ></el-input>%
+      
+        <div class="container">
+            <p>生产总体数据</p>
+            <el-form ref="form" :model="form" label-width="280px" :disabled="disabled">
+                <el-form-item label="公司整体产能负荷" >
+                    <el-input v-model="percentValue" style="width:200px" onkeyup="this.value=this.value.replace(/\D/g,'')" >
+                     </el-input>%
                 </el-form-item>
-  </el-form>
+                <el-form-item>
+                    <el-button type="primary" @click="Submit" >提交</el-button>
+                </el-form-item>
+            </el-form>
+        </div>
 
 
 
@@ -98,7 +106,7 @@
 
 <script>
  import MarketNumber from "./MarketNumber";
-import { topsaleList,DelSaleStatus,AddNoSaleStatus} from '../../api/index';
+import { topsaleList,DelSaleStatus,AddNoSaleStatus,GetPreference,SetPreference} from '../../api/index';
 
 export default {
     name: 'marketlist',
@@ -111,13 +119,18 @@ export default {
             tableData: [],
             tableDataNumber:[],
             editVisible: false,
-            form: {},
+            form: {  
+                key: '',
+                value: '',
+                },
             idx: -1,
             id: -1,
             title:'',
             value1: '',
             disabled:false,
             visible:false,
+            Preference:'',
+            percentValue:'',
         };
     },
      components: {
@@ -129,9 +142,27 @@ export default {
     methods: {
         getData() {         
             topsaleList().then((res)=>{
-                
                 this.tableData=res;
-            }) ;             
+            }) ;
+            GetPreference('OrderCompletePercent').then((res) =>{
+                this.percentValue = res;
+                console.log(this.percentValue);
+             });             
+        },
+        //提交
+        Submit(){
+            this.form.key='OrderCompletePercent';
+            this.form.value=this.percentValue;           
+                if(this.percentValue>100 || this.percentValue<0){
+                     this.$message.warning(`修改失败`); 
+                     this.percentValue=100;
+                }else{
+                SetPreference(this.form).then((res) =>{  
+                    this.$message.success(`修改成功`);  
+                    this.$set(this.form,this.value);
+                 });
+                }
+           
         },
         //新增
         addNewUser(){
