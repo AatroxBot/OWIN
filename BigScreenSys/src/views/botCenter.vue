@@ -1,6 +1,6 @@
 <template>
     <div id="botCenter">
-        <div style="position:relative">
+        <div style="position:relative"  class="table-data">
             <div class="d-flex pt-2 pl-2">
                 <span style="color:#5cd9e8">
                      <icon name="chart-line"></icon>
@@ -10,6 +10,15 @@
                     <!-- <dv-decoration-3 style="width:1.25rem;height:.25rem; position:relative;top:-.0375rem;" /> -->
                 </div>
               
+            </div>
+            <div class="table-picker">
+                <el-date-picker
+                    v-model="value1"
+                    type="daterange"
+                    range-separator="-"
+                    start-placeholder="开始日期"
+                    end-placeholder="结束日期">
+                    </el-date-picker>
             </div>
             <div>
                <div class="no"  >
@@ -46,6 +55,7 @@ export default {
      data () {
         return {
              tableData:[],
+             value1:'',
             //折线图配置属性改动
             tab1:'tab1',          
             linename1:'好易点营销中心',
@@ -183,15 +193,15 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 #botCenter {
  padding: 0.1rem 0.2rem;
  height: 3.75rem;
   min-width: 3.75rem;
-//   background: red;
+    /* background: red; */
 }
 .no {
- // background: rgba(101, 132, 226, 0.1);
+  /* background: rgba(101, 132, 226, 0.1); */
   padding:0.075rem 0.0875rem;
 }
 .no .no-hd {
@@ -224,11 +234,28 @@ export default {
 .no .no-hd ul li {
   position: relative;
   flex: 1;
-  //line-height: 0.65rem;
+  /* line-height: 0.65rem; */
   font-size: 0.3rem;
   color: #ffeb7b;
   text-align: center;
   font-family: "electronicFont";
   padding:  0.1rem 0 0.1rem;
+}
+.table-data{position: relative;}
+.table-picker{position:absolute; top:0rem;right:0rem;width: 60%; }
+.el-date-editor.el-input, .el-date-editor.el-input__inner{height: 30px;}
+.el-input__inner{
+  background: none;
+  border: none;
+  height: 30px;
+  line-height: 30px;
+   padding: 0 15px;
+}
+.table-data >>> .el-date-editor .el-range-separator{color:#fff}
+.table-data >>> .el-date-editor .el-range-input{width: 1.5rem;}
+.table-data >>> input{
+  border:none;
+  background: none;
+  color: #fff;
 }
 </style>

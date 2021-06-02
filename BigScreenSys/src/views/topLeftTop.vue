@@ -162,7 +162,7 @@ export default {
           return item.Number;
         });
         this.tableDataTime = res.map((item) => {
-          return item.Time;
+          return item.Time.substring(0,7);
         });
         // console.log(this.tableData)
         this.linedatabot = {
