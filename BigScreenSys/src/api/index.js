@@ -2,8 +2,8 @@ import request from '@/utils/request'
 
 export const getDomainList = () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/saleOrder',
-        //url: './userPermission.json',
+       // url: 'http://192.168.1.51:9000/api/order/saleOrder',
+        url: './table.json',
         method: 'get',
         xhrFields: {
             withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
@@ -69,7 +69,8 @@ export const ProductionExecution = query=> {
 };
 export const botlineList= () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/billNumber',
+        //url: 'http://192.168.1.51:9000/api/order/billNumber',
+        url:'./botlinedata.json',
         method: 'get',
         xhrFields: {
             withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
