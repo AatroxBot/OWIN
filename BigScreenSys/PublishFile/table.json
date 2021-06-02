@@ -1,5 +1,4 @@
-{
-    "data":[
+[
         {
             "SerialNum":"1",
             "OrderNo":"123",
@@ -59,7 +58,55 @@
             "ShipmemntNum":1,
             "OutStockNum":"1",
             "OrderTime":"2021/0/01"
+        },
+        {
+            "SerialNum":"7",
+            "OrderNo":"123",
+            "CustomerName":"张三",
+            "ProductName":"产品1",
+            "OrderNum":1,
+            "ShipmemntNum":1,
+            "OutStockNum":"1",
+            "OrderTime":"2021/0/01"
+        },
+        {
+            "SerialNum":"8",
+            "OrderNo":"123",
+            "CustomerName":"张三",
+            "ProductName":"产品1",
+            "OrderNum":1,
+            "ShipmemntNum":1,
+            "OutStockNum":"1",
+            "OrderTime":"2021/0/01"
+        },
+        {
+            "SerialNum":"9",
+            "OrderNo":"123",
+            "CustomerName":"张三",
+            "ProductName":"产品1",
+            "OrderNum":1,
+            "ShipmemntNum":1,
+            "OutStockNum":"1",
+            "OrderTime":"2021/0/01"
+        },
+        {
+            "SerialNum":"10",
+            "OrderNo":"123",
+            "CustomerName":"张三",
+            "ProductName":"产品1",
+            "OrderNum":1,
+            "ShipmemntNum":1,
+            "OutStockNum":"1",
+            "OrderTime":"2021/0/01"
+        },
+        {
+            "SerialNum":"11",
+            "OrderNo":"123",
+            "CustomerName":"张三",
+            "ProductName":"产品1",
+            "OrderNum":1,
+            "ShipmemntNum":1,
+            "OutStockNum":"1",
+            "OrderTime":"2021/0/01"
         }
-    ],
-    "pageTotal":6
-}
+    ]
