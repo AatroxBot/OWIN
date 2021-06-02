@@ -123,20 +123,18 @@ created () {
     
      getData() {
          
-          OverallCapacity().then((res) =>{
-             console.log(res);
-             this.option.series[0].data[0].value=res*100;
-            });
-           
-        //   ProductForecast().then((res) =>{
-        //      this.option1.series[0].data[0].value=res*100;
+        //   OverallCapacity().then((res) =>{
+        //      console.log(res);
+        //      this.option.series[0].data[0].value=res*100;
         //     });
-
-
+           
+          ProductForecast().then((res) =>{
+             this.option1.series[0].data[0].value=res*100;
+            });
 
             GetPreference('OrderCompletePercent').then((res) =>{
                 console.log(res);
-              this.option1.series[0].data[0].value=res;
+              this.option.series[0].data[0].value=res;
              });
 
         },

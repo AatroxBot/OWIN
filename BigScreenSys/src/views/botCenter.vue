@@ -24,7 +24,7 @@
                <div class="no"  >
                     <div class="no-hd">
                         <ul>
-                            <li>库存总量：</li>
+                            <li>库存总量：{{storageNumber}}</li>
                         </ul>
                     </div>
                </div>
@@ -49,12 +49,13 @@
 import bottomCenterLine from "./../components/echart/bottomCenter/bottomCenterLine";
 import bottomCenterPie from './../components/echart/bottomCenter/bottomCenterPie.vue';
 import topLeftBottomBar from "./../components/echart/bottomCenter/topLeftBottomBar";
-import { botlineList,ProductShipped,ProductAllShip } from './../api/index.js';
+import { StorageALLNumber,botlineList,ProductShipped,ProductAllShip } from './../api/index.js';
 // botlineList
 export default {
      data () {
         return {
              tableData:[],
+             storageNumber:0,
              value1:'',
             //折线图配置属性改动
             tab1:'tab1',          
@@ -118,6 +119,13 @@ export default {
     },
     methods: {
         getData() {
+          //库存总量
+          StorageALLNumber().then((res) =>{
+             this.storageNumber=res;
+            });
+
+
+
         const dataline= botlineList().then((res)=>{
                 // this.tableData=res.data
                  console.log(this.tableData)
