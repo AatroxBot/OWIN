@@ -1,13 +1,14 @@
 import request from '@/utils/request'
 
-export const getDomainList = () => {
+export const getDomainList = (data) => {
     return request({
         url: 'http://192.168.1.51:9000/api/order/saleOrder',
         //url: './table.json',
-        method: 'get',
+        method: 'post',
         xhrFields: {
             withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
         },
+        data:data,
         crossDomain: true,
     });
 
@@ -67,11 +68,12 @@ export const ProductionExecution = query=> {
     });
 
 };
-export const botlineList= () => {
+export const botlineList= (data) => {
     return request({
         url: 'http://192.168.1.51:9000/api/order/billNumber',
         //url:'./botlinedata.json',
-        method: 'get',
+        method: 'post',
+        data:data,
         xhrFields: {
             withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
         },
@@ -141,11 +143,12 @@ export const botpieNumber= () => {
 };
 
 
-export const ProductShipped= () => {
+export const ProductShipped= (data) => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/ProductShipped?dateTime=123',
+        url: 'http://192.168.1.51:9000/api/order/ProductShipped',
         //url: './userPermission.json',
-        method: 'get',
+        method: 'post',
+        data:data,
         xhrFields: {
             withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
         },
@@ -154,11 +157,12 @@ export const ProductShipped= () => {
 
 };
 
-export const ProductAllShip= () => {
+export const ProductAllShip= (data) => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/ProductAllShip?dateTime=123',
+        url: 'http://192.168.1.51:9000/api/order/ProductAllShip',
         //url: './userPermission.json',
-        method: 'get',
+        method: 'post',
+        data:data,
         xhrFields: {
             withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
         },

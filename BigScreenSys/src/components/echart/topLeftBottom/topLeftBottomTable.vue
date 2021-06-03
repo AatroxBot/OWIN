@@ -2,9 +2,10 @@
     <div class="table-data">
         <div class="table-picker">
             <el-date-picker
-            v-model="value1"
+            v-model="times"
             type="daterange"
             range-separator="-"
+            @change="dataSearch"
             start-placeholder="开始日期"
             end-placeholder="结束日期">
           </el-date-picker>
@@ -19,7 +20,8 @@ export default {
   data() {
     return {
       tableData: [],
-      value1: '',
+      times: [],
+      serviceTimeArgs:{'StartTime':'','EndTime':''},
       config: {
        // header: ["序列号", "订单号", "客户", "产品","发货数量","出库数量","日期"],
         data: [
@@ -41,9 +43,17 @@ export default {
       this.getData();
   },
   methods: {  
+    dataSearch() {
+      var startTime=this.times[0].toLocaleDateString();
+      var endTime=this.times[1].toLocaleDateString();
+     this.serviceTimeArgs.StartTime=startTime;
+     this.serviceTimeArgs.EndTime=endTime;
+     console.log(this.serviceTimeArgs);
+     this.getData();
+    },
      getData() {
            // console.log(11);
-            const res1=  getDomainList().then((res) => {
+            const res1=  getDomainList(this.serviceTimeArgs).then((res) => {
                 console.log('getDomainList');
                   console.log(res);
                   console.log('getDomainList');

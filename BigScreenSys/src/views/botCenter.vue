@@ -13,9 +13,10 @@
             </div>
             <div class="table-picker">
                 <el-date-picker
-                    v-model="value1"
+                    v-model="times"
                     type="daterange"
                     range-separator="-"
+                     @change="dataSearch"
                     start-placeholder="开始日期"
                     end-placeholder="结束日期">
                     </el-date-picker>
@@ -56,7 +57,8 @@ export default {
         return {
              tableData:[],
              storageNumber:0,
-             value1:'',
+             times: [],
+            serviceTimeArgs:{'StartTime':'','EndTime':''},
             //折线图配置属性改动
             tab1:'tab1',          
             linename1:'好易点营销中心',
@@ -118,6 +120,14 @@ export default {
          this.getData();
     },
     methods: {
+         dataSearch() {
+      var startTime=this.times[0].toLocaleDateString();
+      var endTime=this.times[1].toLocaleDateString();
+     this.serviceTimeArgs.StartTime=startTime;
+     this.serviceTimeArgs.EndTime=endTime;
+     console.log(this.serviceTimeArgs);
+     this.getData();
+    },
         getData() {
           //库存总量
           StorageALLNumber().then((res) =>{
@@ -126,7 +136,7 @@ export default {
 
 
 
-        const dataline= botlineList().then((res)=>{
+        botlineList(this.serviceTimeArgs).then((res)=>{
                 // this.tableData=res.data
                  console.log(this.tableData)
                  this.tableData = res.map(item=>{
@@ -142,7 +152,7 @@ export default {
                    }      
             });
 
-           ProductShipped().then((res)=>{
+           ProductShipped(this.serviceTimeArgs).then((res)=>{
                 console.log(res);
                 this.tableData=res.map(item=>{
                     const datapieobj={};
@@ -159,7 +169,7 @@ export default {
             });
 
 
-           ProductAllShip().then((res)=>{
+           ProductAllShip(this.serviceTimeArgs).then((res)=>{
 
 
                 //  this.tableData=res.map(item=>{
