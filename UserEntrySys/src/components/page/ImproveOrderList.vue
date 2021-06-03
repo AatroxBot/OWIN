@@ -64,9 +64,9 @@
                     <!-- <el-input v-model="form.Time" ></el-input> -->
                     <el-date-picker
                         v-model="form.Time"
-                        type="date"
+                        type="month"
                         placeholder="选择日期"
-                         value-format="yyyy/MM/dd" 
+                         value-format="yyyy/MM" 
                         >
                         </el-date-picker>
                 </el-form-item>

@@ -60,7 +60,7 @@ export default {
             itemHeight:8,
           },
           grid: {
-            left: "15%",
+            left: "20%",
             width: "80%",
             top:'28%',
             height:"53%",
@@ -95,9 +95,7 @@ export default {
               axisLabel: {
                 formatter: "{value} "
               },
-               min: 0,
-               max: 300,
-               splitNumber :3,
+              
             },
             
           ],

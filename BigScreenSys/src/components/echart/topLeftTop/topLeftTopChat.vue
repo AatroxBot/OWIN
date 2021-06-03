@@ -94,8 +94,6 @@ export default {
                                 color: "#012f4a" // 分割线颜色
                                 }
                         },
-                         min: 0,
-                         max: 800,
                     },
                    
                     series: [{

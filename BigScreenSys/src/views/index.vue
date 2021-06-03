@@ -5,19 +5,19 @@
         <dv-loading v-if="loading">Loading...</dv-loading>
         <div v-else class="host-body">
           <div class="d-flex jc-center">
-            <dv-decoration-10 style="width:33.3%;height:.0625rem;" />
+            <dv-decoration-10 style="width:30%;height:.0625rem;" />
             <div class="d-flex jc-center">
-              <dv-decoration-8 :color="['#568aea', '#000000']" style="width:2.5rem;height:.625rem;" />
+              <dv-decoration-8 :color="['#568aea', '#000000']" style="width:2rem;height:.625rem;" />
               <div class="title">
                 <span class="title-text">好易点数字化工厂战略指挥中心</span>
               </div>
               <dv-decoration-8
                 :reverse="true"
                 :color="['#568aea', '#000000']"
-                style="width:2.5rem;height:.625rem;"
+                style="width:2rem;height:.625rem;"
               />
             </div>
-            <dv-decoration-10 style="width:33.3%;height:.0625rem; transform: rotateY(180deg);" />
+            <dv-decoration-10 style="width:30%;height:.0625rem; transform: rotateY(180deg);" />
           </div>
 
           <!-- 第二行 -->

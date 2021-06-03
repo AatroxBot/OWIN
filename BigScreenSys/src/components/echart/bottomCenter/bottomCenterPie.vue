@@ -92,17 +92,22 @@ export default {
               },
           series: [
             {
-              name: "成品当天出库数",
+              name: "数量",
               type: "pie",
-              radius: [15, 70],
-              roseType: "area",
+              radius: [20, 70],
+              //roseType: "area",
+              avoidLabelOverlap: true,
+              itemStyle: {
+                borderRadius: 10,
+                borderColor: '#070a17',
+                borderWidth: 3
+              },
               center: ["45%", "55%"],
-              data: newData.seriesData,
               labelLine:{
                     length:'5',
                     length2:'5',
                 },
-              
+              data: newData.seriesData,              
             }
           ]
         }
