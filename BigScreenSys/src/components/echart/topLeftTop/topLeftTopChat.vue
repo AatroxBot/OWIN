@@ -58,9 +58,10 @@ export default {
                     },
                      grid: {
                         top: "12%",
-                        left: "1%",
+                        left: "0%",
                         right: "0%",
                         bottom:'3%',
+                        width:"93%",
                         show: true, // 显示边框
                         borderColor: "#012f4a", // 边框颜色
                         containLabel: true // 包含刻度文字在内
@@ -68,6 +69,10 @@ export default {
 					xAxis: {
                         type: 'category',
                         data: newData.data,
+                        inverse:true,
+                        position :{
+                            left:"5%",
+                        },
                         axisLabel: {
                             color: "#4c9bfd" // 文本颜色
                         },

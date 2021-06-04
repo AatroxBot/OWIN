@@ -64,10 +64,11 @@ export default {
             width: "80%",
             top:'28%',
             height:"53%",
-            right:"5%"
+            right:"0%"
           },
           xAxis: {
             data: newData.category,
+            inverse:true,
             axisLine: {
               lineStyle: {
                 color: "#0f2f5a"

@@ -68,6 +68,7 @@ export default {
           },
           xAxis: {
             data: newData.category,
+             inverse:true,
             axisLine: {
               lineStyle: {
                 color: "#0f2f5a"
