@@ -60,8 +60,8 @@ export default {
             itemHeight:8,
           },
           grid: {
-            left: "20%",
-            width: "80%",
+            left: "22%",
+            width: "78%",
             top:'28%',
             height:"53%",
             right:"0%"

@@ -148,6 +148,13 @@ export default {
 
           this.LoadLineData();
 
+        //给饼状图赋值当天日期
+        var date=new Date();
+       console.log(date.toLocaleDateString());
+       this.serviceTimeArgs.StartTime=date.toLocaleDateString();
+       this.serviceTimeArgs.EndTime=date.toLocaleDateString();
+
+
           this.LoadPieData();
 
         
