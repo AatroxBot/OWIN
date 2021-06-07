@@ -40,6 +40,9 @@ export default {
   watch: {
    pcdata: {
       handler (newData) {
+         
+
+
         this.options = {
            title: {
                 text: this.pieName,

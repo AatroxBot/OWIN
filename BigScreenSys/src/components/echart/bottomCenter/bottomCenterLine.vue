@@ -47,6 +47,13 @@ export default {
     watch: {
         linedatabot: {
           handler (newData) {
+                this.on('click', function (params) {
+                  alert(123);
+                  //TODO
+				    
+					});
+
+
                this.options={
                 tooltip: {              //设置tip提示
                     //    show: true,
