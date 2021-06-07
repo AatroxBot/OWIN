@@ -34,9 +34,11 @@
                 库存总量： <span>1111111</span>
             </div> -->
             <div class="d-flex">
-                 <bottomCenterLine :linedatabot="linedatabot" :id='tab1' :lineName='linename1'/>
-                  <!-- :botlinedata="botlinedata1" -->
+                  <topLeftTopChatDemo @handleChange="changeTime" />
             </div>
+            <!-- <div class="d-flex">
+                 <bottomCenterLine :linedatabot="linedatabot" :id='tab1' :lineName='linename1'/>
+            </div> -->
             <div class="d-flex">
                 <bottomCenterPie :pcdata="pcdata" :id='pie1' :pieName='piename1'/>
                 <topLeftBottomBar :cdata="cdata"/>
@@ -47,9 +49,11 @@
     </div>
 </template>
 <script>
-import bottomCenterLine from "./../components/echart/bottomCenter/bottomCenterLine";
+import topLeftTopChatDemo from "./../components/echart/topLeftTop/topLeftTopChatDemo";
+// import bottomCenterLine from "./../components/echart/bottomCenter/bottomCenterLine";
 import bottomCenterPie from './../components/echart/bottomCenter/bottomCenterPie.vue';
 import topLeftBottomBar from "./../components/echart/bottomCenter/topLeftBottomBar";
+
 import { StorageALLNumber,botlineList,ProductShipped,ProductAllShip } from './../api/index.js';
 // botlineList
 export default {
@@ -111,22 +115,30 @@ export default {
         }
     },
     components: {
-       bottomCenterLine,
+    //    bottomCenterLine,
        bottomCenterPie,
-       topLeftBottomBar
-       
+       topLeftBottomBar,
+       topLeftTopChatDemo,
     },
     created () {
          this.getData();
     },
     methods: {
+      changeTime(time){
+        
+   this.serviceTimeArgs.StartTime=time;
+    this.serviceTimeArgs.EndTime=time;
+    console.log(this.serviceTimeArgs);
+   this.LoadPieData();
+
+       },
          dataSearch() {
       var startTime=this.times[0].toLocaleDateString();
       var endTime=this.times[1].toLocaleDateString();
      this.serviceTimeArgs.StartTime=startTime;
      this.serviceTimeArgs.EndTime=endTime;
      console.log(this.serviceTimeArgs);
-     this.getData();
+     this.LoadLineData();
     },
         getData() {
           //库存总量
@@ -134,9 +146,14 @@ export default {
              this.storageNumber=res;
             });
 
+          this.LoadLineData();
 
+          this.LoadPieData();
 
-        botlineList(this.serviceTimeArgs).then((res)=>{
+        
+        },
+        LoadLineData(){
+          botlineList(this.serviceTimeArgs).then((res)=>{
                 // this.tableData=res.data
                  console.log(this.tableData)
                  this.tableData = res.map(item=>{
@@ -151,8 +168,9 @@ export default {
                        lineData:this.tableData
                    }      
             });
-
-           ProductShipped(this.serviceTimeArgs).then((res)=>{
+        },
+        LoadPieData(){
+       ProductShipped(this.serviceTimeArgs).then((res)=>{
                 console.log(res);
                 this.tableData=res.map(item=>{
                     const datapieobj={};
@@ -170,19 +188,6 @@ export default {
 
 
            ProductAllShip(this.serviceTimeArgs).then((res)=>{
-
-
-                //  this.tableData=res.map(item=>{
-                //     const datapieobj={};
-                //     datapieobj.value=item.ProductNum;
-                //     datapieobj.name=item.ProductName;
-                //     return datapieobj
-                // });
-
-
-
-
-
 
                 this.tableDatabar=res.map(item=>{                    
                    return item.ProductNum                
@@ -203,10 +208,12 @@ export default {
 
 
 
+        }, 
 
 
 
-        },
+
+
     }
 }
 </script>

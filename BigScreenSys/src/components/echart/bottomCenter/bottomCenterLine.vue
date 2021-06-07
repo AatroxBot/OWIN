@@ -5,7 +5,7 @@
             :options="options"
             :id="this.id"
             height="2.5rem"
-          
+         
             ></Echart>
     </div>
 </template>
@@ -15,7 +15,8 @@ export default {
    
     data(){
         return {
-             options: {},           
+             options: {},   
+                   
          }
     },
      components: {
@@ -47,12 +48,6 @@ export default {
     watch: {
         linedatabot: {
           handler (newData) {
-                this.on('click', function (params) {
-                  alert(123);
-                  //TODO
-				    
-					});
-
 
                this.options={
                 tooltip: {              //设置tip提示
