@@ -60,6 +60,9 @@ export default {
   },
   created () {
     this.getData();
+    // newdataList: function() {
+    //   return this.sortKey(this.dataList, "addtime");
+    // }
   },
   methods: {
     
@@ -67,15 +70,17 @@ export default {
            // console.log(11);
             const batdata= barList().then((res) =>{
               res.splice(res.findIndex(e => e.Time === '2018'), 1)
-             console.log(res);
-            
-                  this.tableDataNumber = res.map(item=>{
+              // this.tableData=res;
+                this.tableData=res.sort((a,b)=>{
+                  return new Date(a.Time) -new Date(b.Time)
+                });
+                this.tableData.reverse();
+                  this.tableDataNumber = this.tableData.map(item=>{
                      return item.Number
                    });
-                   this.tableDataTime = res.map(item=>{
+                   this.tableDataTime = this.tableData.map(item=>{
                      return item.Time
-                   });
-                  console.log(this.tableDataTime);
+                   });                
                    this.cdata={
                      category:this.tableDataTime,
                      lineData:this.tableDataNumber,
