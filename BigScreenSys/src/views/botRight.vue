@@ -259,7 +259,7 @@ export default {
   //  border:1px solid #df0000;
     background-image: radial-gradient(circle,rgba(96,84,72,0) 20%, rgba(96,84,72,0.5),rgba(96,84,72, 1));
     position:absolute;
-    top:60%;
+    top:55%;
     left: 50%;
     transform: translate(-50%,-50%);
 
@@ -273,12 +273,12 @@ export default {
 .say-one{
      background-image: radial-gradient(circle,rgba(87,63,152,0) 20%, rgba(87,63,152,0.5),rgba(87,63,152, 1));
     top:15%;
-    left: 0%;
+    left: 5%;
     transform: translate(-5%,-0%);
 }
 .say-two{
     background-image: radial-gradient(circle,rgba(161,30,121,0) 20%, rgba(161,30,121,0.5),rgba(120, 53,100, 1));
-    top:15%;
+    top:12%;
     left: 27%;
     transform: translate(-5%,-30%);
 }
@@ -302,7 +302,7 @@ export default {
 }
 .say-six{
     background-image: radial-gradient(circle,rgba(136,6,130,0) 20%, rgba(136,6,130,0.5),rgba(136,6,130, 1));
-    top:90%;
+    top:85%;
     left:40%;
     transform: translate(-35%,-20%);
 }
