@@ -97,7 +97,7 @@ export default {
             {
               name: "数量",
               type: "pie",
-              radius: [20, 70],
+              radius: [20, 65],
               //roseType: "area",
               avoidLabelOverlap: true,
               itemStyle: {
@@ -105,7 +105,7 @@ export default {
                 borderColor: '#070a17',
                 borderWidth: 3
               },
-              center: ["45%", "55%"],
+              center: ["45%", "58%"],
               labelLine:{
                     length:'5',
                     length2:'5',

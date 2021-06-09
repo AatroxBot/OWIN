@@ -198,7 +198,7 @@ export default {
      padding: 0.1rem 0.2rem;
      min-width: 3.75rem;
      width:100%;
-     min-height: 2.75rem;
+     min-height: 2.5rem;
      //background: #df0000;
   }
 </style>

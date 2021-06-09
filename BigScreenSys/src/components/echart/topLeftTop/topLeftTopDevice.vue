@@ -247,6 +247,6 @@ export default {
 <style scoped>
 .device{
     width: 100%;
-    height: 1.5rem;
+    height: 1.75rem;
 }
 </style>

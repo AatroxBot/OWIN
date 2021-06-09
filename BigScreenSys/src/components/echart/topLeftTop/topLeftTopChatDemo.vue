@@ -1,5 +1,5 @@
 <template>
-    <div id="chartLineBox" style="height:3rem;width:3.25rem;flex:1"></div>
+    <div id="chartLineBox" style="height:2.4rem;width:3.25rem;flex:1"></div>
 </template>
 <script>
 import echarts from 'echarts'

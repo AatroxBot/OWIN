@@ -250,7 +250,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 #topLeftTop {
-  padding: 0.1rem 0.2rem;
+  padding: 0.1rem 0.2rem 0.2rem;
   //  height: 3.75rem;
   min-width: 3.75rem;
   //   background: red;
