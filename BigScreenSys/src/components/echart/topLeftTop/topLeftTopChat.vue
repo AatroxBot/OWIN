@@ -105,7 +105,7 @@ export default {
                         data:newData.lineData,
                         type: 'line',
                         smooth: true,
-                        name:'收入',
+                        name:'订单数',
                         lineStyle:{
                             color:'#c23531'
                         },
