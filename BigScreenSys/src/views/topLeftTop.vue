@@ -37,7 +37,7 @@
             <div class="bar-main">
               <div class="Bar">
                 <div :style="{'width':width+'%'}">
-                  <span>{{ this.tableDataNumber.PercentComplet }}%</span>
+                  <span>{{ this.tableCompletDataNumber.PercentComplet }}%</span>
                 </div>
               </div>
               <div class="bar-number">
@@ -65,7 +65,7 @@ import topLeftTopChat from "./../components/echart/topLeftTop/topLeftTopChat";
 // import bottomCenterLine from "./../components/echart/bottomCenter/bottomCenterLine";
 import topLeftTopDevice from "./../components/echart/topLeftTop/topLeftTopDevice";
 // import topLeftTopRate from "./../components/echart/topLeftTop/topLeftTopRate";
-import { topsaleList, topSaleNumber } from "./../api/index.js";
+import { topsaleList, topSaleNumber,orderDateNumber } from "./../api/index.js";
 export default {
   data() {
     return {
@@ -74,6 +74,7 @@ export default {
       //数据
       tableData: [],
       tableDataNumber: [],
+      tableCompletDataNumber: [],
       linedatabot: {
         data: [],
         lineData: [],
@@ -157,30 +158,32 @@ export default {
       //  });
     
       const dataSource = topsaleList().then((res) => {
-        //  this.tableData=res.data
-        this.tableData = res.map((item) => {
+         this.tableData = res.map((item) => {
           return item.Number;
         });
         this.tableDataTime = res.map((item) => {
           return item.Time.substring(0,7);
         });
-        // console.log(this.tableData)
+        
         this.linedatabot = {
           data: this.tableDataTime,
           lineData: this.tableData,
         };
       });
-      const dataNumber = topSaleNumber().then((res) => {
+       const Complet = topSaleNumber().then((res) => {
+          this.tableCompletDataNumber = res;
+         (this.width=this.tableCompletDataNumber.PercentComplet);
+       });
+      const dataNumber = orderDateNumber().then((res) => {
         // this.tableDataNumber=res
         this.tableDataNumber = res;
         // console.log(this.tableDataNumber)
-        // this.width=res.PercentComplet
-        (this.width=this.tableDataNumber.PercentComplet),
+        // this.width=res.PercentComplet     
         (this.titleItem = [
           {
-            title: "销售收入",
+            title: "本年订单数",
             number: {
-              number: [this.tableDataNumber.SaleRevenue],
+              number: [this.tableDataNumber.YearOrderNumber],
               toFixed: 0,
               content: "{nt}",
               style: {
@@ -189,9 +192,9 @@ export default {
             },
           },
           {
-            title: "销售数量",
+            title: "本月订单数",
             number: {
-              number: [this.tableDataNumber.SaleNumber],
+              number: [this.tableDataNumber.MouthOrderNumber],
               toFixed: 0,
               content: "{nt}",
               style: {
@@ -200,9 +203,9 @@ export default {
             },
           },
           {
-            title: "生产成本",
+            title: "本年发货数",
             number: {
-              number: [this.tableDataNumber.ProductCost],
+              number: [this.tableDataNumber.YearOutNumber],
               toFixed: 0,
               content: "{nt}",
               style: {
@@ -211,9 +214,9 @@ export default {
             },
           },
           {
-            title: "公司费用",
+            title: "本月发货数",
             number: {
-              number: [this.tableDataNumber.CompanyExpenses],
+              number: [this.tableDataNumber.MouthOutNumber],
               toFixed: 0,
               content: "{nt}",
               style: {
@@ -222,9 +225,9 @@ export default {
             },
           },
           {
-            title: "公司利润",
+            title: "待发货数",
             number: {
-              number: [this.tableDataNumber.CompanyProfit],
+              number: [this.tableDataNumber.WaitOutNumber],
               toFixed: 0,
               content: "{nt}",
               style: {

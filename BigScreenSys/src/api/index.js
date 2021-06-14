@@ -83,8 +83,8 @@ export const botlineList= (data) => {
 };
 export const topsaleList= () => {
     return request({
-       url: 'http://192.168.1.51:9000/api/order/QuerySaleStatus',
-       // url: './topsale.json',
+      // url: 'http://192.168.68.181:9000/api/order/QuerySaleStatus',
+        url: './topsale.json',
         method: 'get',
         xhrFields: {
             withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
@@ -95,7 +95,7 @@ export const topsaleList= () => {
 };
 export const topSaleNumber= () => {
     return request({
-        url: 'http://192.168.1.51:9000/api/order/GetSaleData',
+        url: 'http://192.168.68.181:9000/api/order/GetSaleData',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -105,6 +105,20 @@ export const topSaleNumber= () => {
     });
 
 };
+export const orderDateNumber= () => {
+    return request({
+       // url: 'http://192.168.68.181:9000/api/order/GetSaleData',
+        url: './orderDate.json',
+        method: 'get',
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+
+};
+
+
 export const WorkNumberList= () => {
     return request({
         url: 'http://192.168.1.51:9000/api/order/WorkOrderNumberDto',
