@@ -442,9 +442,9 @@ export default {
       var code3 = 17721;
       var code4 = 17723;
 
-
-
-Promise.all([ProductionExecution(code1),  ProductionExecution(code3), ProductionExecution(code3),ProductionExecution(code4)])
+ //金工17720 装配17722 喷漆17721  包装17723
+//包装车间取装配车间数量
+Promise.all([ProductionExecution(code1),  ProductionExecution(code3), ProductionExecution(code2),ProductionExecution(code4)])
 .then((res) => {
   
 console.log('promise');
@@ -513,9 +513,15 @@ res[3].ProductionExecution.forEach(element => {
   {
      this.options3.series[0].data[0].value =
           element.Number;
-          var difNumber=Math.ceil(Math.random()*element.Number/10);
+  }
+});
+//完工数量
+res[3].ProductionComplete.forEach(element => {
+  var serverTime=element.Year+"/"+element.Mouth
+  if(time1 == serverTime )
+  {
         this.options3.series[1].data[0].value =
-          element.Number-difNumber;
+          element.Number;
   }
 });
 
