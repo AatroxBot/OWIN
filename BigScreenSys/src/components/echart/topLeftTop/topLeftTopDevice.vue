@@ -26,7 +26,7 @@ export default {
                             fill: '#d3d6dd',
                             fontSize:12,
                         },
-                         offset:[0,35]
+                         offset:[0,50]
                         //show: false
                     },
                     series: [
@@ -77,7 +77,7 @@ export default {
                             fill: '#d3d6dd',
                             fontSize:12,
                         },
-                         offset:[0,35]
+                         offset:[0,50]
                        // show: false
                     },
                     series: [
@@ -195,7 +195,7 @@ export default {
                             fontSize:12,
 
                         },
-                        offset:[0,35]
+                        offset:[0,50]
                        // show: false
                     },
                      series: [
@@ -248,6 +248,6 @@ export default {
 <style scoped>
 .device{
     width: 100%;
-    height: 1.75rem;
+    height: 1.95rem;
 }
 </style>
