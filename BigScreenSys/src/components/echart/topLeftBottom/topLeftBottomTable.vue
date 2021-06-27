@@ -69,7 +69,7 @@ export default {
                       oddRowBGC: "#0f1325", //奇数行
                       evenRowBGC: "#171c33", //偶数行
                       // index: true,
-                      columnWidth: ['50','90','90','70','80','70'],
+                      columnWidth: ['50','110','90','80','70','70'],
                       align: ["center"],
                   } ;
               });

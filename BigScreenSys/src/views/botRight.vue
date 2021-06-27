@@ -37,7 +37,7 @@
             <div class="d-flex">
                 <div class="say">
                   <div class="say-circle"><p>本月新增</p><h5>{{this.tableData.NewAddNumber}}</h5></div>
-                   <div class="say-circle say-one"><p>今日已购</p><h5>{{this.tableData.BuyNumber}}</h5></div>
+                   <div class="say-circle say-one"><p>今日已约</p><h5>{{this.tableData.BuyNumber}}</h5></div>
                    <div class="say-circle say-two"><p>服务商</p><h5>{{this.tableData.ServiceNumber}}</h5></div>
                    <div class="say-circle say-three"><p>本月完工</p><h5>{{this.tableData.FinishNumber}}</h5></div>
                    <div class="say-circle say-four"><p>今日工单</p><h5>{{this.tableData.TodayNumber}}</h5></div>
