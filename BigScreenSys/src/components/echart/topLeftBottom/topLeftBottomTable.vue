@@ -61,7 +61,7 @@ export default {
                      return [item.SerialNum,item.OrderNo,item.CustomerName,item.OrderNum,item.ShipmemntNum,item.OutStockNum,item.OrderTime]
                    });
                   this.config= { 
-                      header: ["序号", "订单号", "客户","订单数量", "拣配量","出库量","日期"],
+                      header: ["序号", "订单号", "编码","订单数量", "拣配量","出库量","日期"],
                       data: this.tableData ,
                       rowNum: 3, //表格行数
                       headerHeight: 35,

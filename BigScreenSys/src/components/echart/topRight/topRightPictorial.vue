@@ -4,7 +4,8 @@
       <topRightTime @handleChange="changeTime"></topRightTime>
     </div>
     <div class="pictionial-flex">
-      <div class="pictionial-data">
+      <div class="pictionial-data" style="position: relative">
+        <span style="position: absolute; top:0.1rem;right:0.25rem">单位（pcs）</span>
         <Echart
           :options="options"
           :id="1"
@@ -12,7 +13,8 @@
           width="100%"
         ></Echart>
       </div>
-      <div class="pictionial-data">
+      <div class="pictionial-data"  style="position: relative">
+        <span style="position: absolute; top:0.1rem;right:0.25rem">单位（pcs）</span>
         <Echart
           :options="options1"
           :id="2"
@@ -22,7 +24,8 @@
       </div>
     </div>
     <div class="pictionial-flex">
-      <div class="pictionial-data">
+      <div class="pictionial-data" style="position: relative">
+        <span style="position: absolute; top:0.1rem;right:0.25rem">单位（台）</span>
         <Echart
           :options="options2"
           :id="3"
@@ -30,7 +33,8 @@
           width="100%"
         ></Echart>
       </div>
-      <div class="pictionial-data">
+      <div class="pictionial-data" style="position: relative">
+        <span style="position: absolute; top:0.1rem;right:0.25rem">单位（台）</span>
         <Echart
           :options="options3"
           :id="4"
@@ -114,7 +118,7 @@ export default {
     getData() {
       (this.options = {
         title: {
-          text: "金工（晾衣架）生产执行情况",
+          text: "金工（晾衣机）生产执行情况",
           textStyle: {
             color: "#d3d6dd",
             fontSize:14,
@@ -195,7 +199,7 @@ export default {
       }),
         (this.options1 = {
           title: {
-            text: "喷漆（晾衣架）生产执行情况",
+            text: "喷漆（晾衣机）生产执行情况",
             textStyle: {
               color: "#d3d6dd",
               fontSize:14,
@@ -276,7 +280,7 @@ export default {
         }),
         (this.options2 = {
           title: {
-            text: "装配（晾衣架）生产执行情况",
+            text: "装配（晾衣机）生产执行情况",
             textStyle: {
               color: "#d3d6dd",
               fontSize:14,
@@ -357,7 +361,7 @@ export default {
         }),
         (this.options3 = {
           title: {
-            text: "包装（晾衣架）生产执行情况",
+            text: "包装（晾衣机）生产执行情况",
             textStyle: {
               color: "#d3d6dd",
               fontSize:14
@@ -559,7 +563,7 @@ res[3].ProductionComplete.forEach(element => {
   display: flex;
   position: relative;
 }
-.main{position: absolute; top:-0.1rem; right:0rem;z-index: 999;}
+.main{position: absolute; top:-0.5rem; right:-0.2rem;z-index: 999;}
 .pictionial-flex {
   flex: 1;
   flex-direction: row-reverse;

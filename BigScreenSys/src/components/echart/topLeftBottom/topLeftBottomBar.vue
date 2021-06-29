@@ -1,5 +1,6 @@
 <template>
-    <div style="width:100%">
+    <div style="width:100%;position: relative">
+        <span style="position: absolute; top:0.25rem;right:0rem">单位（台）</span>
           <!-- <dv-charts :option="option" /> -->
           <Echart
             :options="options"
@@ -7,6 +8,7 @@
             height="4rem"
           
             ></Echart>
+          
     </div>
 </template>
 <script>
@@ -49,16 +51,16 @@ export default {
               }
             }
           },
-          legend: {
-            data: ["发货数量","数量"],
-            textStyle: {
-              color: "#B4B4B4"
-            },
-            top: "5%",
-            right:"5%",
-            itemWidth:8,
-            itemHeight:8,
-          },
+          // legend: {
+          //   data: ["发货数量","数量"],
+          //   textStyle: {
+          //     color: "#B4B4B4"
+          //   },
+          //   top: "5%",
+          //   right:"5%",
+          //   itemWidth:8,
+          //   itemHeight:8,
+          // },
           grid: {
             x: "0%",
             width: "92%",

@@ -62,16 +62,16 @@ export default {
                                     }
                                 }
                         },
-                        title: {
-                        text: "好易点营销中心",
-                        textStyle: {
-                            color: '#d3d6dd',
-                            fontSize:12,
+                    //     title: {
+                    //     text: "好易点营销中心",
+                    //     textStyle: {
+                    //         color: '#d3d6dd',
+                    //         fontSize:12,
 
-                        },
-                        top:"-2%"
-                       // show: false
-                    },
+                    //     },
+                    //     top:"-2%"
+                    //    // show: false
+                    // },
                       legend: {
                            data: ['出库'],
                            textStyle: {

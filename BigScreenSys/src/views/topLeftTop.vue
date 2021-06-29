@@ -1,14 +1,14 @@
 <template>
   <div id="topLeftTop">
     <div>
-      <div class="d-flex pt-2 pl-2">
+      <div class="d-flex pt-2 pl-2"  style="position: relative;">
         <span style="color: #5cd9e8">
           <icon name="chart-line"></icon>
         </span>
         <div class="d-flex">
-          <span class="text mx-2">销售趋势</span>
-          <!-- <dv-decoration-3 style="width:1.25rem;height:.25rem; position:relative;top:-.0375rem;" /> -->
+          <span class="text mx-2">销售趋势1</span>         
         </div>
+        <span style="position: absolute; top:0.1rem;right:0.1rem">单位（台）</span>
       </div>
       <div class="d-flex">
         <topLeftTopChat :linedatabot="linedatabot" />

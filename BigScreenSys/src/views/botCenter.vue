@@ -1,7 +1,7 @@
 <template>
     <div id="botCenter">
         <div style="position:relative"  class="table-data">
-            <div class="d-flex pt-2 pl-2">
+            <div class="d-flex pt-2 pl-2"   style="position: relative;">
                 <span style="color:#5cd9e8">
                      <icon name="chart-line"></icon>
                 </span>
@@ -9,7 +9,7 @@
                     <span class="text mx-2">发货与库存分析</span>
                     <!-- <dv-decoration-3 style="width:1.25rem;height:.25rem; position:relative;top:-.0375rem;" /> -->
                 </div>
-              
+               <!-- <span style="position: absolute; top:0.15rem;right:-0.2rem">单位（台）</span> -->
             </div>
             <div class="table-picker">
                 <el-date-picker
@@ -33,7 +33,8 @@
             <!-- <div>
                 库存总量： <span>1111111</span>
             </div> -->
-            <div class="d-flex">
+            <div class="d-flex" style="position: relative;">
+                 <span style="position: absolute; top:0rem;left:0.5rem">单位（台）</span>
                   <topLeftTopChatDemo @handleChange="changeTime" />
             </div>
             <!-- <div class="d-flex">
