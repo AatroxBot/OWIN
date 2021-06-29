@@ -63,7 +63,7 @@
                  <el-form-item label="本月新增">
                     <el-input v-model="form.NewAddNumber" ></el-input>
                 </el-form-item>
-                <el-form-item label="今日已购">
+                <el-form-item label="今日已约">
                     <el-input v-model="form.BuyNumber" ></el-input>
                 </el-form-item>
                 <el-form-item label="服务商">

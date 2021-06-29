@@ -11,7 +11,7 @@
                
             >
                 <!-- <el-table-column type="selection" width="55" align="center"></el-table-column> -->
-                <el-table-column prop="SaleRevenue" label="销售收入" >
+                <!-- <el-table-column prop="SaleRevenue" label="销售收入" >
                     <template slot-scope="scope">{{scope.row.SaleRevenue}}</template>
                 </el-table-column>
                 <el-table-column prop="SaleNumber" label="销售数量">
@@ -25,7 +25,7 @@
                 </el-table-column>
                  <el-table-column prop="CompanyProfit" label="公司利润">
                      <template slot-scope="scope">{{scope.row.CompanyProfit}}</template>
-                </el-table-column>
+                </el-table-column> -->
                  <el-table-column prop="PercentComplet" label="营销业绩完成进度">
                      <template slot-scope="scope">{{scope.row.PercentComplet}}</template>
                 </el-table-column>
@@ -38,9 +38,9 @@
                  <el-table-column prop="PercentThree" label="邦先生">
                      <template slot-scope="scope">{{scope.row.PercentThree}}</template>
                 </el-table-column>
-                 <el-table-column prop="PercentFour" label="杭州邦先生">
+                 <!-- <el-table-column prop="PercentFour" label="杭州邦先生">
                      <template slot-scope="scope">{{scope.row.PercentFour}}</template>
-                </el-table-column>
+                </el-table-column> -->
                 <el-table-column label="操作" width="" align="center">
                     <template slot-scope="scope">
                         <el-button  type="text"  @click="handleEdit(scope.$index,scope.row)">编辑</el-button> 
@@ -54,7 +54,7 @@
         </div>
         <el-dialog :title="title" :visible.sync="editVisible" width="40%">
             <el-form ref="form" :model="form" label-width="80px" :disabled="disabled">
-                <el-form-item label="销售收入">
+                <!-- <el-form-item label="销售收入">
                     <el-input v-model="form.SaleRevenue" ></el-input>
                 </el-form-item>
                 <el-form-item label="销售数量">
@@ -68,7 +68,7 @@
                 </el-form-item>
                 <el-form-item label="公司利润">
                     <el-input v-model="form.CompanyProfit" ></el-input>
-                </el-form-item>
+                </el-form-item> -->
                 <el-form-item label="营销业绩进度">
                     <el-input v-model="form.PercentComplet" ></el-input>
                 </el-form-item>
@@ -81,9 +81,9 @@
                 <el-form-item label="邦先生">
                     <el-input v-model="form.PercentThree" ></el-input>
                 </el-form-item>
-                 <el-form-item label="杭州邦先生">
+                 <!-- <el-form-item label="杭州邦先生">
                     <el-input v-model="form.PercentFour" ></el-input>
-                </el-form-item>
+                </el-form-item> -->
             </el-form>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="editVisible=false">取 消</el-button>

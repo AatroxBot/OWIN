@@ -7,7 +7,7 @@
                 </el-breadcrumb-item>
             </el-breadcrumb>
         </div>
-        <div class="container">
+        <!-- <div class="container">
             <p class="pstyle">折线图数据</p>
             <div class="handle-box">
                 <el-row :gutter="20">
@@ -28,7 +28,6 @@
                 class="table"
                 ref="multipleTable"
                 header-cell-class-name="table-header"
-               
             >
                 <el-table-column type="selection" width="55" align="center"></el-table-column>
                 <el-table-column prop="Number" label="数量" >
@@ -40,24 +39,14 @@
                 
                 <el-table-column label="操作" width="" align="center">
                     <template slot-scope="scope">
-                        <!-- <el-button  type="text"  @click="handleEdit(scope.index,scope.row)">编辑</el-button> -->
+                       
                         <el-button type="text" icon="el-icon-delete" class="red"
                          @click="handleDelete(scope.$index, scope.row)" >删除</el-button>
                         
                     </template>
                 </el-table-column>
             </el-table>
-            <!-- <div class="pagination">
-                <el-pagination
-                    background
-                    layout="total, prev, pager, next"
-                    :current-page="query.pageIndex"
-                    :page-size="query.pageSize"
-                    :total="pageTotal"
-                    @current-change="handlePageChange"
-                ></el-pagination>
-            </div> -->
-        </div>
+        </div> -->
         <MarketNumber/>
       
         <div class="container">
