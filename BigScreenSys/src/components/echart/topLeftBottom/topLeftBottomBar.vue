@@ -41,7 +41,7 @@ export default {
             top:"5%"
           },
           tooltip: {
-            trigger: "axis",//坐标轴触发
+            trigger: "item",//坐标轴触发
             backgroundColor: "rgba(255,255,255,0.1)",//鼠标放上去之后背景颜色
             axisPointer: {
               type: "shadow",//阴影指示器
@@ -147,7 +147,7 @@ export default {
             //   data: newData.barData
             // },
             {
-              name: "发货数量",
+              name: "订单总量",
               type: "bar",
               // barGap: "-100%",
               barWidth: 10,//柱条的宽度，不设时自适应。
@@ -165,7 +165,7 @@ export default {
               data: newData.lineData
             },
             {
-              name: "数量",
+              name: "订单总量",
               type: "line",
               smooth: true,
               showAllSymbol: true,

@@ -118,7 +118,7 @@ export default {
     getData() {
       (this.options = {
         title: {
-          text: "金工（晾衣机）生产执行情况",
+          text: "金工车间（晾衣机）生产执行情况",
           textStyle: {
             color: "#d3d6dd",
             fontSize:14,
@@ -199,7 +199,7 @@ export default {
       }),
         (this.options1 = {
           title: {
-            text: "喷漆（晾衣机）生产执行情况",
+            text: "喷漆车间（晾衣机）生产执行情况",
             textStyle: {
               color: "#d3d6dd",
               fontSize:14,
@@ -280,7 +280,7 @@ export default {
         }),
         (this.options2 = {
           title: {
-            text: "装配（晾衣机）生产执行情况",
+            text: "装配车间（晾衣机）生产执行情况",
             textStyle: {
               color: "#d3d6dd",
               fontSize:14,
@@ -361,7 +361,7 @@ export default {
         }),
         (this.options3 = {
           title: {
-            text: "包装（晾衣机）生产执行情况",
+            text: "包装车间（晾衣机）生产执行情况",
             textStyle: {
               color: "#d3d6dd",
               fontSize:14
