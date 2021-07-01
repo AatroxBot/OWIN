@@ -11,19 +11,19 @@
                
             >
                 <!-- <el-table-column type="selection" width="55" align="center"></el-table-column> -->
-                <!-- <el-table-column prop="SaleRevenue" label="销售收入" >
+                <el-table-column prop="SaleRevenue" label="本年订单数" >
                     <template slot-scope="scope">{{scope.row.SaleRevenue}}</template>
                 </el-table-column>
-                <el-table-column prop="SaleNumber" label="销售数量">
+                <el-table-column prop="SaleNumber" label="本月订单数">
                      <template slot-scope="scope">{{scope.row.SaleNumber}}</template>
                 </el-table-column>
-                 <el-table-column prop="ProductCost" label="生产成本">
+                 <el-table-column prop="ProductCost" label="本年发货数">
                      <template slot-scope="scope">{{scope.row.ProductCost}}</template>
                 </el-table-column>
-                 <el-table-column prop="CompanyExpenses" label="公司费用">
+                 <el-table-column prop="CompanyExpenses" label="本月发货数">
                      <template slot-scope="scope">{{scope.row.CompanyExpenses}}</template>
                 </el-table-column>
-                 <el-table-column prop="CompanyProfit" label="公司利润">
+                 <!-- <el-table-column prop="CompanyProfit" label="公司利润">
                      <template slot-scope="scope">{{scope.row.CompanyProfit}}</template>
                 </el-table-column> -->
                  <el-table-column prop="PercentComplet" label="营销业绩完成进度">
@@ -54,19 +54,19 @@
         </div>
         <el-dialog :title="title" :visible.sync="editVisible" width="40%">
             <el-form ref="form" :model="form" label-width="80px" :disabled="disabled">
-                <!-- <el-form-item label="销售收入">
+                <el-form-item label="本年订单数">
                     <el-input v-model="form.SaleRevenue" ></el-input>
                 </el-form-item>
-                <el-form-item label="销售数量">
+                <el-form-item label="本月订单数">
                     <el-input v-model="form.SaleNumber" ></el-input>
                 </el-form-item>
-                 <el-form-item label="生产成本">
+                 <el-form-item label="本年发货数">
                     <el-input v-model="form.ProductCost" ></el-input>
                 </el-form-item>
-                <el-form-item label="公司费用">
+                <el-form-item label="本月发货数">
                     <el-input v-model="form.CompanyExpenses" ></el-input>
                 </el-form-item>
-                <el-form-item label="公司利润">
+                <!-- <el-form-item label="公司利润">
                     <el-input v-model="form.CompanyProfit" ></el-input>
                 </el-form-item> -->
                 <el-form-item label="营销业绩进度">
