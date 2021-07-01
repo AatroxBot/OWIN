@@ -6,7 +6,7 @@
           <icon name="chart-line"></icon>
         </span>
         <div class="d-flex">
-          <span class="text mx-2">销售趋势1</span>         
+          <span class="text mx-2">销售趋势</span>         
         </div>
         <span style="position: absolute; top:0.1rem;right:0.1rem">单位（台）</span>
       </div>
@@ -170,20 +170,36 @@ export default {
           lineData: this.tableData,
         };
       });
-       const Complet = topSaleNumber().then((res) => {
-          this.tableCompletDataNumber = res;
-         (this.width=this.tableCompletDataNumber.PercentComplet);
-       });
-      const dataNumber = orderDateNumber().then((res) => {
-        // this.tableDataNumber=res
-        this.tableDataNumber = res;
-        // console.log(this.tableDataNumber)
-        // this.width=res.PercentComplet     
-        (this.titleItem = [
+
+
+Promise.all([topSaleNumber(),orderDateNumber()]).then((res)=>{
+
+console.log('promiseFirst');
+console.log(res[0]);
+console.log(res[1]);
+console.log('promiseFirstEnd');
+
+  this.tableCompletDataNumber = res[0];
+ this.tableDataNumber = res[1];
+
+(this.width=this.tableCompletDataNumber.PercentComplet);
+
+var YearOrder=this.tableCompletDataNumber.SaleRevenue;
+var MonthOrder=this.tableCompletDataNumber.SaleNumber;
+var YearOut=this.tableCompletDataNumber.ProductCost;
+var MonthOut=this.tableCompletDataNumber.CompanyExpenses;
+
+console.log(YearOrder);
+console.log(MonthOrder);
+console.log(YearOut);
+console.log(MonthOut);
+
+
+   (this.titleItem = [
           {
             title: "本年订单数",
             number: {
-              number: [this.tableDataNumber.YearOrderNumber],
+              number: [this.tableDataNumber.YearOrderNumber+YearOrder],
               toFixed: 0,
               content: "{nt}",
               style: {
@@ -194,7 +210,7 @@ export default {
           {
             title: "本月订单数",
             number: {
-              number: [this.tableDataNumber.MouthOrderNumber],
+              number: [this.tableDataNumber.MouthOrderNumber+MonthOrder],
               toFixed: 0,
               content: "{nt}",
               style: {
@@ -205,7 +221,7 @@ export default {
           {
             title: "本年发货数",
             number: {
-              number: [this.tableDataNumber.YearOutNumber],
+              number: [this.tableDataNumber.YearOutNumber+YearOut],
               toFixed: 0,
               content: "{nt}",
               style: {
@@ -216,7 +232,7 @@ export default {
           {
             title: "本月发货数",
             number: {
-              number: [this.tableDataNumber.MouthOutNumber],
+              number: [this.tableDataNumber.MouthOutNumber+MonthOut],
               toFixed: 0,
               content: "{nt}",
               style: {
@@ -227,7 +243,7 @@ export default {
           {
             title: "待发货数",
             number: {
-              number: [this.tableDataNumber.WaitOutNumber],
+              number: [this.tableDataNumber.WaitOutNumber+YearOrder-YearOut],
               toFixed: 0,
               content: "{nt}",
               style: {
@@ -236,17 +252,82 @@ export default {
             },
           },
         ])
-        // ,
-        //   (this.config = {
-        //     data: [
-        //       {
-        //         name: "营销业绩完成进度",
-        //         value: this.tableDataNumber.PercentComplet,
-        //       },
-        //     ],
-        //     showValue: true,
-        //   });
-      });
+
+
+
+});
+
+
+
+      // topSaleNumber().then((res) => {
+      //     this.tableCompletDataNumber = res;
+      //    (this.width=this.tableCompletDataNumber.PercentComplet);
+      //  });
+
+
+
+
+      //  orderDateNumber().then((res) => {
+      //   this.tableDataNumber = res;
+      //   (this.titleItem = [
+      //     {
+      //       title: "本年订单数",
+      //       number: {
+      //         number: [this.tableDataNumber.YearOrderNumber],
+      //         toFixed: 0,
+      //         content: "{nt}",
+      //         style: {
+      //           fontSize: 18,
+      //         },
+      //       },
+      //     },
+      //     {
+      //       title: "本月订单数",
+      //       number: {
+      //         number: [this.tableDataNumber.MouthOrderNumber],
+      //         toFixed: 0,
+      //         content: "{nt}",
+      //         style: {
+      //           fontSize: 18,
+      //         },
+      //       },
+      //     },
+      //     {
+      //       title: "本年发货数",
+      //       number: {
+      //         number: [this.tableDataNumber.YearOutNumber],
+      //         toFixed: 0,
+      //         content: "{nt}",
+      //         style: {
+      //           fontSize: 18,
+      //         },
+      //       },
+      //     },
+      //     {
+      //       title: "本月发货数",
+      //       number: {
+      //         number: [this.tableDataNumber.MouthOutNumber],
+      //         toFixed: 0,
+      //         content: "{nt}",
+      //         style: {
+      //           fontSize: 18,
+      //         },
+      //       },
+      //     },
+      //     {
+      //       title: "待发货数",
+      //       number: {
+      //         number: [this.tableDataNumber.WaitOutNumber],
+      //         toFixed: 0,
+      //         content: "{nt}",
+      //         style: {
+      //           fontSize: 18,
+      //         },
+      //       },
+      //     },
+      //   ])
+        
+      // });
     },
   },
 };
