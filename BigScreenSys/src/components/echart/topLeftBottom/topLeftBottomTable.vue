@@ -61,7 +61,7 @@ export default {
                      return [item.SerialNum,item.OrderNo,item.CustomerName,item.OrderNum,item.ShipmemntNum,item.OutStockNum,item.OrderTime]
                    });
                   this.config= { 
-                      header: ["序号", "订单号", "客户代号","订单数量", "拣配量","出库量","日期"],
+                      header: ["序号", "订单号", "客户代号","订单数", "拣配量","出库量","日期"],
                       data: this.tableData ,
                       rowNum: 3, //表格行数
                       headerHeight: 35,
@@ -69,7 +69,7 @@ export default {
                       oddRowBGC: "#0f1325", //奇数行
                       evenRowBGC: "#171c33", //偶数行
                       // index: true,
-                      columnWidth: ['50','110','90','80','70','70'],
+                      columnWidth: ['50','105','105','70','70','70'],
                       align: ["center"],
                   } ;
               });
