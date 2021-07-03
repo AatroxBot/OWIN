@@ -113,6 +113,7 @@ export default {
           },
           yAxis: [
             {
+              minInterval: 1,
               splitLine: { 
                 show: true,
                 lineStyle:{
