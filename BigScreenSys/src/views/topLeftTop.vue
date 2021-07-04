@@ -151,34 +151,11 @@ export default {
   },
   methods: {
     getData() {
-      // topsaleList().then((res) => {
-      //    this.tableData = res.map((item) => {
-      //     return item.Number;
-      //   });
-      //   this.tableDataTime = res.map((item) => {
-      //     return item.Time.substring(0,7);
-      //   });
-        
-      //   this.linedatabot = {
-      //     data: this.tableDataTime,
-      //     lineData: this.tableData,
-      //   };
-      // });
-
-Promise.all([topsaleList(),topsaleListEntry()]).then((res)=>{
-
-console.log('promiseTopsaleList');
-console.log(res[0]);
-console.log(res[1]);
-console.log('promiseEnd');
-
-var  saleList = res[0];
-var  saleListEntry = res[1];
-
- this.tableData = saleList.map((item) => {
+      topsaleList().then((res) => {
+         this.tableData = res.map((item) => {
           return item.Number;
         });
-        this.tableDataTime = saleList.map((item) => {
+        this.tableDataTime = res.map((item) => {
           return item.Time.substring(0,7);
         });
         
@@ -186,8 +163,34 @@ var  saleListEntry = res[1];
           data: this.tableDataTime,
           lineData: this.tableData,
         };
+      });
 
-});
+// Promise.all([topsaleList(),topsaleListEntry()]).then((res)=>{
+
+// console.log('promiseTopsaleList');
+// console.log(res[0]);
+// console.log(res[1]);
+// console.log('promiseEnd');
+
+// var  saleList = res[0];
+// var  saleListEntry = res[1];
+
+
+
+
+//  this.tableData = saleList.map((item) => {
+//           return item.Number;
+//         });
+//         this.tableDataTime = saleList.map((item) => {
+//           return item.Time.substring(0,7);
+//         });
+        
+//         this.linedatabot = {
+//           data: this.tableDataTime,
+//           lineData: this.tableData,
+//         };
+
+// });
 
 
 Promise.all([topSaleNumber(),orderDateNumber()]).then((res)=>{
