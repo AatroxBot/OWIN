@@ -233,3 +233,41 @@ export const SetPreference = (data) => {
         crossDomain: true,
     });
 };
+//年度订单查询
+export const QuerySaleYear= () => {
+    return request({
+       url: 'http://192.168.1.51:9000/api/order/QuerySaleYear',
+       // url: './topsale.json',
+        method: 'get',
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+
+};
+//删除年度订单
+export const DelSaleYear = (data) => {
+    return request({
+        url: 'http://192.168.1.51:9000/api/order/DeleteSaleYear',
+        method: 'post',
+        data: data,
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+};
+
+//新增年度订单
+export const AddNoSaleYear = (data) => {
+    return request({
+        url: 'http://192.168.1.51:9000/api/order/AddSaleYear',
+        method: 'post',
+        data: data,
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+};

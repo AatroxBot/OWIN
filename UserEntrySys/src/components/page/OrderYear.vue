@@ -1,14 +1,7 @@
 <template>
     <div>
-        <div class="crumbs">
-            <el-breadcrumb separator="/">
-                <el-breadcrumb-item>
-                    <i class="el-icon-lx-cascades"></i>销售动态
-                </el-breadcrumb-item>
-            </el-breadcrumb>
-        </div>
         <div class="container">
-            <p class="pstyle">折线图数据</p>
+            <p class="pstyle">订单总量分布图</p>
             <div class="handle-box">
                 <el-row :gutter="20">
                     <el-col :span="2">
@@ -47,22 +40,6 @@
                 </el-table-column>
             </el-table>
         </div>
-        <MarketNumber/>
-       
-        <div class="container">
-            <p>生产总体数据</p>
-            <el-form ref="form" :model="form" label-width="280px" :disabled="disabled">
-                <el-form-item label="公司整体产能负荷" >
-                    <el-input v-model="percentValue" style="width:200px" onkeyup="this.value=this.value.replace(/\D/g,'')" >
-                     </el-input>%
-                </el-form-item>
-                <el-form-item>
-                    <el-button type="primary" @click="Submit" >提交</el-button>
-                </el-form-item>
-            </el-form>
-        </div>
-          <OrderYear/>
-
 
         <!-- 编辑弹出框 -->
         <el-dialog :title="title" :visible.sync="editVisible" width="40%">
@@ -76,9 +53,9 @@
                     </el-input> -->
                     <el-date-picker
                         v-model="form.Time"
-                        type="month"
+                        type="year"
                         placeholder="选择日期"
-                         value-format="yyyy/MM" 
+                         value-format="yyyy" 
                         >
                         </el-date-picker>
                 </el-form-item>
@@ -94,12 +71,10 @@
 </template>
 
 <script>
- import MarketNumber from "./MarketNumber";
-  import OrderYear from "./OrderYear";
-import { topsaleList,DelSaleStatus,AddNoSaleStatus,GetPreference,SetPreference} from '../../api/index';
+import { QuerySaleYear,DelSaleYear,AddNoSaleYear} from '../../api/index';
 
 export default {
-    name: 'marketlist',
+    name: '',
     data() {
         return {
             query: {
@@ -107,7 +82,6 @@ export default {
                 Time: '',
             },
             tableData: [],
-            tableDataNumber:[],
             editVisible: false,
             form: {  
                 key: '',
@@ -122,39 +96,18 @@ export default {
             Preference:'',
             percentValue:'',
         };
-    },
-     components: {
-          MarketNumber,
-          OrderYear
-     },    
+    },   
     created() {    
         this.getData();
     },
     methods: {
         getData() {         
-            topsaleList().then((res)=>{
+            QuerySaleYear().then((res)=>{
                 this.tableData=res;
             }) ;
-            GetPreference('OrderCompletePercent').then((res) =>{
-                this.percentValue = res;
-                console.log(this.percentValue);
-             });             
+                      
         },
-        //提交
-        Submit(){
-            this.form.key='OrderCompletePercent';
-            this.form.value=this.percentValue;           
-                if(this.percentValue>100 || this.percentValue<0){
-                     this.$message.warning(`修改失败`); 
-                     this.percentValue=100;
-                }else{
-                SetPreference(this.form).then((res) =>{  
-                    this.$message.success(`修改成功`);  
-                    this.$set(this.form,this.value);
-                 });
-                }
-           
-        },
+       
         //新增
         addNewUser(){
             this.editVisible=true;
@@ -166,7 +119,7 @@ export default {
         saveEdit(){
             this.editVisible=false;       
             if(this.idx==-1){
-                AddNoSaleStatus(this.form).then((res) => {                 
+                AddNoSaleYear(this.form).then((res) => {                 
                     this.$message.success(`添加成功`);                   
                     this.tableData.push(this.form)
                     
@@ -183,7 +136,7 @@ export default {
             this.$confirm('确定要删除吗？', '提示', {
                 type: 'warning'
              }).then(()=>{
-                    DelSaleStatus(row).then((res) => {          
+                    DelSaleYear(row).then((res) => {          
                          this.$message.success('删除成功');
                          this.tableData.splice(index, 1);
                      }); 
@@ -191,13 +144,7 @@ export default {
              });     
                    
                                   
-        },
-      
-        // 分页导航
-        handlePageChange(val) {
-            this.$set(this.query, 'pageIndex', val);
-            this.getData();
-        }
+        },       
     }
 };
 </script>
@@ -208,32 +155,6 @@ export default {
 .el-form-item__content{line-height: 32px;}
 .handle-box {
     margin-bottom: 20px;
-}
-
-.handle-select {
-    width: 120px;
-}
-.handle-box label{font-size: 14px;display: inline-block;}
-.handle-input {
-    display: inline-block;
-}
-
-.handle-date{width: 100%;}
-.table {
-    width: 100%;
-    font-size: 14px;
-}
-.red {
-    color: #ff0000;
-}
-.mr10 {
-    margin-right: 20px;
-}
-.table-td-thumb {
-    display: block;
-    margin: auto;
-    width: 40px;
-    height: 40px;
 }
 .container .pstyle{
     color: #606266;
