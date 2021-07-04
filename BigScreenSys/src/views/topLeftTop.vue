@@ -65,7 +65,7 @@ import topLeftTopChat from "./../components/echart/topLeftTop/topLeftTopChat";
 // import bottomCenterLine from "./../components/echart/bottomCenter/bottomCenterLine";
 import topLeftTopDevice from "./../components/echart/topLeftTop/topLeftTopDevice";
 // import topLeftTopRate from "./../components/echart/topLeftTop/topLeftTopRate";
-import { topsaleList, topSaleNumber,orderDateNumber } from "./../api/index.js";
+import { topsaleList, topSaleNumber,orderDateNumber,topsaleListEntry } from "./../api/index.js";
 export default {
   data() {
     return {
@@ -151,17 +151,34 @@ export default {
   },
   methods: {
     getData() {
-      //  topsaleList().then((res)=>{
-      //  //  this.tableData=res.data
-      //    this.tableData = res.data
-      //    console.log(this.tableData)
-      //  });
-    
-      const dataSource = topsaleList().then((res) => {
-         this.tableData = res.map((item) => {
+      // topsaleList().then((res) => {
+      //    this.tableData = res.map((item) => {
+      //     return item.Number;
+      //   });
+      //   this.tableDataTime = res.map((item) => {
+      //     return item.Time.substring(0,7);
+      //   });
+        
+      //   this.linedatabot = {
+      //     data: this.tableDataTime,
+      //     lineData: this.tableData,
+      //   };
+      // });
+
+Promise.all([topsaleList(),topsaleListEntry()]).then((res)=>{
+
+console.log('promiseTopsaleList');
+console.log(res[0]);
+console.log(res[1]);
+console.log('promiseEnd');
+
+var  saleList = res[0];
+var  saleListEntry = res[1];
+
+ this.tableData = saleList.map((item) => {
           return item.Number;
         });
-        this.tableDataTime = res.map((item) => {
+        this.tableDataTime = saleList.map((item) => {
           return item.Time.substring(0,7);
         });
         
@@ -169,15 +186,16 @@ export default {
           data: this.tableDataTime,
           lineData: this.tableData,
         };
-      });
+
+});
 
 
 Promise.all([topSaleNumber(),orderDateNumber()]).then((res)=>{
 
-console.log('promiseFirst');
+console.log('promisetopSaleNumber');
 console.log(res[0]);
 console.log(res[1]);
-console.log('promiseFirstEnd');
+console.log('promiseEnd');
 
   this.tableCompletDataNumber = res[0];
  this.tableDataNumber = res[1];

@@ -93,6 +93,25 @@ export const topsaleList= () => {
     });
 
 };
+
+export const topsaleListEntry= () => {
+    return request({
+       url: 'http://192.168.1.51:9000/api/order/QuerySaleStatus',
+       // url: './topsale.json',
+        method: 'get',
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+
+};
+
+
+
+
+
+
 export const topSaleNumber= () => {
     return request({
         url: 'http://192.168.1.51:9000/api/order/GetSaleData',

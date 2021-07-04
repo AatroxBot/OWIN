@@ -69,7 +69,6 @@ export default {
      getData() {
            // console.log(11);
             const batdata= barList().then((res) =>{
-              res.splice(res.findIndex(e => e.Time === '2018'), 1)
               // this.tableData=res;
                 this.tableData=res.sort((a,b)=>{
                   return new Date(a.Time) -new Date(b.Time)
