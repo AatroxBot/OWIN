@@ -32,9 +32,8 @@
                 
                 <el-table-column label="操作" width="" align="center">
                     <template slot-scope="scope">
-                       
-                        <el-button type="text" icon="el-icon-delete" class="red"
-                         @click="handleDelete(scope.$index, scope.row)" >删除</el-button>
+                        <el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                        <el-button type="text" icon="el-icon-delete" class="red"  @click="handleDelete(scope.$index, scope.row)" >删除</el-button>
                         
                     </template>
                 </el-table-column>
@@ -56,7 +55,7 @@
                         type="year"
                         placeholder="选择日期"
                          value-format="yyyy" 
-                        >
+                         :disabled="timeEdit" >
                         </el-date-picker>
                 </el-form-item>
                  
@@ -71,7 +70,7 @@
 </template>
 
 <script>
-import { QuerySaleYear,DelSaleYear,AddNoSaleYear} from '../../api/index';
+import { QuerySaleYear,DelSaleYear,AddNoSaleYear,UpdateSaleYear} from '../../api/index';
 
 export default {
     name: '',
@@ -83,6 +82,7 @@ export default {
             },
             tableData: [],
             editVisible: false,
+             timeEdit:true,
             form: {  
                 key: '',
                 value: '',
@@ -110,6 +110,7 @@ export default {
        
         //新增
         addNewUser(){
+            this.timeEdit=false;
             this.editVisible=true;
             this.idx=-1;
             this.form={};
@@ -122,13 +123,23 @@ export default {
                 AddNoSaleYear(this.form).then((res) => {                 
                     this.$message.success(`添加成功`);                   
                     this.tableData.push(this.form)
-                    
                 });
             }else{
-                 this.$message.warning(`添加失败`);
+              UpdateSaleYear(this.form).then((res) => {                 
+                this.$message.warning(`修改成功`);        
+                 this.getData();
+                });
             }
         },
-       
+           // 编辑操作
+        handleEdit(index, row) {
+             this.timeEdit=true;
+            this.idx = index;
+            this.form = JSON.parse(JSON.stringify(row));
+            this.editVisible = true;
+            this.title = '编辑';
+        
+        },
          // 删除操作
         handleDelete(index, row) {
             // 二次确认删除

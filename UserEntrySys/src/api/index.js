@@ -27,7 +27,7 @@ export const topSaleNumber= () => {
 
 };
 
-//删除用户列表
+//删除
 export const DelSaleStatus = (data) => {
     return request({
         url: 'http://192.168.1.51:9000/api/order/DeleteSaleStatus',
@@ -40,8 +40,8 @@ export const DelSaleStatus = (data) => {
     });
 };
 
-//新增用户列表
-export const AddNoSaleStatus = (data) => {
+//新增
+export const AddSaleStatus = (data) => {
     return request({
         url: 'http://192.168.1.51:9000/api/order/AddSaleStatus',
         method: 'post',
@@ -52,6 +52,20 @@ export const AddNoSaleStatus = (data) => {
         crossDomain: true,
     });
 };
+//编辑
+export const UpdateSaleStatus = (data) => {
+    return request({
+        url: 'http://192.168.1.51:9000/api/order/UpdateSaleStatus',
+        method: 'post',
+        data: data,
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+};
+
+
 //销售单条信息编辑
 export const UpdateSaleData = (data) => {
     return request({
@@ -263,6 +277,58 @@ export const DelSaleYear = (data) => {
 export const AddNoSaleYear = (data) => {
     return request({
         url: 'http://192.168.1.51:9000/api/order/AddSaleYear',
+        method: 'post',
+        data: data,
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+};
+
+//编辑年度订单
+export const UpdateSaleYear = (data) => {
+    return request({
+        url: 'http://192.168.1.51:9000/api/order/UpdateSaleYear',
+        method: 'post',
+        data: data,
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+};
+
+
+export const UpdateWorkCompleteNumber = (data) => {
+    return request({
+        url: 'http://192.168.1.51:9000/api/order/UpdateWorkCompleteNumber',
+        method: 'post',
+        data: data,
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+};
+
+
+export const UpdateWorkOrderNumber = (data) => {
+    return request({
+        url: 'http://192.168.1.51:9000/api/order/UpdateWorkOrderNumber',
+        method: 'post',
+        data: data,
+        xhrFields: {
+            withCredentials: true // 发送Ajax时，Request header中会带上 Cookie 信息。
+        },
+        crossDomain: true,
+    });
+};
+
+
+export const UpdateProductPercent = (data) => {
+    return request({
+        url: 'http://192.168.1.51:9000/api/order/UpdateProductPercent',
         method: 'post',
         data: data,
         xhrFields: {

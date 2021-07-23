@@ -44,6 +44,7 @@
                
                 <el-table-column label="操作" width="" align="center">
                     <template slot-scope="scope">
+                          <el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
                         <el-button
                             type="text"
                             icon="el-icon-delete"
@@ -75,7 +76,7 @@
                         type="date"
                         placeholder="选择日期"
                          value-format="yyyy/MM/dd" 
-                        >
+                         :disabled="timeEdit">
                         </el-date-picker>
                 </el-form-item>
                  
@@ -94,7 +95,7 @@
  import ImproveOrderList from "./ImproveOrderList";
   import ImproveServiceList from "./ImproveServiceList";
   import ImproveSingleData from "./ImproveSingleData";
-import { WorkOrderNumberDto ,DeleteWorkOrderNumber,AddWorkOrderNumber} from '../../api/index';
+import { WorkOrderNumberDto ,DeleteWorkOrderNumber,AddWorkOrderNumber,UpdateWorkOrderNumber} from '../../api/index';
 export default {
     name: 'domainlist',
     data() {
@@ -106,6 +107,7 @@ export default {
             },
             tableData: [],         
             editVisible: false,
+            timeEdit:true,
             form: {},
             idx: -1,
             id: -1,
@@ -132,6 +134,7 @@ export default {
         },
         //新增
         addNewUser(){
+            this.timeEdit=false;
             this.editVisible=true;
             this.idx=-1;
             this.form={};
@@ -146,11 +149,23 @@ export default {
                     this.tableData.push(this.form)
                 })
             }else{
-                this.$message.warning( "添加失败")
-              
-            };
+               UpdateWorkOrderNumber(this.form).then((res) => {                 
+                this.$message.warning(`修改成功`);        
+                 this.getData();
+                    
+                });
+               
+            }
+            
         },
-        
+          // 编辑操作
+        handleEdit(index, row) {
+             this.timeEdit=true;
+            this.idx = index;
+            this.form = JSON.parse(JSON.stringify(row));
+            this.editVisible = true;
+            this.title = '编辑';
+        },
         // 删除操作
         handleDelete(index, row) {
             // 二次确认删除

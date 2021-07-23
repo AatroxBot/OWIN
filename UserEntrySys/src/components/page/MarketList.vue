@@ -33,13 +33,13 @@
                 <el-table-column prop="Number" label="数量" >
                     <template slot-scope="scope">{{scope.row.Number}}</template>
                 </el-table-column>
-                <el-table-column prop="Time" label="时间">
+                <el-table-column prop="Time"  label="时间">
                      <template slot-scope="scope">{{scope.row.Time}}</template>
                 </el-table-column>
                 
                 <el-table-column label="操作" width="" align="center">
                     <template slot-scope="scope">
-                       
+                        <el-button type="text" icon="el-icon-edit" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
                         <el-button type="text" icon="el-icon-delete" class="red"
                          @click="handleDelete(scope.$index, scope.row)" >删除</el-button>
                         
@@ -79,7 +79,7 @@
                         type="month"
                         placeholder="选择日期"
                          value-format="yyyy/MM" 
-                        >
+                        :disabled="timeEdit">
                         </el-date-picker>
                 </el-form-item>
                  
@@ -96,7 +96,7 @@
 <script>
  import MarketNumber from "./MarketNumber";
   import OrderYear from "./OrderYear";
-import { topsaleList,DelSaleStatus,AddNoSaleStatus,GetPreference,SetPreference} from '../../api/index';
+import { topsaleList,DelSaleStatus,AddSaleStatus,GetPreference,SetPreference,UpdateSaleStatus} from '../../api/index';
 
 export default {
     name: 'marketlist',
@@ -109,6 +109,7 @@ export default {
             tableData: [],
             tableDataNumber:[],
             editVisible: false,
+            timeEdit:true,
             form: {  
                 key: '',
                 value: '',
@@ -121,6 +122,7 @@ export default {
             visible:false,
             Preference:'',
             percentValue:'',
+            
         };
     },
      components: {
@@ -157,6 +159,7 @@ export default {
         },
         //新增
         addNewUser(){
+            this.timeEdit=false;
             this.editVisible=true;
             this.idx=-1;
             this.form={};
@@ -166,16 +169,30 @@ export default {
         saveEdit(){
             this.editVisible=false;       
             if(this.idx==-1){
-                AddNoSaleStatus(this.form).then((res) => {                 
+                AddSaleStatus(this.form).then((res) => {                 
                     this.$message.success(`添加成功`);                   
-                    this.tableData.push(this.form)
+                    //this.tableData.push(this.form)
+                    this.getData();
                     
                 });
             }else{
-                 this.$message.warning(`添加失败`);
+            UpdateSaleStatus(this.form).then((res) => {                 
+                this.$message.warning(`修改成功`);        
+                 this.getData();
+                    
+                });
+               
             }
         },
-       
+         // 编辑操作
+        handleEdit(index, row) {
+             this.timeEdit=true;
+            this.idx = index;
+            this.form = JSON.parse(JSON.stringify(row));
+            this.editVisible = true;
+            this.title = '编辑';
+        
+        },
          // 删除操作
         handleDelete(index, row) {
             // 二次确认删除
