@@ -89,7 +89,33 @@
                 <el-button type="primary" @click="saveEdit" >确 定</el-button>
             </span>
         </el-dialog>
-        
+
+    
+        <el-select @change="userchange"  value-key="id" v-model="testform.id">
+           <el-option v-for="a in datauser"  :key="a.id" :label="a.name" :value="a"></el-option>
+        </el-select>
+        <el-input v-model="testform.email" ></el-input>
+        <el-date-picker
+      v-model="prepareDateRange"
+      type="daterange"
+      range-separator="至"
+      start-placeholder="开始日期"
+      end-placeholder="结束日期" @change="timechange" value-format="yyyyMMdd">
+    </el-date-picker>
+            <el-date-picker
+      v-model="siteDateRange"
+      type="daterange"
+      range-separator="至"
+      start-placeholder="开始日期"
+      end-placeholder="结束日期" @change="timechange" value-format="yyyyMMdd">
+    </el-date-picker>
+            <el-date-picker
+      v-model="reportDataRange"
+      type="daterange"
+      range-separator="至"
+      start-placeholder="开始日期"
+      end-placeholder="结束日期" @change="timechange" value-format="yyyyMMdd">
+    </el-date-picker>
     </div>
 </template>
 
@@ -101,7 +127,33 @@ import { topsaleList,DelSaleStatus,AddSaleStatus,GetPreference,SetPreference,Upd
 export default {
     name: 'marketlist',
     data() {
+
         return {
+            datauser:[
+                {
+                    id:"1",
+                    name:"user1",
+                    mail:'mail1'
+                },
+                {
+                    id:"2",
+                    name:"user2",
+                    mail:'mail2'
+                },
+                {
+                    id:"3",
+                    name:"user3",
+                    mail:'mail3'
+                },
+            ],
+            testform:{
+                id:'',
+                 name:'',
+                email:'',
+
+            },
+           
+
             query: {
                 Number: '',
                 Time: '',
@@ -122,7 +174,17 @@ export default {
             visible:false,
             Preference:'',
             percentValue:'',
-            
+            timeData:[],
+            timeRange:{startTime:'',endTime:''},
+            //准备
+            prepareDateRange:'',
+            //现场
+            siteDateRange:'',
+            //报告
+            reportDataRange:'',
+            localPrepare:[],
+            localSite:[],
+            localReport:[],
         };
     },
      components: {
@@ -133,6 +195,102 @@ export default {
         this.getData();
     },
     methods: {
+timechange(value){
+
+    //判断现场时间大于准备时间，报告时间大于现场时间
+    console.log(this.siteDateRange[0]);
+ if(this.prepareDateRange!=''&&this.siteDateRange!='')
+ {
+    if(!this.CompareTime(this.prepareDateRange[1],this.siteDateRange[0]))
+    {
+         this.$message.warning(`siteDateRange错误`); 
+         this.prepareDateRange=localPrepare;
+         this.siteDateRange=localSite;
+         return;
+    }
+ } 
+
+ if(this.siteDateRange!=''&&this.reportDataRange!='')
+ {
+    
+    if(!this.CompareTime(this.siteDateRange[1],this.reportDataRange[0]))
+    {
+         this.$message.warning(`reportDataRange错误`); 
+           this.reportDataRange='';
+           return;
+    }
+ } 
+  if(this.prepareDateRange!=''&&this.reportDataRange!='')
+ {
+    
+    if(!this.CompareTime(this.prepareDateRange[1],this.reportDataRange[0]))
+    {
+         this.$message.warning(`reportDataRange错误`); 
+              this.reportDataRange='';
+           return;
+    }
+ } 
+
+
+
+},
+
+
+        userchange(value){
+             var value1=['123@qq.com','456@qq.com','789@qq.com'];
+               var allmail='';
+               for (let j = 0; j < value1.length; j++) 
+               {
+                  allmail+=value1[j]+",";
+               }       
+            alert(allmail.substring(0,allmail.length-1));
+
+           
+              this.testform.email=value.mail;
+        },
+       
+CompareTime(date1,date2)
+{
+ var Date1 = new Date(date1.replace(/^(\d{4})(\d{2})(\d{2})$/, "$1-$2-$3"));
+    var Date2 = new Date(date2.replace(/^(\d{4})(\d{2})(\d{2})$/, "$1-$2-$3"));
+    console.log(Date1.getTime() );
+      console.log(Date2.getTime() );
+    if(Date1.getTime() > Date2.getTime()){
+      return false;
+    } else {
+       return true;
+    }
+},
+
+
+
+        CompareTimeRange(data){
+              console.log(data);
+          var startTimeArr = []
+	var endTimeArr = []
+	data.map(function(item) {
+	  startTimeArr.push(item.startTime ? new Date(item.startTime).getTime() : '')
+	  endTimeArr.push(item.endTime ? new Date(item.endTime).getTime() : '')
+	})
+	var allStartTime = startTimeArr.sort() // 排序
+	var allEndTime = endTimeArr.sort()
+	var result = 0 // 判断时间是否有重复区间
+	for (let k = 0; k < allStartTime.length; k++) {
+	  if (k > 0) {
+	    if (allStartTime[k] <= allEndTime[k - 1]) {
+	      result += 1
+	    }
+	  }
+	}
+	return result > 0
+        },
+
+
+
+
+
+
+
         getData() {         
             topsaleList().then((res)=>{
                 this.tableData=res;

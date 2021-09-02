@@ -87,7 +87,13 @@
             </span>
         </el-dialog>
 
-        
+          <el-select
+                        placeholder="请选择"
+                        @change="selectChange"
+                    >
+        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item"> </el-option>
+          </el-select>
+          <input/>
     </div>
 </template>
 
@@ -100,6 +106,27 @@ export default {
     name: 'domainlist',
     data() {
         return {
+            options: [{
+          value: '1',
+          label: '黄金糕',
+          email:'mail1123'
+        }, {
+          value: '2',
+          label: '双皮奶',
+          email:'mail2123'
+        }, {
+          value: '3',
+          label: '蚵仔煎',
+          email:'mail3123'
+        }, {
+          value: '4',
+          label: '龙须面',
+          email:'mail4123'
+        }, {
+          value: '5',
+          label: '北京烤鸭',
+          email:'mail5123'
+        }],
             query: {
                 ThisMonth: '',
                 LastMonth: '',
@@ -180,6 +207,10 @@ export default {
                 })
                 .catch(() => {});
         },
+        selectChange(test)
+        {
+            alert(test.label);
+        }
        
     }
 };
