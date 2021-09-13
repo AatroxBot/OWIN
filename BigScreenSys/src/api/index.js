@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export const getDomainList = (data) => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/saleOrder',
+        url: 'http://192.168.1.51:9001/api/order/saleOrder',
         //url: './table.json',
         method: 'post',
         xhrFields: {
@@ -15,7 +15,7 @@ export const getDomainList = (data) => {
 };
 export const barList = () => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/OrderNumber',
+        url: 'http://192.168.1.51:9001/api/order/OrderNumber',
         //url: './userPermission.json',
         method: 'get',
         timeout: 40000,
@@ -30,7 +30,7 @@ export const barList = () => {
 
 export const OverallCapacity = () => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/OverallCapacity',
+        url: 'http://192.168.1.51:9001/api/order/OverallCapacity',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -43,7 +43,7 @@ export const OverallCapacity = () => {
 
 export const ProductForecast = () => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/ProductForecast',
+        url: 'http://192.168.1.51:9001/api/order/ProductForecast',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -58,7 +58,7 @@ export const ProductForecast = () => {
 
 export const ProductionExecution = query=> {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/ProductionExecution?departcode='+query,
+        url: 'http://192.168.1.51:9001/api/order/ProductionExecution?departcode='+query,
         //url: './yearMonthProduct.json',
         method: 'get',
         xhrFields: {
@@ -70,7 +70,7 @@ export const ProductionExecution = query=> {
 };
 export const botlineList= (data) => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/billNumber',
+        url: 'http://192.168.1.51:9001/api/order/billNumber',
         //url:'./botlinedata.json',
         method: 'post',
         data:data,
@@ -83,7 +83,7 @@ export const botlineList= (data) => {
 };
 export const topsaleList= () => {
     return request({
-       url: 'http://homey.zjjmt.cn:9001/api/order/QueryOrderDate',
+       url: 'http://192.168.1.51:9001/api/order/QueryOrderDate',
       //  url: './topsale.json',
         method: 'get',
         xhrFields: {
@@ -96,7 +96,7 @@ export const topsaleList= () => {
 
 export const topsaleListEntry= () => {
     return request({
-       url: 'http://homey.zjjmt.cn:9001/api/order/QuerySaleStatus',
+       url: 'http://192.168.1.51:9001/api/order/QuerySaleStatus',
        // url: './topsale.json',
         method: 'get',
         xhrFields: {
@@ -114,7 +114,7 @@ export const topsaleListEntry= () => {
 
 export const topSaleNumber= () => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/GetSaleData',
+        url: 'http://192.168.1.51:9001/api/order/GetSaleData',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -126,7 +126,7 @@ export const topSaleNumber= () => {
 };
 export const orderDateNumber= () => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/QueryOrderDateNumber',
+        url: 'http://192.168.1.51:9001/api/order/QueryOrderDateNumber',
       //  url: './orderDate.json',
         method: 'get',
         xhrFields: {
@@ -140,7 +140,7 @@ export const orderDateNumber= () => {
 
 export const WorkNumberList= () => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/WorkOrderNumberDto',
+        url: 'http://192.168.1.51:9001/api/order/WorkOrderNumberDto',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -152,7 +152,7 @@ export const WorkNumberList= () => {
 };
 export const EvaluateNumber= () => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/QueryWorkCompleteNumber',
+        url: 'http://192.168.1.51:9001/api/order/QueryWorkCompleteNumber',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -164,7 +164,7 @@ export const EvaluateNumber= () => {
 };
 export const botpieNumber= () => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/QueryProductPercent',
+        url: 'http://192.168.1.51:9001/api/order/QueryProductPercent',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -178,7 +178,7 @@ export const botpieNumber= () => {
 
 export const ProductShipped= (data) => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/ProductShipped',
+        url: 'http://192.168.1.51:9001/api/order/ProductShipped',
         //url: './userPermission.json',
         method: 'post',
         data:data,
@@ -192,7 +192,7 @@ export const ProductShipped= (data) => {
 
 export const ProductAllShip= (data) => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/ProductAllShip',
+        url: 'http://192.168.1.51:9001/api/order/ProductAllShip',
         //url: './userPermission.json',
         method: 'post',
         data:data,
@@ -206,7 +206,7 @@ export const ProductAllShip= (data) => {
 
 export const GetBotData= () => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/GetBotData',
+        url: 'http://192.168.1.51:9001/api/order/GetBotData',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -220,7 +220,7 @@ export const GetBotData= () => {
 //销售订单生产完成情况
 export const GetPreference= query => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/GetPreference?key='+query,
+        url: 'http://192.168.1.51:9001/api/order/GetPreference?key='+query,
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
@@ -234,7 +234,7 @@ export const GetPreference= query => {
 //库存总量
 export const StorageALLNumber = () => {
     return request({
-        url: 'http://homey.zjjmt.cn:9001/api/order/StorageALLNumber',
+        url: 'http://192.168.1.51:9001/api/order/StorageALLNumber',
         //url: './userPermission.json',
         method: 'get',
         xhrFields: {
